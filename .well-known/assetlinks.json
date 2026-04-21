@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "org.qualifix.service.calcolocartongesso",
+    "sha256_cert_fingerprints": ["A3:04:E2:42:E7:89:21:0A:46:D9:9D:3F:29:E0:D8:34:75:FC:25:6B:3A:47:8C:81:42:77:1B:62:17:B4:3A:B0"]
+  }
+}]
