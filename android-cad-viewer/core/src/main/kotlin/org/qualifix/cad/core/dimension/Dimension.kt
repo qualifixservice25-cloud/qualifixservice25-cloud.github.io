@@ -342,3 +342,17 @@ internal fun readableAngle(degrees: Double): Double {
 private val dimensionCounter = java.util.concurrent.atomic.AtomicInteger()
 
 internal fun newDimensionId(): String = "dim-${dimensionCounter.incrementAndGet()}"
+
+/**
+ * Rigenera la quota con un altro stile, conservandone identita' e punti.
+ *
+ * Serve quando l'utente cambia i decimali o la scala grafica a disegno gia' quotato: le quote
+ * esistenti devono adeguarsi tutte insieme, altrimenti sulla stessa tavola convivono numeri
+ * scritti con precisioni diverse.
+ */
+fun Dimension.withStyle(style: DimensionStyle): Dimension = when (this) {
+    is LinearDimension -> copy(style = style)
+    is AngularDimension -> copy(style = style)
+    is RadialDimension -> copy(style = style)
+    is OrdinateDimension -> copy(style = style)
+}

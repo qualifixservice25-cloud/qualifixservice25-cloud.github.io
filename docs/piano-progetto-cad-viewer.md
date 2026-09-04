@@ -72,6 +72,22 @@ Kotlin · Jetpack Compose (UI chrome) · Canvas nativo Android per il disegno CA
 
 Stesso schema di Calcolo Cartongesso: versione gratuita con AdMob e limite di 5 quote per disegno o watermark sull'export; versione Pro (Play Billing) con quote illimitate, export senza watermark e supporto DWG completo.
 
+## Stato dell'implementazione
+
+Il codice sta in [`android-cad-viewer/`](../android-cad-viewer/README.md).
+
+| Fase | Stato |
+|---|---|
+| 0 — Ricerca e proof of concept | Fatta: parser DXF proprio, validato su un disegno di esempio |
+| 1 — Viewer DXF di base | Fatta: parsing, layer, blocchi, rendering con culling, pan/zoom |
+| 2 — Supporto DWG | Da fare: richiede la scelta fra conversione server-side e licenza SDK |
+| 3 — Motore di quotatura | Fatta: snap engine e tutti i tipi di quota, serie concatenate e da linea base |
+| 4 — Export e progetti | Export DXF R12 e PDF fatti; salvataggio progetti locali da fare |
+| 5 — UI, monetizzazione, localizzazione | UI e traduzione IT/EN fatte; AdMob e Play Billing da fare |
+| 6 — Beta testing e pubblicazione | Da fare |
+
+75 test unitari coprono parser, geometria, unità di misura, snap e quotature.
+
 ## 10. Prossimi passi
 
 1. Decidere lo scope dell'MVP (solo DXF vs DXF+DWG dal giorno uno).

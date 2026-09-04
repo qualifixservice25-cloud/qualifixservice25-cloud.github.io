@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.qualifix.cad.core.dimension.Dimension
 import org.qualifix.cad.core.dimension.DimensionStyle
+import org.qualifix.cad.core.dimension.withStyle
 import org.qualifix.cad.core.geometry.Bounds
 import org.qualifix.cad.core.geometry.Vec2
 import org.qualifix.cad.core.measure.MeasurementFormatter
@@ -207,8 +208,22 @@ class CadViewModel(application: Application) : AndroidViewModel(application) {
         _state.update { it.copy(displayUnits = units) }
     }
 
+    /**
+     * Cambia i decimali mostrati. Lo stile di quota e le quote gia' create vengono riallineati
+     * insieme: i decimali di una quota li decide il suo stile (come DIMDEC nel CAD), quindi
+     * senza questo passaggio il comando non avrebbe effetto su cio' che e' gia' sul disegno.
+     */
     fun setPrecision(decimals: Int) {
-        _state.update { it.copy(precision = decimals.coerceIn(0, 4)) }
+        val precision = decimals.coerceIn(0, 4)
+        _state.update { current ->
+            val style = current.style.copy(precision = precision)
+            current.copy(
+                precision = precision,
+                style = style,
+                dimensions = current.dimensions.map { it.withStyle(style) },
+                quickMeasure = current.quickMeasure?.withStyle(style),
+            )
+        }
     }
 
     fun setSnapLabel(label: String?) {
@@ -219,7 +234,7 @@ class CadViewModel(application: Application) : AndroidViewModel(application) {
         pixelsPerUnit = if (scale > 0) scale else 1.0
     }
 
-    fun exportDxf(uri: Uri) = export(uri) { current ->
+    fun exportDxf(uri: Uri) = export { current ->
         DrawingRepository.exportDxf(
             resolver = getApplication<Application>().contentResolver,
             uri = uri,
@@ -229,7 +244,7 @@ class CadViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-    fun exportPdf(uri: Uri) = export(uri) { current ->
+    fun exportPdf(uri: Uri) = export { current ->
         DrawingRepository.exportPdf(
             resolver = getApplication<Application>().contentResolver,
             uri = uri,
@@ -240,7 +255,7 @@ class CadViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
-    private fun export(uri: Uri, block: (CadUiState) -> Unit) {
+    private fun export(block: (CadUiState) -> Unit) {
         val current = _state.value
         if (!current.hasDrawing) return
         viewModelScope.launch {
