@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Test del core (75 test)",
+      "type": "shell",
+      "command": "./gradlew :core:test",
+      "windows": { "command": ".\\gradlew.bat :core:test" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Compila il core",
+      "type": "shell",
+      "command": "./gradlew :core:build",
+      "windows": { "command": ".\\gradlew.bat :core:build" },
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Costruisci l'APK di debug (richiede SDK Android)",
+      "type": "shell",
+      "command": "./gradlew :app:assembleDebug",
+      "windows": { "command": ".\\gradlew.bat :app:assembleDebug" },
+      "problemMatcher": []
+    }
+  ]
+}

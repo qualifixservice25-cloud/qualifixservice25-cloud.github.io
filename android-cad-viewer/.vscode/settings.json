@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    "**/build": true,
+    "**/.gradle": true,
+    "**/.kotlin": true
+  },
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "kotlin.languageServer.enabled": true
+}
