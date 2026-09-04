@@ -1,0 +1,8 @@
+# Build Gradle / Android
+android-cad-viewer/.gradle/
+android-cad-viewer/build/
+android-cad-viewer/*/build/
+android-cad-viewer/local.properties
+android-cad-viewer/.idea/
+*.iml
+.DS_Store
