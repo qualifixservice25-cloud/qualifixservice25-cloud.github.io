@@ -27,12 +27,24 @@ core/src/main/kotlin/org/qualifix/cad/core/
 └── tool/        macchina a stati degli strumenti di quotatura
 ```
 
-## Compilare e testare
-
-Il core si compila e si testa **senza SDK Android**, con una JDK 17 o superiore:
+## Scaricare il progetto
 
 ```bash
-gradle :core:test          # 73 test unitari
+git clone https://github.com/qualifixservice25-cloud/qualifixservice25-cloud.github.io.git
+cd qualifixservice25-cloud.github.io
+git checkout claude/android-dwg-dxf-viewer-nb6plw
+cd android-cad-viewer
+```
+
+## Compilare e testare
+
+Nel progetto c'è il **Gradle wrapper**: non serve installare Gradle, `./gradlew` scarica da solo la
+versione giusta al primo avvio (su Windows si usa `gradlew.bat`).
+
+Il core si compila e si testa **senza SDK Android**, basta una JDK 17 o superiore:
+
+```bash
+./gradlew :core:test       # 75 test unitari
 ```
 
 Se l'SDK Android non è installato, `settings.gradle.kts` esclude automaticamente il modulo `:app`,
@@ -40,8 +52,19 @@ così i test del core restano eseguibili anche in CI. Con Android Studio (o con 
 impostato) il modulo `:app` viene incluso e si compila normalmente:
 
 ```bash
-./gradlew :app:assembleDebug
+./gradlew :app:assembleDebug     # APK in app/build/outputs/apk/debug/
+./gradlew :app:installDebug      # installa sul telefono collegato via USB
 ```
+
+### Con quale editor
+
+L'app va aperta in **Android Studio**: `File → Open` sulla cartella `android-cad-viewer` (non sulla
+radice del repository), poi si aspetta la sincronizzazione Gradle. Android Studio porta con sé
+l'SDK, l'emulatore e il debugger — VS Code no.
+
+VS Code va bene per leggere e modificare il **core**: serve la JDK e l'estensione *Kotlin*, e i test
+si lanciano dal terminale integrato con il comando qui sopra. Per costruire l'APK serve comunque
+l'SDK Android.
 
 ## Scelte tecniche
 
