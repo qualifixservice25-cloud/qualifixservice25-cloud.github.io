@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Qualifix CAD</string>
+
+    <string name="open_file">Open drawing</string>
+    <string name="fit_view">Fit to drawing</string>
+    <string name="layers">Layers</string>
+    <string name="toggle_theme">Switch light/dark sheet</string>
+    <string name="undo">Undo</string>
+    <string name="more_options">More options</string>
+    <string name="export_dxf">Export DXF with dimensions</string>
+    <string name="export_pdf">Export PDF</string>
+    <string name="clear_dimensions">Delete all dimensions</string>
+
+    <string name="tool_pan">Pan</string>
+    <string name="tool_measure">Measure</string>
+    <string name="tool_linear">Linear</string>
+    <string name="tool_aligned">Aligned</string>
+    <string name="tool_angular">Angular</string>
+    <string name="tool_radius">Radius</string>
+    <string name="tool_diameter">Diameter</string>
+    <string name="tool_ordinate">Ordinate</string>
+
+    <string name="hint_first_point">Tap the first point</string>
+    <string name="hint_second_point">Tap the second point</string>
+    <string name="hint_dim_line">Place the dimension line</string>
+    <string name="hint_vertex">Tap the angle vertex</string>
+    <string name="hint_first_side">Tap a point on the first side</string>
+    <string name="hint_second_side">Tap a point on the second side</string>
+    <string name="hint_arc_position">Set the dimension arc radius</string>
+    <string name="hint_circle">Tap the circle or arc to dimension</string>
+    <string name="hint_leader_direction">Choose the leader direction</string>
+    <string name="hint_origin">Tap the datum origin</string>
+    <string name="hint_feature">Tap the point to dimension</string>
+    <string name="hint_leader">Drag the leader to place the text</string>
+
+    <string name="status_ready">Drag to pan, pinch to zoom</string>
+    <string name="status_no_units">The drawing declares no units: measurements are in drawing units</string>
+    <string name="status_dimensions">%1$d dimensions on the drawing</string>
+    <string name="precision_short">%1$d dec.</string>
+    <string name="units_unknown">n/a</string>
+
+    <string name="empty_title">No drawing open</string>
+    <string name="empty_body">Open a DXF file from your phone, the cloud or an email attachment to read and dimension it on site.</string>
+
+    <string name="layers_title">Drawing layers (%1$d)</string>
+    <string name="layers_empty">The drawing declares no layers.</string>
+    <string name="layer_locked">Locked in the original file</string>
+
+    <string name="error_no_circle">No circle or arc found where you tapped</string>
+    <string name="export_done">Export complete</string>
+    <string name="export_failed">Export failed</string>
+</resources>

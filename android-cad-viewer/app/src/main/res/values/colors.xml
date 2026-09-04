@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Fondo della finestra: uguale al foglio da disegno del viewer, cosi' all'avvio
+         non si vede lampeggiare un rettangolo bianco prima del disegno. -->
+    <color name="cad_window_background">#FAFAF8</color>
+    <color name="ic_launcher_background">#0E7C86</color>
+</resources>
