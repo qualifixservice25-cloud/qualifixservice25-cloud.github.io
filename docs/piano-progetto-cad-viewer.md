@@ -80,13 +80,22 @@ Il codice sta in [`android-cad-viewer/`](../android-cad-viewer/README.md).
 |---|---|
 | 0 — Ricerca e proof of concept | Fatta: parser DXF proprio, validato su un disegno di esempio |
 | 1 — Viewer DXF di base | Fatta: parsing, layer, blocchi, rendering con culling, pan/zoom |
-| 2 — Supporto DWG | Da fare: richiede la scelta fra conversione server-side e licenza SDK |
+| 2 — Supporto DWG | Fatta: server self-hosted (ODA File Converter) + client Kotlin, protocollo in `android-cad-viewer/server/README.md` |
 | 3 — Motore di quotatura | Fatta: snap engine e tutti i tipi di quota, serie concatenate e da linea base |
 | 4 — Export e progetti | Export DXF R12 e PDF fatti; salvataggio progetti locali da fare |
 | 5 — UI, monetizzazione, localizzazione | UI e traduzione IT/EN fatte; AdMob e Play Billing da fare |
 | 6 — Beta testing e pubblicazione | Da fare |
 
-75 test unitari coprono parser, geometria, unità di misura, snap e quotature.
+84 test unitari (core, JVM) coprono parser, geometria, unità di misura, snap, quotature e il
+client di conversione DWG; altri 22 test (Python, solo libreria standard) coprono il server di
+conversione in `android-cad-viewer/server/`.
+
+**Sul DWG, una precisazione:** il server non è un servizio gestito da Qualifix Service, è
+self-hosted — ognuno ospita la propria istanza (vedi `android-cad-viewer/server/README.md`).
+Evita il costo della licenza SDK, ma sposta su chi pubblica l'app l'onere di mantenere quel
+piccolo server. Se in futuro i numeri lo giustificano, resta aperta la strada di un servizio
+gestito a pagamento (una riga in più nel modello di business, non un cambio di architettura: il
+protocollo fra app e server resterebbe lo stesso).
 
 ## 10. Prossimi passi
 

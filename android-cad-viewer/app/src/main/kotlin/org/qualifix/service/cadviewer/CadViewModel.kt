@@ -14,6 +14,7 @@ import kotlinx.coroutines.withContext
 import org.qualifix.cad.core.dimension.Dimension
 import org.qualifix.cad.core.dimension.DimensionStyle
 import org.qualifix.cad.core.dimension.withStyle
+import org.qualifix.cad.core.dwg.DwgConversionException
 import org.qualifix.cad.core.geometry.Bounds
 import org.qualifix.cad.core.geometry.Vec2
 import org.qualifix.cad.core.measure.MeasurementFormatter
@@ -23,6 +24,7 @@ import org.qualifix.cad.core.model.CadLayer
 import org.qualifix.cad.core.model.DrawingUnits
 import org.qualifix.cad.core.tool.CadTool
 import org.qualifix.cad.core.tool.DimensionBuilder
+import org.qualifix.service.cadviewer.io.ConversionSettings
 import org.qualifix.service.cadviewer.io.DrawingRepository
 import org.qualifix.service.cadviewer.render.Viewport
 import java.util.Locale
@@ -43,6 +45,8 @@ data class CadUiState(
     val precision: Int = 2,
     val style: DimensionStyle = DimensionStyle(),
     val isLoading: Boolean = false,
+    /** Sotto lo spinner durante l'apertura: distingue "sto leggendo" da "sto convertendo il DWG". */
+    val loadingMessage: String? = null,
     val error: String? = null,
     val notice: String? = null,
     val snapLabel: String? = null,
@@ -86,15 +90,33 @@ class CadViewModel(application: Application) : AndroidViewModel(application) {
     private val _state = MutableStateFlow(CadUiState())
     val state: StateFlow<CadUiState> = _state.asStateFlow()
 
+    private val conversionSettings = ConversionSettings(application)
+
     /** Pixel per unita' di disegno, aggiornata dalla vista: serve a dare una tolleranza reale. */
     private var pixelsPerUnit: Double = 1.0
 
+    val conversionServerUrl: String? get() = conversionSettings.serverUrl
+    val conversionApiKey: String? get() = conversionSettings.apiKey
+
+    fun saveConversionSettings(serverUrl: String?, apiKey: String?) {
+        conversionSettings.serverUrl = serverUrl
+        conversionSettings.apiKey = apiKey
+    }
+
     fun open(uri: Uri) {
-        _state.update { it.copy(isLoading = true, error = null) }
+        // Il nome si legge subito: se finisce in .dwg si sa gia' che ci sara' un giro di rete
+        // prima ancora di leggere il file, e lo spinner puo' dirlo invece di restare muto.
+        val name = DrawingRepository.displayName(getApplication(), uri)
+        val convertingMessage = if (name.substringAfterLast('.', "").equals("dwg", ignoreCase = true)) {
+            getApplication<Application>().getString(R.string.status_converting_dwg)
+        } else {
+            null
+        }
+        _state.update { it.copy(isLoading = true, loadingMessage = convertingMessage, error = null) }
         viewModelScope.launch {
             try {
                 val loaded = withContext(Dispatchers.IO) {
-                    DrawingRepository.load(getApplication(), uri)
+                    DrawingRepository.load(getApplication(), uri, conversionSettings)
                 }
                 val document = loaded.document
                 val entities = withContext(Dispatchers.Default) {
@@ -116,16 +138,28 @@ class CadViewModel(application: Application) : AndroidViewModel(application) {
                         precision = document.linearPrecision,
                         style = DimensionStyle.forDrawing(document.bounds),
                         isLoading = false,
+                        loadingMessage = null,
                         error = null,
                         notice = document.warnings.firstOrNull(),
                     )
                 }
             } catch (error: Exception) {
                 _state.update {
-                    it.copy(isLoading = false, error = error.message ?: "Impossibile aprire il disegno")
+                    it.copy(isLoading = false, loadingMessage = null, error = errorMessage(error))
                 }
             }
         }
+    }
+
+    /**
+     * Un DwgConversionException capita solo aprendo un .dwg: il messaggio del core e' gia'
+     * quello giusto da mostrare (vedi core/dwg/DwgConversionClient.kt), ma "non configurato"
+     * merita in piu' l'indicazione di dove andare a sistemarlo.
+     */
+    private fun errorMessage(error: Exception): String = when (error) {
+        is DwgConversionException.NotConfigured ->
+            getApplication<Application>().getString(R.string.error_dwg_not_configured)
+        else -> error.message ?: getApplication<Application>().getString(R.string.error_open_failed)
     }
 
     fun selectTool(tool: CadTool) {

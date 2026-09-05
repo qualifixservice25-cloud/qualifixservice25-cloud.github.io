@@ -41,7 +41,7 @@
     <string name="units_unknown">n.d.</string>
 
     <string name="empty_title">Nessun disegno aperto</string>
-    <string name="empty_body">Apri un file DXF dal telefono, dal cloud o da un allegato per leggerlo e quotarlo in cantiere.</string>
+    <string name="empty_body">Apri un file DXF o DWG dal telefono, dal cloud o da un allegato per leggerlo e quotarlo in cantiere.</string>
 
     <string name="layers_title">Layer del disegno (%1$d)</string>
     <string name="layers_empty">Il disegno non dichiara layer.</string>
@@ -50,4 +50,15 @@
     <string name="error_no_circle">Nessun cerchio o arco riconosciuto nel punto toccato</string>
     <string name="export_done">Esportazione completata</string>
     <string name="export_failed">Esportazione non riuscita</string>
+    <string name="error_open_failed">Impossibile aprire il disegno</string>
+
+    <string name="status_converting_dwg">Conversione DWG in corso…</string>
+    <string name="error_dwg_not_configured">Nessun server di conversione DWG configurato. Aprilo da Altre opzioni → Server di conversione DWG.</string>
+
+    <string name="dwg_settings_title">Server di conversione DWG</string>
+    <string name="dwg_settings_body">Il DWG non si apre direttamente: l\'app lo manda a un server che tu stesso ospiti (vedi server/README.md nel progetto) e che lo converte in DXF. Senza un indirizzo qui, i file DWG non si apriranno.</string>
+    <string name="dwg_settings_server_url">Indirizzo del server</string>
+    <string name="dwg_settings_api_key">Chiave API (facoltativa)</string>
+    <string name="action_save">Salva</string>
+    <string name="action_cancel">Annulla</string>
 </resources>

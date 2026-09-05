@@ -41,7 +41,7 @@
     <string name="units_unknown">n/a</string>
 
     <string name="empty_title">No drawing open</string>
-    <string name="empty_body">Open a DXF file from your phone, the cloud or an email attachment to read and dimension it on site.</string>
+    <string name="empty_body">Open a DXF or DWG file from your phone, the cloud or an email attachment to read and dimension it on site.</string>
 
     <string name="layers_title">Drawing layers (%1$d)</string>
     <string name="layers_empty">The drawing declares no layers.</string>
@@ -50,4 +50,15 @@
     <string name="error_no_circle">No circle or arc found where you tapped</string>
     <string name="export_done">Export complete</string>
     <string name="export_failed">Export failed</string>
+    <string name="error_open_failed">Could not open the drawing</string>
+
+    <string name="status_converting_dwg">Converting DWG…</string>
+    <string name="error_dwg_not_configured">No DWG conversion server configured. Open it from More options → DWG conversion server.</string>
+
+    <string name="dwg_settings_title">DWG conversion server</string>
+    <string name="dwg_settings_body">DWG files can\'t be opened directly: the app sends them to a server you host yourself (see server/README.md in the project), which converts them to DXF. Without an address here, DWG files won\'t open.</string>
+    <string name="dwg_settings_server_url">Server address</string>
+    <string name="dwg_settings_api_key">API key (optional)</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
 </resources>

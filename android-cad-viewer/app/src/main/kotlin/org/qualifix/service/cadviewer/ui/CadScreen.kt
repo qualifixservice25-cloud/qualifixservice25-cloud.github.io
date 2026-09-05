@@ -68,6 +68,7 @@ fun CadScreen(
     val snackbarHost = remember { SnackbarHostState() }
     var showLayers by remember { mutableStateOf(false) }
     var showMenu by remember { mutableStateOf(false) }
+    var showDwgSettings by remember { mutableStateOf(false) }
     var cadView by remember { mutableStateOf<CadView?>(null) }
 
     val openLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
@@ -119,12 +120,13 @@ fun CadScreen(
                         Icon(Icons.Filled.Undo, stringResource(R.string.undo))
                     }
                     Box {
-                        IconButton(onClick = { showMenu = true }, enabled = state.hasDrawing) {
+                        IconButton(onClick = { showMenu = true }) {
                             Icon(Icons.Filled.MoreVert, stringResource(R.string.more_options))
                         }
                         DropdownMenu(expanded = showMenu, onDismissRequest = { showMenu = false }) {
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.export_dxf)) },
+                                enabled = state.hasDrawing,
                                 onClick = {
                                     showMenu = false
                                     exportDxfLauncher.launch(suggestedName(state.fileName, "dxf"))
@@ -132,6 +134,7 @@ fun CadScreen(
                             )
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.export_pdf)) },
+                                enabled = state.hasDrawing,
                                 onClick = {
                                     showMenu = false
                                     exportPdfLauncher.launch(suggestedName(state.fileName, "pdf"))
@@ -139,9 +142,17 @@ fun CadScreen(
                             )
                             DropdownMenuItem(
                                 text = { Text(stringResource(R.string.clear_dimensions)) },
+                                enabled = state.hasDrawing,
                                 onClick = {
                                     showMenu = false
                                     viewModel.clearDimensions()
+                                },
+                            )
+                            DropdownMenuItem(
+                                text = { Text(stringResource(R.string.dwg_settings_title)) },
+                                onClick = {
+                                    showMenu = false
+                                    showDwgSettings = true
                                 },
                             )
                         }
@@ -172,7 +183,19 @@ fun CadScreen(
                     EmptyState(onOpen = { openLauncher.launch(OPEN_MIME_TYPES) })
                 }
                 if (state.isLoading) {
-                    CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+                    Column(
+                        modifier = Modifier.align(Alignment.Center),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                    ) {
+                        CircularProgressIndicator()
+                        state.loadingMessage?.let { message ->
+                            Text(
+                                modifier = Modifier.padding(top = 12.dp),
+                                text = message,
+                                style = MaterialTheme.typography.bodyMedium,
+                            )
+                        }
+                    }
                 }
             }
 
@@ -192,6 +215,15 @@ fun CadScreen(
             hiddenLayers = state.hiddenLayers,
             onToggle = viewModel::toggleLayer,
             onDismiss = { showLayers = false },
+        )
+    }
+
+    if (showDwgSettings) {
+        DwgServerSettingsDialog(
+            currentServerUrl = viewModel.conversionServerUrl,
+            currentApiKey = viewModel.conversionApiKey,
+            onSave = viewModel::saveConversionSettings,
+            onDismiss = { showDwgSettings = false },
         )
     }
 }
@@ -442,10 +474,18 @@ private fun CadTool.hintRes(collected: Int): Int = when (this) {
     }
 }
 
-/** Tipi MIME accettati all'apertura: molti file manager marcano i DXF come generici. */
+/**
+ * Tipi MIME accettati all'apertura: molti file manager marcano i DXF (e i DWG) come generici.
+ * "application/acad" e "image/vnd.dwg" sono quelli che si vedono piu' spesso in giro per i DWG,
+ * ma non essendoci uno standard IANA per il formato non si puo' contare che bastino da soli:
+ * "application/octet-stream" resta la rete di sicurezza, e DrawingRepository.looksLikeDwg
+ * distingue comunque un DWG da un DXF guardando dentro al file quando serve.
+ */
 private val OPEN_MIME_TYPES = arrayOf(
     "application/dxf",
     "image/vnd.dxf",
+    "application/acad",
+    "image/vnd.dwg",
     "application/octet-stream",
     "text/plain",
 )

@@ -9,8 +9,9 @@ Piano di progetto completo: [`docs/piano-progetto-cad-viewer.md`](../docs/piano-
 
 | Modulo | Cosa contiene | Dipende da Android |
 |---|---|---|
-| `core` | Parser DXF, geometria, snap engine, motore di quotatura, export DXF | No, Kotlin puro |
+| `core` | Parser DXF, geometria, snap engine, motore di quotatura, export DXF, client di conversione DWG | No, Kotlin puro |
 | `app` | Rendering su Canvas, gesti, interfaccia Compose, apertura file, export PDF | Sì |
+| `server` | Server Python self-hosted che converte DWG in DXF (wrapper attorno a ODA File Converter) | No, non e' Kotlin |
 
 La separazione non è formale: tutto ciò che decide **quanto misura una quota** sta in `core` ed è
 coperto da test che girano su una JVM qualunque. In `app` resta solo ciò che è davvero legato al
@@ -24,6 +25,7 @@ core/src/main/kotlin/org/qualifix/cad/core/
 ├── snap/        aggancio a fine/intersezione/medio/centro/quadrante/perpendicolare
 ├── measure/     conversione fra unità, formattazione, tolleranze
 ├── dimension/   quote, stili, geometria disegnata, serie concatenate e da linea base
+├── dwg/         client verso il server di conversione DWG (protocollo in server/README.md)
 └── tool/        macchina a stati degli strumenti di quotatura
 ```
 
@@ -44,7 +46,14 @@ versione giusta al primo avvio (su Windows si usa `gradlew.bat`).
 Il core si compila e si testa **senza SDK Android**, basta una JDK 17 o superiore:
 
 ```bash
-./gradlew :core:test       # 75 test unitari
+./gradlew :core:test       # 84 test unitari
+```
+
+Il server di conversione DWG (`server/`) e' Python, non Gradle, e si testa a parte — solo
+libreria standard, nessuna dipendenza da installare:
+
+```bash
+cd server && python3 -m unittest discover -s tests -v      # 22 test
 ```
 
 Se l'SDK Android non è installato, `settings.gradle.kts` esclude automaticamente il modulo `:app`,
@@ -88,11 +97,19 @@ di proprietario: quelle entità finiscono negli avvisi del documento e il resto 
 quotatura attivo, un dito posiziona il mirino e mostra l'aggancio *prima* di confermare, sollevando
 il dito; due dita fanno sempre zoom e spostamento.
 
+**Il DWG passa da un server, non da una libreria sul telefono.** Le librerie che leggono DWG
+nativamente (ODA Drawings SDK, Aspose.CAD) hanno licenze a canone annuo — vedi tavola 02 del
+piano di progetto. La Fase 2 lo evita: l'app manda il DWG a un server che l'utente ospita da solo
+(`server/`, wrapper attorno a ODA File Converter, che invece e' gratuito ma non ridistribuibile) e
+riceve indietro un DXF, che poi passa dallo stesso parser di sempre. Senza server configurato
+nelle impostazioni, i DWG restano semplicemente non apribili — con un messaggio che lo dice,
+non un errore oscuro.
+
 ## Limiti noti
 
-- **DWG non supportato.** Serve la conversione a DXF (fase 2 del piano: ODA File Converter lato
-  server, o licenza SDK). Oggi si aprono solo file `.dxf` ASCII; il DXF binario viene respinto con
-  un messaggio esplicito invece di fallire in modo oscuro.
+- **Il DWG richiede di ospitare un server.** Vedi `server/README.md`: comporta procurarsi ODA
+  File Converter da soli (licenza gratuita ma non ridistribuibile) e mantenere un piccolo servizio.
+  Non c'e' un server gestito da Qualifix Service.
 - **Scala non uniforme sui blocchi.** Un `INSERT` con scale X e Y diverse rende cerchi e archi con
   la scala media invece di trasformarli in ellissi. Sui disegni edili è un caso raro.
 - **Tavolozza ACI approssimata** per gli indici 10–249: i primi nove colori, quelli che si usano

@@ -7,6 +7,7 @@ import android.graphics.pdf.PdfDocument
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
 import org.qualifix.cad.core.dimension.Dimension
+import org.qualifix.cad.core.dwg.DwgConversionClient
 import org.qualifix.cad.core.dxf.DxfParser
 import org.qualifix.cad.core.dxf.DxfWriter
 import org.qualifix.cad.core.measure.MeasurementFormatter
@@ -26,11 +27,34 @@ data class LoadedDrawing(val fileName: String, val document: CadDocument)
  */
 object DrawingRepository {
 
-    fun load(context: Context, uri: Uri): LoadedDrawing {
+    fun load(context: Context, uri: Uri, conversionSettings: ConversionSettings): LoadedDrawing {
         val bytes = context.contentResolver.openInputStream(uri)?.use { it.readBytes() }
             ?: error("Impossibile aprire il file selezionato")
         val name = displayName(context, uri)
-        return LoadedDrawing(name, DxfParser.parse(decode(bytes)))
+
+        val dxfBytes = if (looksLikeDwg(name, bytes)) {
+            val client = DwgConversionClient(
+                serverUrl = conversionSettings.serverUrl,
+                apiKey = conversionSettings.apiKey,
+            )
+            client.convert(bytes, name)
+        } else {
+            bytes
+        }
+
+        return LoadedDrawing(name, DxfParser.parse(decode(dxfBytes)))
+    }
+
+    /**
+     * L'estensione basta quasi sempre, ma alcuni file provider di app cloud restituiscono nomi
+     * senza estensione: in quel caso si guarda la sigla di versione con cui inizia ogni DWG
+     * binario (es. "AC1027" per AutoCAD 2013-2017), cosi' un DWG rinominato o senza estensione
+     * non finisce comunque nel parser DXF, che lo rifiuterebbe con un errore poco chiaro.
+     */
+    internal fun looksLikeDwg(name: String, bytes: ByteArray): Boolean {
+        if (name.substringAfterLast('.', "").equals("dwg", ignoreCase = true)) return true
+        if (bytes.size < 6 || bytes[0] != 'A'.code.toByte() || bytes[1] != 'C'.code.toByte()) return false
+        return (2..5).all { bytes[it].toInt().toChar().isDigit() }
     }
 
     /**
@@ -112,7 +136,7 @@ object DrawingRepository {
         )
     }
 
-    private fun displayName(context: Context, uri: Uri): String =
+    internal fun displayName(context: Context, uri: Uri): String =
         DocumentFile.fromSingleUri(context, uri)?.name
             ?: uri.lastPathSegment?.substringAfterLast('/')
             ?: "disegno.dxf"
