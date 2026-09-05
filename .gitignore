@@ -7,3 +7,9 @@ android-cad-viewer/local.properties
 android-cad-viewer/.idea/
 *.iml
 .DS_Store
+
+# Server di conversione DWG (android-cad-viewer/server/)
+android-cad-viewer/server/oda-file-converter/
+android-cad-viewer/server/.env
+android-cad-viewer/server/__pycache__/
+android-cad-viewer/server/**/__pycache__/
