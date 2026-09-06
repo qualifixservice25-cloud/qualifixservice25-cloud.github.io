@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Qualifix CAD</string>
+    <string name="app_name">CAD Viewer</string>
 
     <string name="open_file">Open drawing</string>
     <string name="fit_view">Fit to drawing</string>
@@ -14,6 +14,7 @@
 
     <string name="tool_pan">Pan</string>
     <string name="tool_measure">Measure</string>
+    <string name="tool_line">Line</string>
     <string name="tool_linear">Linear</string>
     <string name="tool_aligned">Aligned</string>
     <string name="tool_angular">Angular</string>
@@ -21,6 +22,8 @@
     <string name="tool_diameter">Diameter</string>
     <string name="tool_ordinate">Ordinate</string>
 
+    <string name="hint_line">Tap a line to measure it</string>
+    <string name="hint_other_line">Tap another line for the distance</string>
     <string name="hint_first_point">Tap the first point</string>
     <string name="hint_second_point">Tap the second point</string>
     <string name="hint_dim_line">Place the dimension line</string>
@@ -41,24 +44,18 @@
     <string name="units_unknown">n/a</string>
 
     <string name="empty_title">No drawing open</string>
-    <string name="empty_body">Open a DXF or DWG file from your phone, the cloud or an email attachment to read and dimension it on site.</string>
+    <string name="empty_body">Open a DXF file from your phone, the cloud or an email attachment to read and dimension it on site.</string>
 
     <string name="layers_title">Drawing layers (%1$d)</string>
     <string name="layers_empty">The drawing declares no layers.</string>
     <string name="layer_locked">Locked in the original file</string>
 
     <string name="error_no_circle">No circle or arc found where you tapped</string>
+    <string name="error_no_line">No line found where you tapped</string>
+    <string name="error_lines_meet">The two lines meet: there is no distance to measure</string>
     <string name="export_done">Export complete</string>
     <string name="export_failed">Export failed</string>
     <string name="error_open_failed">Could not open the drawing</string>
 
-    <string name="status_converting_dwg">Converting DWG…</string>
-    <string name="error_dwg_not_configured">No DWG conversion server configured. Open it from More options → DWG conversion server.</string>
-
-    <string name="dwg_settings_title">DWG conversion server</string>
-    <string name="dwg_settings_body">DWG files can\'t be opened directly: the app sends them to a server you host yourself (see server/README.md in the project), which converts them to DXF. Without an address here, DWG files won\'t open.</string>
-    <string name="dwg_settings_server_url">Server address</string>
-    <string name="dwg_settings_api_key">API key (optional)</string>
-    <string name="action_save">Save</string>
-    <string name="action_cancel">Cancel</string>
+    <string name="error_dwg_unsupported">DWG files are not supported: export the drawing to DXF from the CAD you drew it in, and open that instead.</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Qualifix CAD</string>
+    <string name="app_name">CAD Viewer</string>
 
     <string name="open_file">Apri disegno</string>
     <string name="fit_view">Inquadra tutto</string>
@@ -14,6 +14,7 @@
 
     <string name="tool_pan">Sposta</string>
     <string name="tool_measure">Misura</string>
+    <string name="tool_line">Linea</string>
     <string name="tool_linear">Lineare</string>
     <string name="tool_aligned">Allineata</string>
     <string name="tool_angular">Angolare</string>
@@ -21,6 +22,8 @@
     <string name="tool_diameter">Diametro</string>
     <string name="tool_ordinate">Ordinata</string>
 
+    <string name="hint_line">Tocca una linea per misurarla</string>
+    <string name="hint_other_line">Tocca un\'altra linea per la distanza</string>
     <string name="hint_first_point">Tocca il primo punto</string>
     <string name="hint_second_point">Tocca il secondo punto</string>
     <string name="hint_dim_line">Scegli dove mettere la linea di quota</string>
@@ -41,24 +44,18 @@
     <string name="units_unknown">n.d.</string>
 
     <string name="empty_title">Nessun disegno aperto</string>
-    <string name="empty_body">Apri un file DXF o DWG dal telefono, dal cloud o da un allegato per leggerlo e quotarlo in cantiere.</string>
+    <string name="empty_body">Apri un file DXF dal telefono, dal cloud o da un allegato per leggerlo e quotarlo in cantiere.</string>
 
     <string name="layers_title">Layer del disegno (%1$d)</string>
     <string name="layers_empty">Il disegno non dichiara layer.</string>
     <string name="layer_locked">Bloccato nel file originale</string>
 
     <string name="error_no_circle">Nessun cerchio o arco riconosciuto nel punto toccato</string>
+    <string name="error_no_line">Nessuna linea riconosciuta nel punto toccato</string>
+    <string name="error_lines_meet">Le due linee si incontrano: non c\'è una distanza da misurare</string>
     <string name="export_done">Esportazione completata</string>
     <string name="export_failed">Esportazione non riuscita</string>
     <string name="error_open_failed">Impossibile aprire il disegno</string>
 
-    <string name="status_converting_dwg">Conversione DWG in corso…</string>
-    <string name="error_dwg_not_configured">Nessun server di conversione DWG configurato. Aprilo da Altre opzioni → Server di conversione DWG.</string>
-
-    <string name="dwg_settings_title">Server di conversione DWG</string>
-    <string name="dwg_settings_body">Il DWG non si apre direttamente: l\'app lo manda a un server che tu stesso ospiti (vedi server/README.md nel progetto) e che lo converte in DXF. Senza un indirizzo qui, i file DWG non si apriranno.</string>
-    <string name="dwg_settings_server_url">Indirizzo del server</string>
-    <string name="dwg_settings_api_key">Chiave API (facoltativa)</string>
-    <string name="action_save">Salva</string>
-    <string name="action_cancel">Annulla</string>
+    <string name="error_dwg_unsupported">I file DWG non sono supportati: esporta il disegno in DXF dal CAD con cui l\'hai fatto e riapri quello.</string>
 </resources>

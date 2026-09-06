@@ -2,15 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
-        Nessun permesso di accesso all'archivio: i file arrivano dallo Storage Access Framework,
-        quindi l'app vede solo il documento che l'utente sceglie di aprire.
+        Nessun permesso: i file arrivano dallo Storage Access Framework, quindi l'app vede solo
+        il documento che l'utente sceglie di aprire, e non accede alla rete.
     -->
-
-    <!--
-        Serve solo per parlare con il server di conversione DWG che l'utente configura da solo
-        (vedi server/README.md): l'app non ha un server proprio e non contatta nient'altro.
-    -->
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -31,21 +25,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Apertura di un DXF o DWG da file manager, allegato email o app cloud. -->
+            <!-- Apertura di un DXF da file manager, allegato email o app cloud. -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/dxf" />
                 <data android:mimeType="image/vnd.dxf" />
-                <data android:mimeType="application/acad" />
-                <data android:mimeType="image/vnd.dwg" />
             </intent-filter>
 
             <!--
-                Molti gestori file dichiarano i DXF/DWG come flusso di byte generico: si accetta
-                anche quel caso, ma solo per i file la cui estensione e' davvero una delle due.
-                Un .dwg aperto cosi' richiede comunque il server di conversione configurato
-                (vedi DrawingRepository.looksLikeDwg e ConversionSettings).
+                Molti gestori file dichiarano i DXF come flusso di byte generico: si accetta
+                anche quel caso, ma solo per i file che hanno davvero l'estensione .dxf.
             -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -56,8 +46,6 @@
                 <data android:mimeType="application/octet-stream" />
                 <data android:pathPattern=".*\\.dxf" />
                 <data android:pathPattern=".*\\.DXF" />
-                <data android:pathPattern=".*\\.dwg" />
-                <data android:pathPattern=".*\\.DWG" />
             </intent-filter>
         </activity>
     </application>

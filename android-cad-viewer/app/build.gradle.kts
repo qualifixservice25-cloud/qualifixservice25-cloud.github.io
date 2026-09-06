@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "org.qualifix.service.cadviewer"
+    namespace = "org.cadviewer.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "org.qualifix.service.cadviewer"
+        applicationId = "org.cadviewer.app"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
