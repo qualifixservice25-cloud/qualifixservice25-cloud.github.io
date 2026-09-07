@@ -108,6 +108,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .bar-head b{color:var(--text);font-weight:600}
 .bar{
   display:flex;height:34px;border:1px solid #b9c4cc;border-radius:5px;overflow:hidden;background:#e9edf0;
+  min-width:16px;   /* uno spezzone cortissimo resta comunque visibile */
 }
 .seg{
   display:flex;align-items:center;justify-content:center;
@@ -523,12 +524,18 @@ function renderResult(sol, cfg, usable, stockCount, flat, ms){
   const riuso  = cut.filter(b => b.rem >= cfg.threshold).map(b => b.rem).sort((a,b) => b - a);
   const cestino = cut.reduce((s,b) => s + (b.rem < cfg.threshold ? b.rem : 0), 0);
 
-  /* schema barre */
+  /* schema barre: tutte disegnate nella stessa scala, così un avanzo di
+     magazzino si vede subito che è più corto di una verga intera */
+  const scaleRef = Math.max(usable, ...cut.map(b => b.cap));
+  const wide = len => (len / scaleRef) * 100 > 6;   // c'è spazio per la quota?
+
   let barNo = 0;
   const blocks = cut.map(b => {
+    const barW = (b.cap / scaleRef) * 100;
+
     const segs = b.items.map(p => {
       const w = ((p.len + cfg.kerf) / b.cap) * 100;
-      const txt = w > 7 ? mm(p.len) : "";
+      const txt = wide(p.len + cfg.kerf) ? mm(p.len) : "";
       const title = esc(p.label ? p.label + " " + mm(p.len) : mm(p.len) + " mm");
       return `<div class="seg" style="width:${w.toFixed(3)}%;background:${colorOf(p)}" title="${title}">${txt}</div>`;
     }).join("");
@@ -536,7 +543,7 @@ function renderResult(sol, cfg, usable, stockCount, flat, ms){
     const remW = (b.rem / b.cap) * 100;
     const keep = b.rem >= cfg.threshold;
     const rest = b.rem > 0
-      ? `<div class="seg rest${keep ? " keep" : ""}" style="width:${remW.toFixed(3)}%" title="Avanzo ${mm(b.rem)} mm">${remW > 7 ? mm(b.rem) : ""}</div>`
+      ? `<div class="seg rest${keep ? " keep" : ""}" style="width:${remW.toFixed(3)}%" title="Avanzo ${mm(b.rem)} mm">${wide(b.rem) ? mm(b.rem) : ""}</div>`
       : "";
 
     // conteggio compatto dei tagli
@@ -552,7 +559,7 @@ function renderResult(sol, cfg, usable, stockCount, flat, ms){
         <span><b>${b.isStock ? "Avanzo magazzino" : "Barra " + (++barNo)}</b> ${mm(b.cap)} mm</span>
         <span>avanzo ${mm(b.rem)} mm${keep ? " &#10003;" : ""}</span>
       </div>
-      <div class="bar">${segs}${rest}</div>
+      <div class="bar" style="width:${barW.toFixed(3)}%">${segs}${rest}</div>
       <div class="bar-list">${list}</div>
     </div>`;
   }).join("");
