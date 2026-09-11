@@ -1,0 +1,28 @@
+{
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true,
+    "**/.flutter-plugins": true,
+    "**/.flutter-plugins-dependencies": true
+  },
+  "search.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true
+  },
+  "editor.formatOnSave": true,
+  "editor.rulers": [80],
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.selectionHighlight": false,
+    "editor.suggestSelection": "first",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "dart.lineLength": 80,
+  "dart.previewFlutterUiGuides": true,
+  "dart.openDevTools": "flutter",
+  // Il core è Dart puro: va aperto come progetto Dart, non Flutter, altrimenti
+  // l'estensione prova a cercarci dentro un'app che non c'è.
+  "dart.projectSearchDepth": 3
+}

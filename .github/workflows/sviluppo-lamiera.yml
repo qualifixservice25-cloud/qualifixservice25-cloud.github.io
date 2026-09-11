@@ -1,0 +1,112 @@
+name: Sviluppo Lamiera
+
+# Test e analisi a ogni push e a ogni pull request; pubblicazione su Netlify
+# solo da main, e solo se i test sono passati.
+#
+# Il blocco è il punto di questa CI: qui un errore di calcolo non produce una
+# quota brutta, manda a scarto lamiera vera. Meglio non pubblicare che
+# pubblicare numeri sbagliati.
+
+on:
+  push:
+    branches: ['**']
+    paths:
+      - 'sviluppo-lamiera-app/**'
+      - '.github/workflows/sviluppo-lamiera.yml'
+      - 'netlify.toml'
+  pull_request:
+    paths:
+      - 'sviluppo-lamiera-app/**'
+      - '.github/workflows/sviluppo-lamiera.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: sviluppo-lamiera-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Versione fissata apposta: una CI che segue "stable" si rompe da sola il
+  # giorno in cui esce una versione nuova di Flutter, e lo scopre chi sta
+  # cercando di pubblicare una correzione urgente.
+  VERSIONE_FLUTTER: 3.47.3
+
+jobs:
+  verifica:
+    name: Test e analisi
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.VERSIONE_FLUTTER }}
+          channel: stable
+          cache: true
+
+      # Il core è Dart puro: gira senza Flutter e senza SDK Android, ed è dove
+      # sta tutta la matematica. Se si rompe qualcosa, si rompe quasi sempre qui.
+      - name: Core — dipendenze
+        working-directory: sviluppo-lamiera-app/core
+        run: dart pub get
+
+      - name: Core — analisi
+        working-directory: sviluppo-lamiera-app/core
+        run: dart analyze --fatal-infos
+
+      - name: Core — test (102)
+        working-directory: sviluppo-lamiera-app/core
+        run: dart test --reporter expanded
+
+      - name: App — dipendenze
+        working-directory: sviluppo-lamiera-app/app
+        run: flutter pub get
+
+      - name: App — analisi
+        working-directory: sviluppo-lamiera-app/app
+        run: flutter analyze --fatal-infos
+
+      - name: App — test d'insieme
+        working-directory: sviluppo-lamiera-app/app
+        run: flutter test
+
+      # Compilare è a tutti gli effetti un test: un errore in una qualsiasi
+      # delle schermate si vede solo qui, non dai test unitari.
+      - name: Compilazione web di prova
+        run: |
+          chmod +x sviluppo-lamiera-app/scripts/build-web.sh
+          ./sviluppo-lamiera-app/scripts/build-web.sh /
+
+  pubblica:
+    name: Pubblicazione su Netlify
+    needs: verifica
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.VERSIONE_FLUTTER }}
+          channel: stable
+          cache: true
+
+      - name: Compilazione
+        run: |
+          chmod +x sviluppo-lamiera-app/scripts/build-web.sh
+          ./sviluppo-lamiera-app/scripts/build-web.sh /
+
+      - name: Deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::error::Mancano i segreti NETLIFY_AUTH_TOKEN e/o NETLIFY_SITE_ID."
+            echo "::error::Vanno creati in Settings → Secrets and variables → Actions,"
+            echo "::error::prendendoli dal pannello Netlify del sito."
+            exit 1
+          fi
+          npx --yes netlify-cli@17 deploy \
+            --prod \
+            --dir sviluppo-lamiera-app/app/build/web \
+            --message "${{ github.event.head_commit.message }}"

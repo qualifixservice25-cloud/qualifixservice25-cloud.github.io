@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
 #
-# Compila la versione web di Sviluppo Lamiera e la mette dove GitHub Pages la
-# serve, cioè nella cartella `sviluppo-lamiera/` alla radice del repository.
+# Compila la versione web di Sviluppo Lamiera.
 #
-#   ./sviluppo-lamiera-app/scripts/build-web.sh
+#   ./sviluppo-lamiera-app/scripts/build-web.sh [base-href] [cartella-uscita]
 #
-# Da rilanciare SOLO sui commit di rilascio, mai a ogni modifica di codice: la
-# build committata pesa una quindicina di megabyte e rigenerarla di continuo
-# gonfierebbe la storia del repository senza motivo.
+# Valori predefiniti: base-href "/" e uscita in "build/web", cioè quello che
+# serve al sito Netlify dedicato all'app.
+#
+# Questo script è l'unico posto in cui vive la logica di compilazione: lo usa la
+# GitHub Action e lo usi tu in locale, così quello che finisce online è
+# esattamente quello che hai provato sulla tua macchina.
+#
+# Il base-href è il dettaglio che si sbaglia più spesso con Flutter web: se non
+# corrisponde al percorso da cui il sito serve l'app, tutti gli asset vengono
+# cercati nel posto sbagliato e resta una pagina bianca, senza alcun errore
+# visibile. Con un sito dedicato va "/"; se un giorno l'app tornasse in una
+# sottocartella, "/nome-cartella/" con entrambe le barre.
 
 set -euo pipefail
 
+BASE_HREF="${1:-/}"
+USCITA="${2:-build/web}"
+
 QUI="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 APP="$(dirname "$QUI")/app"
-RADICE="$(cd "$(dirname "$QUI")/.." && pwd)"
-PUBBLICA="$RADICE/sviluppo-lamiera"
 
 if ! command -v flutter >/dev/null 2>&1; then
   echo "flutter non è nel PATH." >&2
@@ -22,22 +31,20 @@ if ! command -v flutter >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "==> Compilazione release"
 cd "$APP"
-flutter pub get
-flutter build web \
-  --release \
-  --base-href /sviluppo-lamiera/ \
-  --pwa-strategy offline-first
 
-echo "==> Potatura di quello che non viene mai scaricato"
+echo "==> Compilazione release (base-href $BASE_HREF)"
+flutter pub get
+flutter build web --release --base-href "$BASE_HREF"
+
+echo "==> Potatura di quello che il browser non scarica mai"
 
 # I .symbols servono solo a simbolicare gli stack trace fuori linea: a runtime
-# il browser non li richiede mai.
+# non vengono mai richiesti.
 find build/web -name "*.symbols" -delete
 
 # web/flutter_bootstrap.js fissa il renderer su CanvasKit, quindi le varianti
-# skwasm non vengono mai caricate. Toglierle dimezza abbondantemente il peso.
+# skwasm non vengono mai caricate. Toglierle più che dimezza il peso.
 rm -rf \
   build/web/canvaskit/skwasm.js \
   build/web/canvaskit/skwasm.wasm \
@@ -52,15 +59,22 @@ echo "==> Marchiatura del service worker"
 # Il nome della cache deve cambiare a ogni rilascio, altrimenti chi ha già
 # aperto l'app continuerebbe a vedere la versione vecchia servita dalla cache.
 BUILD_ID="$(date -u +%Y%m%d%H%M%S)"
-sed -i "s/sviluppo-lamiera-BUILD_ID/sviluppo-lamiera-$BUILD_ID/" build/web/sw.js
+sed -i.bak "s/sviluppo-lamiera-BUILD_ID/sviluppo-lamiera-$BUILD_ID/" build/web/sw.js
+rm -f build/web/sw.js.bak
 echo "    versione cache: sviluppo-lamiera-$BUILD_ID"
 
-echo "==> Pubblicazione in $PUBBLICA"
-rm -rf "$PUBBLICA"
-mkdir -p "$PUBBLICA"
-cp -r build/web/. "$PUBBLICA/"
+# Uscita in un posto diverso da build/web solo se richiesto.
+if [ "$USCITA" != "build/web" ]; then
+  echo "==> Copia in $USCITA"
+  rm -rf "$USCITA"
+  mkdir -p "$USCITA"
+  cp -r build/web/. "$USCITA/"
+fi
 
+FINALE="$APP/$USCITA"
 echo
-echo "Fatto: $(du -sh "$PUBBLICA" | cut -f1) in $PUBBLICA"
-echo "Controlla con:  git status --short sviluppo-lamiera/"
-echo "Online su:      https://qualifixservice25-cloud.github.io/sviluppo-lamiera/"
+echo "Fatto: $(du -sh "$FINALE" | cut -f1) in $FINALE"
+echo
+echo "Per provarla in locale (il base-href è \"$BASE_HREF\", quindi va servita"
+echo "dalla radice di un server, non aperta con file://):"
+echo "    npx http-server \"$FINALE\" -p 8080"

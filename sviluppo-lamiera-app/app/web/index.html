@@ -3,9 +3,9 @@
 <head>
   <!--
     Il percorso base viene sostituito da `flutter build web --base-href`.
-    Per la pubblicazione su GitHub Pages deve valere /sviluppo-lamiera/ :
-    senza, tutti gli asset vengono cercati nella radice del sito e la pagina
-    resta bianca.
+    Con il sito Netlify dedicato vale "/". Deve sempre corrispondere al percorso
+    da cui il sito serve l'app: se non corrisponde, ogni asset viene cercato nel
+    posto sbagliato e resta una pagina bianca, senza alcun errore visibile.
   -->
   <base href="$FLUTTER_BASE_HREF">
 

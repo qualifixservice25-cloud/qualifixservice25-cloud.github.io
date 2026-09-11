@@ -2,7 +2,8 @@
 
 Nome dell'app: Sviluppo Lamiera · Package: `org.qualifix.service.sviluppolamiera`
 
-Versione web: <https://qualifixservice25-cloud.github.io/sviluppo-lamiera/>
+Versione web: sito Netlify dedicato, compilato e pubblicato dalla GitHub Action. I passi
+per collegarlo sono nel [README della radice](../README.md#da-fare-una-volta-sola-collegare-netlify).
 
 ## 1. Obiettivo e ambito
 
@@ -162,7 +163,7 @@ deve restare senza dipendenze), `provider`/`riverpod`/`bloc` (stato banale), `sq
 | 2 | Lato minimo, posizionamento, collisioni, motore di sequenza | Fatta |
 | 3 | Le cinque schermate, disegni, modalità officina | Fatta |
 | 4 | Inventario personale: CRUD, persistenza, catalogo di partenza | Fatta |
-| 5 | Build web su Pages, PWA offline, collegamento dalla home | Fatta |
+| 5 | Build web, PWA offline, CI con test bloccanti, pubblicazione su Netlify | Fatta |
 | 6 | Tonnellaggio e verifica del carico di pressa e utensile | Da fare |
 | 7 | Ritorno elastico e raggio minimo di piega | Da fare |
 | 8 | Battute posteriori e quote a CN | Da fare |
@@ -179,10 +180,13 @@ deve restare senza dipendenze), `provider`/`riverpod`/`bloc` (stato banale), `sq
   contromisure stanno tutte in v1 e sono elencate sotto.
 - **Il motore di sequenza che dà falsa sicurezza.** Mitigato chiamandole proposte e
   mettendo l'elenco di cosa non viene controllato dentro l'app.
-- **Peso della build web.** Circa 17 MB committati, di cui 12 sono i due `canvaskit.wasm`
-  necessari a coprire Chromium e gli altri browser. GitHub Pages li serve compressi, e il
-  service worker li mette in cache dopo il primo avvio. La build va rigenerata solo sui
-  commit di rilascio.
+- **Peso della build web.** Circa 17 MB, di cui 12 sono i due `canvaskit.wasm` necessari a
+  coprire Chromium e gli altri browser. Non stanno nel repository — li genera la CI a ogni
+  pubblicazione — e Netlify li serve compressi, quindi chi apre l'app ne scarica circa
+  cinque; dal secondo avvio è il service worker a rispondere.
+- **La pubblicazione dipende da due segreti** (`NETLIFY_AUTH_TOKEN` e `NETLIFY_SITE_ID`).
+  Se mancano o scadono, la Action si ferma con un messaggio esplicito invece di fallire in
+  modo oscuro.
 - **Inventario digitato a mano.** Un'apertura V sbagliata sbaglia tutto a valle in
   silenzio: da qui la validazione dei campi e il nome della cava sempre accanto al
   risultato.

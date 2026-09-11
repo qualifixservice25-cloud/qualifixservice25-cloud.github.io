@@ -1,0 +1,56 @@
+# Configurazione del sito Netlify di Sviluppo Lamiera.
+#
+# La compilazione NON la fa Netlify: la fa la GitHub Action
+# (.github/workflows/sviluppo-lamiera.yml), che poi spedisce qui il risultato
+# già pronto. Netlify si limita a servirlo, e questo file dice come.
+
+[build]
+  # Nessun comando: arriva tutto già compilato dalla Action.
+  command = ""
+  publish = "sviluppo-lamiera-app/app/build/web"
+
+# Flutter web decide le rotte dentro la pagina, quindi qualunque indirizzo va
+# servito con l'index dell'app invece che con un 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# --- Intestazioni di cache ---------------------------------------------------
+#
+# La regola: quello che cambia nome a ogni build si può tenere per sempre,
+# quello che tiene lo stesso nome va ricontrollato ogni volta. Sbagliare il
+# secondo caso significa pubblicare un aggiornamento che nessuno vede.
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  # Il service worker soprattutto: se resta in cache, resta in cache anche
+  # tutta la versione vecchia dell'app che sta servendo.
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/flutter_bootstrap.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/canvaskit/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

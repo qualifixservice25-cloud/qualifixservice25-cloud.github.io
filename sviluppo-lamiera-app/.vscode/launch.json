@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Sviluppo Lamiera (Chrome)",
+      "request": "launch",
+      "type": "dart",
+      "program": "app/lib/main.dart",
+      "cwd": "app",
+      "args": ["-d", "chrome"]
+    },
+    {
+      "name": "Sviluppo Lamiera (release, Chrome)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "program": "app/lib/main.dart",
+      "cwd": "app",
+      "args": ["-d", "chrome"]
+    },
+    {
+      "name": "Sviluppo Lamiera (dispositivo Android)",
+      "request": "launch",
+      "type": "dart",
+      "program": "app/lib/main.dart",
+      "cwd": "app"
+    }
+  ]
+}

@@ -13,8 +13,13 @@ Piano di progetto completo: [`docs/piano-progetto-sviluppo-lamiera.md`](../docs/
 ```
 core/    motore di calcolo — Dart PURO, nessuna dipendenza da Flutter
 app/     interfaccia Flutter (web + Android)
-scripts/ build-web.sh: compila e pubblica in ../sviluppo-lamiera/
+scripts/ build-web.sh: la compilazione, usata sia dalla CI sia in locale
+.vscode/ task in italiano, estensioni consigliate, configurazioni di avvio
 ```
+
+Aprendo **questa cartella** in VS Code (non la radice del repository) si trovano già
+pronti, in *Terminal → Run Task*: test del core, test dell'app, analisi, avvio in Chrome
+con ricaricamento a caldo, compilazione web. `F5` avvia l'app in debug.
 
 I due pacchetti sono separati apposta. Il `pubspec.yaml` di `core/` non elenca `flutter`
 fra le dipendenze, quindi importare `package:flutter/…` lì dentro **non compila**: la
@@ -34,8 +39,8 @@ cd core && dart pub get && dart analyze && dart test
 # L'interfaccia
 cd ../app && flutter pub get && flutter analyze && flutter test
 
-# La versione web, pubblicata in ../../sviluppo-lamiera/
-../scripts/build-web.sh
+# La versione web, in app/build/web
+cd .. && ./scripts/build-web.sh
 ```
 
 **108 test**: 102 sul core (casi di riferimento, invarianti, geometria, robustezza,
@@ -98,11 +103,30 @@ con i calcoli a schermo.
 
 ## Pubblicazione web
 
-`scripts/build-web.sh` compila, toglie quello che il browser non scarica mai (i `.symbols`
-e le varianti di renderer inutilizzate) e copia il risultato in `sviluppo-lamiera/` alla
-radice del repository, da dove GitHub Pages lo serve su
-<https://qualifixservice25-cloud.github.io/sviluppo-lamiera/>.
+La fa la GitHub Action in `.github/workflows/sviluppo-lamiera.yml`: a ogni push su `main`
+esegue i 108 test e, **solo se passano tutti**, compila e spedisce il risultato al sito
+Netlify dedicato. Se un test fallisce la pubblicazione non parte, ed è il punto: qui un
+errore di calcolo manda a scarto lamiera vera.
 
-La build pesa circa 17 MB ed è **committata**: va quindi rigenerata solo sui commit di
-rilascio, mai a ogni modifica di codice, altrimenti la storia del repository si gonfia
-senza motivo.
+La build **non è versionata**. Chi compila in locale se la ritrova in `app/build/web`,
+ignorata da git.
+
+Sia la CI sia la tua macchina passano dallo stesso `scripts/build-web.sh`, così quello che
+finisce online è esattamente quello che hai provato:
+
+```bash
+./scripts/build-web.sh            # base-href "/", uscita in app/build/web
+./scripts/build-web.sh /percorso/ # se un giorno servisse una sottocartella
+```
+
+Lo script compila, toglie quello che il browser non scarica mai (i `.symbols` e le varianti
+di renderer inutilizzate: 41 MB diventano 17) e marchia il service worker con la data della
+build, perché un rilascio nuovo sostituisca quello in cache.
+
+**Il `base-href` è il dettaglio che si sbaglia più spesso con Flutter web.** Deve
+corrispondere al percorso da cui il sito serve l'app: con un sito dedicato è `/`. Se non
+corrisponde, ogni asset viene cercato nel posto sbagliato e resta una pagina bianca, senza
+alcun errore visibile.
+
+I tre passi per collegare Netlify la prima volta sono nel [README della
+radice](../README.md#da-fare-una-volta-sola-collegare-netlify).
