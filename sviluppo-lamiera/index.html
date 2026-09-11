@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!--
+    Il percorso base viene sostituito da `flutter build web --base-href`.
+    Per la pubblicazione su GitHub Pages deve valere /sviluppo-lamiera/ :
+    senza, tutti gli asset vengono cercati nella radice del sito e la pagina
+    resta bianca.
+  -->
+  <base href="/sviluppo-lamiera/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Fattore K, sviluppo lamiera, lato minimo e sequenza di piega per chi lavora alla pressa piegatrice. Di Qualifix Service.">
+  <meta name="theme-color" content="#2C3E50">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Sviluppo Lamiera">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Sviluppo Lamiera — Qualifix Service</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #F8F9FA;
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    /* Schermata di attesa: il primo caricamento scarica qualche MB, e una
+       pagina bianca fa pensare che l'app sia rotta. Dalla seconda volta in poi
+       il service worker serve tutto dalla cache e questa non si vede più. */
+    #avvio {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      color: #2C3E50;
+      text-align: center;
+      padding: 24px;
+    }
+    #avvio h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.3px;
+    }
+    #avvio p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #5A6B7B;
+      max-width: 26rem;
+      line-height: 1.5;
+    }
+    #avvio .barra {
+      width: 180px;
+      height: 4px;
+      border-radius: 2px;
+      background: #DDE3E8;
+      overflow: hidden;
+    }
+    #avvio .barra span {
+      display: block;
+      width: 40%;
+      height: 100%;
+      background: #E67E22;
+      animation: scorre 1.1s ease-in-out infinite;
+    }
+    @keyframes scorre {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(350%); }
+    }
+    @media (prefers-color-scheme: dark) {
+      html, body { background-color: #0A0D10; }
+      #avvio { color: #E8EEF2; }
+      #avvio p { color: #9AAAB6; }
+      #avvio .barra { background: #2A343D; }
+    }
+  </style>
+</head>
+<body>
+  <div id="avvio">
+    <h1>Sviluppo Lamiera</h1>
+    <div class="barra"><span></span></div>
+    <p>Primo avvio in corso. Dalla prossima volta l'app si apre subito e
+       funziona anche senza rete.</p>
+  </div>
+
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var avvio = document.getElementById('avvio');
+      if (avvio) avvio.remove();
+    });
+
+    // Il nostro service worker, non quello di Flutter: dalla 3.29 Flutter
+    // genera solo uno stub che si disiscrive, quindi l'offline va fatto a mano.
+    // Registrato dopo il carico per non rubare banda al primo avvio.
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function (e) {
+          console.warn('Service worker non registrato:', e);
+        });
+      });
+    }
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
