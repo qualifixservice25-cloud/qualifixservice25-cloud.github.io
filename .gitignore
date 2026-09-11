@@ -1,0 +1,19 @@
+# Flutter / Dart (sviluppo-lamiera-app/)
+#
+# Attenzione ai due nomi che si somigliano: si ignora la cartella di lavoro
+# `sviluppo-lamiera-app/app/build/`, NON la cartella `sviluppo-lamiera/` alla
+# radice del repository, che è la build pubblicata e va committata perché è
+# quella che GitHub Pages serve davvero.
+sviluppo-lamiera-app/**/.dart_tool/
+sviluppo-lamiera-app/**/build/
+sviluppo-lamiera-app/**/.flutter-plugins
+sviluppo-lamiera-app/**/.flutter-plugins-dependencies
+sviluppo-lamiera-app/**/.idea/
+sviluppo-lamiera-app/app/android/.gradle/
+sviluppo-lamiera-app/app/android/local.properties
+
+# I pubspec.lock restano tracciati: sono applicazioni, non librerie, e la build
+# riproducibile vale più della pulizia del diff.
+
+*.iml
+.DS_Store

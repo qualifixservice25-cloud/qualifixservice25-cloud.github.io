@@ -1,0 +1,47 @@
+name: sviluppo_lamiera
+description: >-
+  Sviluppo Lamiera — calcolo del fattore K, dello sviluppo, del lato minimo e
+  della sequenza di piega per chi lavora alla pressa piegatrice.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Il motore di calcolo, in Dart puro.
+  sviluppo_lamiera_core:
+    path: ../core
+
+  # Unica dipendenza di terze parti: persistenza locale con la stessa API su
+  # Android (SharedPreferences) e su web (localStorage), senza codice
+  # condizionale e senza asset aggiuntivi.
+  shared_preferences: ^2.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Roboto impacchettato invece che scaricato.
+  #
+  # Flutter web, lasciato a sé, prende Roboto da fonts.gstatic.com al primo
+  # avvio: in un'officina senza rete, o dietro un firewall aziendale, il testo
+  # uscirebbe con un ripiego di sistema. Mezzo megabyte è un prezzo onesto per
+  # un'app che deve funzionare offline. Licenza Apache 2.0 in
+  # assets/fonts/Roboto_LICENSE.txt.
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Roboto-Bold.ttf
+          weight: 700

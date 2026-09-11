@@ -1,0 +1,36 @@
+{
+    "name": "Sviluppo Lamiera",
+    "short_name": "Sviluppo Lamiera",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#F8F9FA",
+    "theme_color": "#2C3E50",
+    "description": "Fattore K, sviluppo, lato minimo e sequenza di piega per chi lavora alla pressa piegatrice.",
+    "orientation": "any",
+    "lang": "it",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

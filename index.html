@@ -87,6 +87,41 @@
         .btn-google-play img {
             height: 60px;
         }
+        .altre-app {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            text-align: left;
+        }
+        .app-card {
+            padding: 24px;
+            background: #fbfcfd;
+            border-left: 4px solid var(--accent-color);
+            border-radius: 4px;
+        }
+        .app-card strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        .app-card p {
+            margin: 0 0 16px;
+            color: #555;
+        }
+        .btn-apri {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            transition: background 0.2s ease;
+        }
+        .btn-apri:hover {
+            background: #d35400;
+        }
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -140,6 +175,18 @@
             <a href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso" class="btn-google-play">
                 <img src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play">
             </a>
+        </div>
+    </section>
+
+    <section class="altre-app">
+        <h2>Altre app Qualifix</h2>
+        <div class="app-card">
+            <strong>Sviluppo Lamiera</strong>
+            <p>Per chi lavora alla pressa piegatrice: fattore K secondo DIN 6935,
+               sviluppo della lamiera, lato minimo piegabile e sequenza delle pieghe,
+               con il tuo parco di cave e coltelli. Funziona nel browser, anche
+               offline, e si installa su tablet e telefono.</p>
+            <a href="sviluppo-lamiera/" class="btn-apri">Apri l'app &rarr;</a>
         </div>
     </section>
 </div>
