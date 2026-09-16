@@ -12,14 +12,12 @@ import 'posizionatore.dart';
 enum TipoCollisione {
   punzone,
   matrice,
-  banco,
-  altezzaUtensile;
+  banco;
 
   String get etichetta => switch (this) {
         TipoCollisione.punzone => 'il coltello',
         TipoCollisione.matrice => 'la cava',
         TipoCollisione.banco => 'il banco',
-        TipoCollisione.altezzaUtensile => "l'altezza dell'utensile",
       };
 }
 
@@ -100,6 +98,8 @@ abstract final class RilevatoreCollisioni {
     'Non tiene conto del peso del pezzo, della flessione dei lembi lunghi né '
         'di come lo regge l\'operatore.',
     'Non calcola il ritorno elastico: gli angoli sono quelli a fondo corsa.',
+    'Non conosce l\'altezza utile della pressa: un lembo molto alto potrebbe '
+        'non passare sotto la slitta anche se qui risulta libero.',
   ];
 
   /// Verifica un singolo passo di piega lungo tutta la corsa.
@@ -201,15 +201,6 @@ abstract final class RilevatoreCollisioni {
         if (!collide) {
           angoloCritico = angolo;
           tipo = TipoCollisione.banco;
-          collide = true;
-        }
-      }
-
-      // --- altezza utile del coltello --------------------------------------
-      if (pezzo.altezzaMassima > punzone.altezza) {
-        if (!collide) {
-          angoloCritico = angolo;
-          tipo = TipoCollisione.altezzaUtensile;
           collide = true;
         }
       }

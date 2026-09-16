@@ -168,6 +168,38 @@ void main() {
       expect(profilo.haStrutturaValida, isTrue);
     });
 
+    test('si può aggiungere un tratto anche in testa', () {
+      final profilo = ProfiloLamiera.esempio().conTrattoInTesta(lunghezza: 40);
+      expect(profilo.tratti.map((t) => t.etichetta), ['A', 'B', 'C']);
+      expect(profilo.tratti.first.lunghezza, 40);
+      expect(profilo.pieghe, hasLength(2));
+      expect(profilo.haStrutturaValida, isTrue);
+    });
+
+    test('togliendo una piega i due lembi si sommano', () {
+      // Una U 50-100-50: tolta la seconda piega restano 50 e 150, non 50 e 100.
+      final profilo = ProfiloLamiera(
+        spessore: 2,
+        idMatricePredefinita: 'sys_matrice_v16',
+        tratti: const [
+          TrattoProfilo('A', 50),
+          TrattoProfilo('B', 100),
+          TrattoProfilo('C', 50),
+        ],
+        pieghe: const [PiegaProfilo(), PiegaProfilo()],
+      ).senzaPiega(1);
+
+      expect(profilo.pieghe, hasLength(1));
+      expect(profilo.tratti.map((t) => t.lunghezza), [50, 150]);
+      expect(profilo.tratti.map((t) => t.etichetta), ['A', 'B']);
+      expect(profilo.haStrutturaValida, isTrue);
+    });
+
+    test('l\'ultima piega non si può togliere', () {
+      final profilo = ProfiloLamiera.esempio();
+      expect(profilo.senzaPiega(0).pieghe, hasLength(1));
+    });
+
     test('un profilo a due tratti non si può ridurre oltre', () {
       final profilo = ProfiloLamiera.esempio();
       expect(profilo.senzaTratto(0).tratti, hasLength(2));

@@ -76,7 +76,7 @@ class _SchermataSequenzaState extends State<SchermataSequenza> {
       children: [
         SchedaRisultato(
           titolo: 'Ordine consigliato',
-          valore: sequenza.ordine.join(' → '),
+          valore: sequenza.ordine.join(' » '),
           sottotitolo: sequenza.fattibile
               ? '${sequenza.cambiUtensile} cambi utensile · '
                   '${sequenza.ribaltamenti} ribaltamenti'

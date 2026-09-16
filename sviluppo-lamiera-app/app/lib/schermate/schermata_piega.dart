@@ -236,8 +236,8 @@ class _SchermataPiegaState extends State<SchermataPiega> {
           child: Text(
             'In piega in aria il raggio interno non si sceglie: lo produce la '
             'cava.\n\n'
-            'Ri = c · V  →  il rapporto Ri/S  →  il fattore K secondo DIN 6935 '
-            '→  abbuono, sporgenza e detrazione  →  lo sviluppo.\n\n'
+            'Ri = c · V  »  il rapporto Ri/S  »  il fattore K secondo DIN 6935 '
+            '»  abbuono, sporgenza e detrazione  »  lo sviluppo.\n\n'
             'L\'app mostra ogni anello invece del solo risultato, così puoi '
             'controllarli con la tua esperienza: se il raggio non ti torna, il '
             'numero finale è sbagliato e te ne accorgi prima di tagliare.\n\n'

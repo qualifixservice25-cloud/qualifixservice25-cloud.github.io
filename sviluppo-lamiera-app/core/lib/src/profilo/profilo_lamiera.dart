@@ -194,6 +194,52 @@ class ProfiloLamiera {
     );
   }
 
+  /// Aggiunge un tratto in testa, con la piega che lo collega al primo.
+  ///
+  /// Serve perché un profilo cresce dalle due parti: capita di accorgersi che
+  /// prima del primo lato ce n'è un altro.
+  ProfiloLamiera conTrattoInTesta({
+    double lunghezza = 50,
+    PiegaProfilo piega = const PiegaProfilo(),
+  }) {
+    final nuoviTratti = [TrattoProfilo('', lunghezza), ...tratti];
+    return copiaCon(
+      tratti: [
+        for (var i = 0; i < nuoviTratti.length; i++)
+          nuoviTratti[i].copiaCon(etichetta: _etichettaPer(i)),
+      ],
+      pieghe: [piega, ...pieghe],
+    );
+  }
+
+  /// Toglie la piega [indice] unendo i due tratti che separava.
+  ///
+  /// Le due lunghezze si sommano: togliendo una piega i due lembi diventano un
+  /// lembo solo, e buttarne via uno cambierebbe il pezzo invece di raddrizzarlo.
+  ProfiloLamiera senzaPiega(int indice) {
+    if (pieghe.length <= 1 || indice < 0 || indice >= pieghe.length) {
+      return this;
+    }
+    final nuoviTratti = <TrattoProfilo>[];
+    for (var i = 0; i < tratti.length; i++) {
+      if (i == indice) {
+        nuoviTratti.add(TrattoProfilo(
+          '',
+          tratti[i].lunghezza + tratti[i + 1].lunghezza,
+        ));
+      } else if (i != indice + 1) {
+        nuoviTratti.add(tratti[i]);
+      }
+    }
+    return copiaCon(
+      tratti: [
+        for (var i = 0; i < nuoviTratti.length; i++)
+          nuoviTratti[i].copiaCon(etichetta: _etichettaPer(i)),
+      ],
+      pieghe: [...pieghe]..removeAt(indice),
+    );
+  }
+
   /// Toglie il tratto [indice] e la piega che lo accompagna, rinumerando.
   ProfiloLamiera senzaTratto(int indice) {
     if (tratti.length <= 2) return this;

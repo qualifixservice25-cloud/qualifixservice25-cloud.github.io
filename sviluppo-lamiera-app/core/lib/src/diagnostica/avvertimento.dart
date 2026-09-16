@@ -24,7 +24,6 @@ abstract final class CodiceAvvertimento {
   static const collisionePunzone = 'COLLISIONE_PUNZONE';
   static const collisioneMatrice = 'COLLISIONE_MATRICE';
   static const collisioneBanco = 'COLLISIONE_BANCO';
-  static const altezzaUtensileInsufficiente = 'ALTEZZA_UTENSILE';
   static const ricercaLimitata = 'RICERCA_LIMITATA';
   static const nessunaSequenzaFattibile = 'NESSUNA_SEQUENZA';
   static const kTarato = 'K_TARATO';

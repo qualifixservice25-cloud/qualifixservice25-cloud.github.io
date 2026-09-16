@@ -53,9 +53,6 @@ class ParametriSequenza {
   /// Larghezza del fascio di ricerca.
   final int larghezzaBeam;
 
-  /// Prova anche il pezzo ribaltato quando nel verso naturale collide.
-  final bool provaRibaltamento;
-
   /// Prova un collo d'oca quando il coltello assegnato collide.
   final bool provaColloDoca;
 
@@ -68,7 +65,6 @@ class ParametriSequenza {
     this.campioniCorsa = RilevatoreCollisioni.campioniCorsaPredefiniti,
     this.maxSequenzeRestituite = 5,
     this.larghezzaBeam = 200,
-    this.provaRibaltamento = true,
     this.provaColloDoca = true,
     this.pesi = const PesiSequenza(),
     this.latoMinimo = const ParametriLatoMinimo(),
@@ -80,6 +76,10 @@ class PassoSequenza {
   final int indicePiega;
   final String idPunzone;
   final String idMatrice;
+  /// Vero se il pezzo va girato per eseguire questa piega.
+  ///
+  /// Non è una scelta: la pressa piega sempre verso l'alto, quindi una piega in
+  /// giù si fa girando il pezzo. Il valore discende dal verso della piega.
   final bool ribaltato;
 
   /// Le pieghe già formate quando si arriva a questo passo: serve a ricostruire
@@ -145,11 +145,14 @@ class SequenzaCandidata {
     return conta;
   }
 
+  /// Quante volte il pezzo va girato fra le mani.
+  ///
+  /// Si contano solo i cambi fra un passo e il successivo: come è orientato il
+  /// pezzo al primo passo non è un ribaltamento, è come lo si prende in mano.
   int get ribaltamenti {
     var conta = 0;
-    for (var i = 0; i < passi.length; i++) {
-      final precedente = i == 0 ? false : passi[i - 1].ribaltato;
-      if (passi[i].ribaltato != precedente) conta++;
+    for (var i = 1; i < passi.length; i++) {
+      if (passi[i].ribaltato != passi[i - 1].ribaltato) conta++;
     }
     return conta;
   }
@@ -343,29 +346,47 @@ abstract final class MotoreSequenza {
           final idMatrice = profilo.idMatricePer(j);
           if (idMatrice == null) continue;
 
+          final precedente =
+              parziale.passi.isEmpty ? null : parziale.passi.last;
+
+          // Il verso del pezzo non si cerca: si deduce.
+          //
+          // La pressa piega sempre verso l'alto — il punzone scende e i lembi
+          // salgono. Per fare una piega nell'altro verso il pezzo va girato, e
+          // non c'è alternativa. Quindi il ribaltamento è deciso dal verso
+          // della piega, e quello che il motore può davvero scegliere è
+          // l'ordine: raggruppare le pieghe dello stesso verso significa
+          // girare il pezzo una volta sola.
+          final ribaltato =
+              profilo.pieghe[j].verso == VersoPiega.giu;
+
           PassoSequenza? migliore;
+          var costoMigliore = double.infinity;
+
           for (final idPunzone in candidati) {
-            for (final ribaltato in parametri.provaRibaltamento
-                ? const [false, true]
-                : const [false]) {
-              final passo = valuta(j, parziale.maschera, idPunzone, idMatrice,
-                  ribaltato);
-              if (passo == null) continue;
-              if (passo.fattibile) {
-                migliore = passo;
-                break;
-              }
-              migliore ??= passo;
+            final passo =
+                valuta(j, parziale.maschera, idPunzone, idMatrice, ribaltato);
+            if (passo == null) continue;
+            final costo = _costoPasso(
+              passo: passo,
+              precedente: precedente,
+              parametri: parametri,
+            );
+            final preferibile = migliore == null ||
+                (passo.fattibile && !migliore.fattibile) ||
+                (passo.fattibile == migliore.fattibile &&
+                    costo < costoMigliore);
+            if (preferibile) {
+              migliore = passo;
+              costoMigliore = costo;
             }
-            if (migliore != null && migliore.fattibile) break;
+            // Gli altri coltelli sono il ripiego: si provano solo se quello
+            // assegnato non basta.
+            if (passo.fattibile) break;
           }
           if (migliore == null) continue;
 
-          final costoPasso = _costoPasso(
-            passo: migliore,
-            precedente: parziale.passi.isEmpty ? null : parziale.passi.last,
-            parametri: parametri,
-          );
+          final costoPasso = costoMigliore;
 
           successivi.add(_Parziale(
             maschera: parziale.maschera | (1 << j),
@@ -541,9 +562,9 @@ abstract final class MotoreSequenza {
         costo += pesi.cambioUtensile;
       }
       if (precedente.ribaltato != passo.ribaltato) costo += pesi.ribaltamento;
-    } else if (passo.ribaltato) {
-      costo += pesi.ribaltamento;
     }
+    // Nessun addebito sul primo passo: il pezzo lo si prende in mano come
+    // capita, e far pagare un ribaltamento prima di averlo posato non ha senso.
 
     // Solo il gioco dal coltello entra nel costo: quello dalla cava è appoggio
     // normale, non una distanza da massimizzare.
@@ -573,8 +594,6 @@ abstract final class MotoreSequenza {
         TipoCollisione.punzone => CodiceAvvertimento.collisionePunzone,
         TipoCollisione.matrice => CodiceAvvertimento.collisioneMatrice,
         TipoCollisione.banco => CodiceAvvertimento.collisioneBanco,
-        TipoCollisione.altezzaUtensile =>
-          CodiceAvvertimento.altezzaUtensileInsufficiente,
       };
 
   /// Quante pieghe al massimo prima che la ricerca debba potare.

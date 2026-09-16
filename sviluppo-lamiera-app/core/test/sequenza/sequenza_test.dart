@@ -24,6 +24,71 @@ ProfiloLamiera _profilo({
 void main() {
   final inventario = CatalogoStandard.inventario();
 
+  group('Ribaltamenti', () {
+    // La pressa piega sempre verso l'alto: una piega in giù si fa girando il
+    // pezzo. Il ribaltamento non è una scelta del motore, discende dal verso.
+
+    test('pieghe tutte nello stesso verso: il pezzo non si gira mai', () {
+      final r = MotoreSequenza.calcola(
+        _profilo(
+          quote: [30, 80, 120, 80],
+          pieghe: const [PiegaProfilo(), PiegaProfilo(), PiegaProfilo()],
+        ),
+        inventario,
+      );
+      expect(r.migliore!.ribaltamenti, 0);
+    });
+
+    test('un profilo a Z va girato una volta', () {
+      final r = MotoreSequenza.calcola(
+        _profilo(
+          quote: [40, 60, 40],
+          pieghe: const [
+            PiegaProfilo(),
+            PiegaProfilo(verso: VersoPiega.giu),
+          ],
+        ),
+        inventario,
+      );
+      expect(r.migliore!.fattibile, isTrue, reason: r.avvertimenti.join('\n'));
+      expect(r.migliore!.ribaltamenti, 1,
+          reason: 'due pieghe di verso opposto impongono un giro del pezzo');
+    });
+
+    test('come prendi in mano il pezzo non è un ribaltamento', () {
+      // Una piega sola, in giù: il pezzo lo si appoggia già girato. Contare
+      // un ribaltamento prima di aver posato il pezzo non ha senso.
+      final r = MotoreSequenza.calcola(
+        _profilo(
+          quote: [100, 100],
+          pieghe: const [PiegaProfilo(verso: VersoPiega.giu)],
+        ),
+        inventario,
+      );
+      expect(r.migliore!.passi.single.ribaltato, isTrue);
+      expect(r.migliore!.ribaltamenti, 0);
+    });
+
+    test('il motore raggruppa le pieghe dello stesso verso', () {
+      // Versi su-giù-giù-su: preso nell'ordine naturale il pezzo andrebbe
+      // girato due volte; raggruppando basta una.
+      final r = MotoreSequenza.calcola(
+        _profilo(
+          quote: [25, 40, 200, 40, 25],
+          pieghe: const [
+            PiegaProfilo(),
+            PiegaProfilo(verso: VersoPiega.giu),
+            PiegaProfilo(verso: VersoPiega.giu),
+            PiegaProfilo(),
+          ],
+        ),
+        inventario,
+      );
+      expect(r.migliore!.ribaltamenti, 1,
+          reason: 'l\'ordine 1-2-3-4 ne richiederebbe due');
+    });
+  });
+
   group('Struttura del risultato', () {
     test('una squadretta a una piega dà una sequenza di un passo', () {
       final r = MotoreSequenza.calcola(

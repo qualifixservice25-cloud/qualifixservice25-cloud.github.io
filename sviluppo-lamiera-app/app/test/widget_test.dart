@@ -93,19 +93,50 @@ void main() {
     expect(dopo.brightness, Brightness.dark);
   });
 
-  testWidgets('aggiungere un tratto allunga il pezzo', (tester) async {
+  testWidgets('il disegno del profilo è al suo posto', (tester) async {
     await avvia(tester);
-
     await tester.tap(find.byIcon(Icons.straighten_outlined));
     await tester.pumpAndSettle();
 
-    expect(find.text('Tratto C'), findsNothing);
+    // Il riquadro è l'editor: deve esserci, e deve essere grande.
+    final riquadro = find.byType(CustomPaint);
+    expect(riquadro, findsWidgets);
+    expect(find.text('COME HAI QUOTATO IL DISEGNO'), findsOneWidget);
+  });
 
-    await tester.tap(find.widgetWithText(OutlinedButton, 'Aggiungi tratto'));
+  testWidgets('lo spessore si cambia col tastierino', (tester) async {
+    await avvia(tester);
+    await tester.tap(find.byIcon(Icons.straighten_outlined));
     await tester.pumpAndSettle();
 
-    expect(find.text('Tratto C'), findsOneWidget);
-    // Con un tratto in più lo sviluppo non è più quello della squadretta.
+    expect(find.text('2,0 mm'), findsWidgets);
+
+    await tester.tap(find.text('SPESSORE'));
+    await tester.pumpAndSettle();
+
+    // Il tastierino grande, non la tastiera di sistema.
+    expect(find.text('Spessore della lamiera'), findsOneWidget);
+    expect(find.text('7'), findsOneWidget);
+    expect(find.byIcon(Icons.backspace_outlined), findsOneWidget);
+
+    await tester.tap(find.text('3'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Conferma'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('3,0 mm'), findsWidgets);
+    // Cambiato lo spessore, la squadretta non sviluppa più 196,0.
     expect(find.text('196,0 mm'), findsNothing);
+  });
+
+  testWidgets('la scheda della piega si apre e cambia l\'angolo',
+      (tester) async {
+    await avvia(tester);
+    await tester.tap(find.byIcon(Icons.straighten_outlined));
+    await tester.pumpAndSettle();
+
+    // Si passa dalla tabella di dettaglio, che elenca le pieghe.
+    expect(find.text('DETTAGLIO PER PIEGA'), findsOneWidget);
+    expect(find.text('90°'), findsWidgets);
   });
 }
