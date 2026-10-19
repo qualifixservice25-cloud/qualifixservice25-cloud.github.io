@@ -1,157 +1,748 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calcolo Cartongesso - Qualifix Service</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #e67e22;
-            --success-color: #27ae60;
-            --bg-color: #f8f9fa;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            background-color: var(--bg-color);
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 6px solid var(--accent-color);
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin: 0;
-            letter-spacing: -1px;
-        }
-        .hero p {
-            font-size: 1.3em;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        .container {
-            max-width: 900px;
-            margin: -40px auto 40px;
-            padding: 40px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .main-content {
-            text-align: center;
-        }
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .feature-card {
-            padding: 20px;
-            background: #fff;
-            border-left: 4px solid var(--success-color);
-            border-radius: 4px;
-        }
-        .feature-card strong {
-            display: block;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-        .cta-section {
-            background: #f1f4f6;
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-        .btn-google-play {
-            display: inline-block;
-            transition: transform 0.2s ease;
-        }
-        .btn-google-play:hover {
-            transform: scale(1.05);
-        }
-        .btn-google-play img {
-            height: 60px;
-        }
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9em;
-            color: #666;
-        }
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2em; }
-            .container { margin-top: -20px; padding: 20px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calcolo Cartongesso – Qualifix Service</title>
+<meta name="description" content="Calcolo Cartongesso: lastre, profili, viti e stucco per controsoffitti, tramezze, contropareti e velette in pochi secondi. Nuovo Progetto 3D. In 10 lingue.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="alternate" hreflang="it" href="https://qualifixservice25-cloud.github.io/?lang=it">
+<link rel="alternate" hreflang="en" href="https://qualifixservice25-cloud.github.io/?lang=en">
+<link rel="alternate" hreflang="de" href="https://qualifixservice25-cloud.github.io/?lang=de">
+<link rel="alternate" hreflang="es" href="https://qualifixservice25-cloud.github.io/?lang=es">
+<link rel="alternate" hreflang="fr" href="https://qualifixservice25-cloud.github.io/?lang=fr">
+<link rel="alternate" hreflang="nl" href="https://qualifixservice25-cloud.github.io/?lang=nl">
+<link rel="alternate" hreflang="ro" href="https://qualifixservice25-cloud.github.io/?lang=ro">
+<link rel="alternate" hreflang="sq" href="https://qualifixservice25-cloud.github.io/?lang=sq">
+<link rel="alternate" hreflang="ru" href="https://qualifixservice25-cloud.github.io/?lang=ru">
+<link rel="alternate" hreflang="ar" href="https://qualifixservice25-cloud.github.io/?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://qualifixservice25-cloud.github.io/">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #2c3e50;
+    --primary-dark: #1a252f;
+    --accent-color: #e67e22;
+    --success-color: #27ae60;
+    --bg-color: #f4f6f8;
+    --text: #333;
+    --muted: #5f6b76;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    margin: 0;
+    background: var(--bg-color);
+  }
+  img { max-width: 100%; height: auto; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+
+  /* Barra in alto e intestazione */
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; text-decoration: none; }
+  .brand img { width: 36px; height: 36px; border-radius: 8px; }
+  .lingua { display: flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9em; }
+  .lingua select {
+    font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.12); color: #fff;
+  }
+  .lingua select option { color: #222; }
+  header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: #fff;
+    border-bottom: 6px solid var(--accent-color);
+  }
+  .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: center; padding: 30px 0 60px; }
+  .hero h1 { font-size: 3em; line-height: 1.1; margin: 0 0 14px; letter-spacing: -1px; }
+  .hero .sub { font-size: 1.3em; font-weight: 300; margin: 0 0 8px; opacity: 0.95; }
+  .hero .small { opacity: 0.75; margin: 0 0 24px; }
+  .hero-shots { display: flex; justify-content: center; gap: 14px; }
+  .hero-shots img { width: 46%; max-width: 230px; }
+  .hero-shots img:last-child { margin-top: 40px; }
+
+  /* Telefono */
+  .phone { border-radius: 22px; border: 6px solid #111; background: #111; box-shadow: 0 14px 34px rgba(0,0,0,0.35); display: block; }
+
+  .badge img { height: 62px; width: auto; transition: transform 0.2s ease; }
+  .badge:hover img { transform: scale(1.05); }
+
+  /* Sezioni */
+  section { padding: 56px 0; }
+  section:nth-of-type(even) { background: #fff; }
+  h2 { color: var(--primary-color); font-size: 1.9em; margin: 0 0 12px; line-height: 1.25; }
+  .lead { font-size: 1.15em; color: var(--muted); margin: 0 0 18px; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .split.reverse .testo { order: 2; }
+  .shots { display: flex; gap: 14px; justify-content: center; }
+  .shots img { width: 31%; max-width: 200px; }
+  .shots.una img { width: 60%; max-width: 250px; }
+  ul.punti { list-style: none; padding: 0; margin: 0 0 14px; }
+  ul.punti li {
+    position: relative; padding: 10px 14px 10px 44px; margin-bottom: 10px;
+    background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  section:nth-of-type(even) ul.punti li { background: var(--bg-color); }
+  ul.punti li::before { content: "✓"; position: absolute; left: 14px; top: 9px; color: var(--success-color); font-weight: 900; }
+  .nota { font-size: 0.95em; color: var(--muted); }
+  .etichetta {
+    display: inline-block; background: var(--accent-color); color: #fff; font-weight: 700;
+    border-radius: 999px; padding: 3px 12px; font-size: 0.85em; margin-bottom: 10px;
+  }
+
+  /* Gratis e PRO */
+  .piani { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
+  .piano { background: #fff; border-radius: 14px; padding: 26px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+  .piano h3 { margin: 0 0 12px; font-size: 1.5em; color: var(--primary-color); }
+  .piano.pro { border: 3px solid #f5b400; background: linear-gradient(180deg, #fffaf0 0%, #fff 60%); }
+  .piano.pro h3 { color: #b37400; }
+  .piano ul.punti li, section:nth-of-type(even) .piano ul.punti li { background: transparent; box-shadow: none; padding: 6px 0 6px 30px; margin: 0; }
+  .piano ul.punti li::before { left: 4px; top: 5px; }
+  .piano.free ul.punti li:last-child::before { content: "•"; color: var(--muted); }
+  .piano.pro ul.punti li::before { color: #e09b00; }
+
+  /* Galleria */
+  .galleria { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 4px 22px; -webkit-overflow-scrolling: touch; }
+  .galleria figure { flex: 0 0 auto; width: 210px; margin: 0; scroll-snap-align: start; text-align: center; }
+  .galleria figcaption { font-size: 0.9em; color: var(--muted); margin-top: 8px; }
+
+  /* Lingue */
+  .lingue { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px; }
+  .lingue a {
+    padding: 8px 14px; border-radius: 999px; background: var(--bg-color); color: var(--primary-color);
+    text-decoration: none; font-weight: 700; border: 2px solid transparent;
+  }
+  .lingue a.attiva { border-color: var(--accent-color); }
+  .centro { text-align: center; }
+
+  section.cta { background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: #fff; text-align: center; }
+  .cta h2 { color: #fff; }
+  .cta .lead { color: rgba(255,255,255,0.8); }
+
+  footer { text-align: center; padding: 34px 20px; font-size: 0.9em; color: #666; }
+  footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
+  footer a:hover { text-decoration: underline; }
+
+  [dir="rtl"] ul.punti li { padding: 10px 44px 10px 14px; }
+  [dir="rtl"] ul.punti li::before { left: auto; right: 14px; }
+  [dir="rtl"] .piano ul.punti li, [dir="rtl"] section:nth-of-type(even) .piano ul.punti li { padding: 6px 30px 6px 0; }
+  [dir="rtl"] .piano ul.punti li::before { right: 4px; }
+
+  @media (max-width: 800px) {
+    .hero, .split, .piani { grid-template-columns: 1fr; }
+    .split.reverse .testo { order: 0; }
+    .hero h1 { font-size: 2.2em; }
+    .hero { padding-bottom: 40px; }
+    section { padding: 40px 0; }
+    .galleria figure { width: 170px; }
+  }
+</style>
 </head>
 <body>
 
-<header class="hero">
-    <h1>Calcolo Cartongesso</h1>
-    <p>L'assistente indispensabile per il professionista e il fai-da-te</p>
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="./"><img src="img/icona.png" alt="">Calcolo Cartongesso</a>
+      <label class="lingua"><span data-t="lang">Lingua</span>
+        <select id="sceltaLingua" aria-label="Lingua / Language"></select>
+      </label>
+    </div>
+    <div class="hero">
+      <div>
+        <h1>Calcolo Cartongesso</h1>
+        <p class="sub" data-t="hero"></p>
+        <p class="small" data-t="hero_small"></p>
+        <a class="badge" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso">
+          <img data-badge src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Google Play">
+        </a>
+      </div>
+      <div class="hero-shots">
+        <img class="phone" src="img/01_home.webp" width="540" height="1080" alt="">
+        <img class="phone" src="img/07_3d.webp" width="540" height="1080" alt="">
+      </div>
+    </div>
+  </div>
 </header>
 
-<div class="container">
-    <section class="main-content">
-        <h2>Perché scegliere la nostra App?</h2>
-        <p>Progettata per chi lavora in cantiere e ha bisogno di risposte rapide e precise senza complicazioni.</p>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <strong>Velocità estrema</strong>
-                Ottieni il conteggio dei materiali in meno di 10 secondi inserendo solo le misure.
-            </div>
-            <div class="feature-card">
-                <strong>Precisione professionale</strong>
-                Calcolo esatto di lastre, profili (guide e montanti), viti, stucco e accessori.
-            </div>
-            <div class="feature-card">
-                <strong>Zero Sprechi</strong>
-                Ottimizza gli ordini ai fornitori evitando acquisti eccessivi o mancanze in cantiere.
-            </div>
-        </div>
+<main>
+  <section>
+    <div class="wrap split">
+      <div class="testo">
+        <h2 data-t="calc_h"></h2>
+        <p class="lead" data-t="calc_p"></p>
+        <ul class="punti" data-l="calc_li"></ul>
+        <p class="nota" data-t="calc_note"></p>
+      </div>
+      <div class="shots">
+        <img class="phone" src="img/02_controsoffitto.webp" width="540" height="1080" loading="lazy" alt="">
+        <img class="phone" src="img/03_controparete.webp" width="540" height="1080" loading="lazy" alt="">
+        <img class="phone" src="img/04_veletta.webp" width="540" height="1080" loading="lazy" alt="">
+      </div>
+    </div>
+  </section>
 
-        <div class="cta-section">
-            <h3>Scarica ora gratuitamente</h3>
-            <p>Disponibile per tutti i dispositivi Android</p>
-            <a href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso" class="btn-google-play">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play">
-            </a>
+  <section>
+    <div class="wrap split reverse">
+      <div class="testo">
+        <h2 data-t="computo_h"></h2>
+        <p class="lead" data-t="computo_p"></p>
+      </div>
+      <div class="shots una">
+        <img class="phone" src="img/05_computo.webp" width="540" height="1080" loading="lazy" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="testo">
+        <span class="etichetta" data-t="new"></span>
+        <h2 data-t="p3d_h"></h2>
+        <p class="lead" data-t="p3d_p"></p>
+        <ul class="punti" data-l="p3d_li"></ul>
+      </div>
+      <div class="shots">
+        <img class="phone" src="img/06_pianta.webp" width="540" height="1080" loading="lazy" alt="">
+        <img class="phone" src="img/10_parete.webp" width="540" height="1080" loading="lazy" alt="">
+        <img class="phone" src="img/08_3d_struttura.webp" width="540" height="1080" loading="lazy" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="centro" data-t="plans_h"></h2>
+      <div class="piani">
+        <div class="piano free">
+          <h3 data-t="free_h"></h3>
+          <ul class="punti" data-l="free_li"></ul>
         </div>
-    </section>
-</div>
+        <div class="piano pro">
+          <h3>PRO</h3>
+          <ul class="punti" data-l="pro_li"></ul>
+          <p class="nota" data-t="pro_note"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="centro" data-t="gallery_h"></h2>
+      <div class="galleria" id="galleria"></div>
+      <p class="nota centro" data-t="gallery_note"></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap centro">
+      <h2 data-t="langs_h"></h2>
+      <p class="lead" data-t="langs_p"></p>
+      <div class="lingue" id="lingue"></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2 data-t="dl_h"></h2>
+      <p class="lead" data-t="dl_p"></p>
+      <a class="badge" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso">
+        <img data-badge src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Google Play">
+      </a>
+    </div>
+  </section>
+</main>
 
 <footer>
-    <p>&copy; 2026 Qualifix Service - Tutti i diritti riservati</p>
-    <p>
-        <a href="privacy-policy.html">Privacy Policy</a> | 
-        <a href="mailto:qualifix.service25@gmail.com">Contattaci</a>
-    </p>
-    <p style="font-size: 0.7em; opacity: 0.5;">app-ads.txt configurato</p>
+  <p>&copy; 2026 Qualifix Service</p>
+  <p>
+    <a id="linkPrivacy" href="privacy-policy.html" data-t="privacy"></a> |
+    <a href="mailto:qualifix.service25@gmail.com" data-t="contact"></a>
+  </p>
 </footer>
 
+<script>
+// Immagini della galleria, nello stesso ordine delle didascalie ("captions").
+const IMMAGINI = ["01_home", "02_controsoffitto", "03_controparete", "04_veletta", "05_computo",
+  "06_pianta", "07_3d", "08_3d_struttura", "09_3d_trasparente", "10_parete", "11_pro"];
+
+// Le 10 lingue dell'app, con il nome nella lingua stessa.
+const LINGUE = [
+  ["it", "Italiano"], ["en", "English"], ["de", "Deutsch"], ["es", "Español"], ["fr", "Français"],
+  ["nl", "Nederlands"], ["ro", "Română"], ["sq", "Shqip"], ["ru", "Русский"], ["ar", "العربية"]
+];
+
+const TESTI = {
+  it: {
+    title: "Calcolo Cartongesso – materiali per controsoffitti, pareti e Progetto 3D",
+    lang: "Lingua",
+    hero: "Lastre, profili, viti e stucco in pochi secondi. Disegna la casa e guardala in 3D.",
+    hero_small: "Per chi lavora il cartongesso: professionisti e fai-da-te.",
+    calc_h: "I calcoli di tutti i giorni",
+    calc_p: "Inserisci le misure e l'app ti dà subito i materiali, con lo schema in scala e i pesi.",
+    calc_li: ["Controsoffitto a struttura singola o doppia, con pendini e ganci",
+      "Tramezza con montanti, guide e una o due lastre per lato",
+      "Controparete con staffe a L e tasselli",
+      "Veletta con pendini e profili da controsoffitto"],
+    calc_note: "Misure commerciali di lastre, montanti e guide, oppure la lunghezza che trovi in zona.",
+    computo_h: "Il computo del cantiere",
+    computo_p: "Aggiungi ogni lavorazione al computo: l'app somma tutto e ti dà il totale dei materiali da ordinare, anche in PDF da mandare a clienti e fornitori.",
+    new: "Novità",
+    p3d_h: "Progetto 3D",
+    p3d_p: "Disegna la pianta e l'app calcola tutto il cantiere.",
+    p3d_li: ["Stanze a misura o disegnate: i lati che si toccano diventano tramezze",
+      "Tocca una parete per controparete, veletta, porte e finestre; tocca una stanza per il controsoffitto",
+      "Vista 3D con montanti, guide e lastre da ogni angolazione, in sezione e a livelli",
+      "Computo del progetto con gli stessi calcoli dell'app, da mandare al computo con un tocco"],
+    plans_h: "Gratis o PRO",
+    free_h: "Gratis",
+    free_li: ["Tutti i calcoli e il computo", "Progetto 3D con 1 progetto e 1 stanza", "Con pubblicità"],
+    pro_li: ["Nessuna pubblicità", "Progetto 3D illimitato: progetti e stanze senza limiti",
+      "Dal progetto al computo con un tocco", "Computo in PDF da condividere"],
+    pro_note: "Abbonamento mensile con 15 giorni di prova gratuita per i nuovi abbonati. Il prezzo lo vedi su Google Play nella tua valuta; si disdice quando vuoi da Google Play.",
+    gallery_h: "Come appare",
+    gallery_note: "Schermate dell'app in italiano: l'app segue la lingua del telefono.",
+    captions: ["Home", "Controsoffitto", "Controparete", "Veletta", "Computo", "Progetto 3D: pianta",
+      "Progetto 3D: vista 3D", "Progetto 3D: struttura", "Lastre trasparenti", "Tocca una parete", "Versione PRO"],
+    langs_h: "In 10 lingue",
+    langs_p: "L'app e questo sito parlano 10 lingue:",
+    dl_h: "Scarica l'app",
+    dl_p: "Gratis per Android su Google Play.",
+    privacy: "Informativa sulla privacy",
+    contact: "Contattaci",
+    badge_alt: "Disponibile su Google Play"
+  },
+  en: {
+    title: "Calcolo Cartongesso – drywall materials for ceilings, walls and 3D projects",
+    lang: "Language",
+    hero: "Boards, profiles, screws and joint compound in seconds. Draw the house and see it in 3D.",
+    hero_small: "For drywall installers: professionals and DIYers.",
+    calc_h: "Everyday calculations",
+    calc_p: "Enter the measurements and the app gives you the materials right away, with a scale drawing and weights.",
+    calc_li: ["Drywall ceiling with single or double framing, hangers and clips",
+      "Partition wall with studs, tracks and one or two boards per side",
+      "Wall lining with L brackets and wall plugs",
+      "Bulkhead with hangers and ceiling profiles"],
+    calc_note: "Standard lengths for boards, studs and tracks, or the length you find locally.",
+    computo_h: "The site bill of quantities",
+    computo_p: "Add every job to the bill of quantities: the app adds everything up and gives you the total materials to order, also as a PDF to send to clients and suppliers.",
+    new: "New",
+    p3d_h: "3D Project",
+    p3d_p: "Draw the floor plan and the app calculates the whole job.",
+    p3d_li: ["Rooms by size or drawn: touching sides become partition walls",
+      "Tap a wall for wall lining, bulkhead, doors and windows; tap a room for the ceiling",
+      "3D view with studs, tracks and boards from every angle, with section view and layers",
+      "Project bill of quantities with the same calculations as the app, added to the bill of quantities in one tap"],
+    plans_h: "Free or PRO",
+    free_h: "Free",
+    free_li: ["All calculations and the bill of quantities", "3D Project with 1 project and 1 room", "With ads"],
+    pro_li: ["No ads", "Unlimited 3D Project: as many projects and rooms as you want",
+      "From project to bill of quantities in one tap", "Bill of quantities as a PDF to share"],
+    pro_note: "Monthly subscription with a 15-day free trial for new subscribers. You see the price on Google Play in your currency; cancel any time from Google Play.",
+    gallery_h: "Take a look",
+    gallery_note: "Screenshots of the app in Italian: the app follows your phone's language.",
+    captions: ["Home", "Drywall ceiling", "Wall lining", "Bulkhead", "Bill of quantities", "3D Project: floor plan",
+      "3D Project: 3D view", "3D Project: framing", "See-through boards", "Tap a wall", "PRO version"],
+    langs_h: "In 10 languages",
+    langs_p: "The app and this website speak 10 languages:",
+    dl_h: "Get the app",
+    dl_p: "Free for Android on Google Play.",
+    privacy: "Privacy policy",
+    contact: "Contact us",
+    badge_alt: "Get it on Google Play"
+  },
+  de: {
+    title: "Calcolo Cartongesso – Trockenbau-Material für Decken, Wände und 3D-Projekte",
+    lang: "Sprache",
+    hero: "Platten, Profile, Schrauben und Spachtelmasse in Sekunden. Zeichne das Haus und sieh es in 3D.",
+    hero_small: "Für Trockenbauer: Profis und Heimwerker.",
+    calc_h: "Die täglichen Berechnungen",
+    calc_p: "Gib die Maße ein und die App zeigt sofort das Material, mit maßstäblicher Zeichnung und Gewichten.",
+    calc_li: ["Abgehängte Decke mit einfacher oder doppelter Unterkonstruktion, Abhängern und Verbindern",
+      "Trennwand mit C- und U-Profilen und einer oder zwei Platten pro Seite",
+      "Vorsatzschale mit L-Winkeln und Dübeln",
+      "Deckenschürze mit Abhängern und Deckenprofilen"],
+    calc_note: "Handelsübliche Längen für Platten und Profile oder die Länge, die du vor Ort bekommst.",
+    computo_h: "Die Materialaufstellung der Baustelle",
+    computo_p: "Füge jede Arbeit der Materialaufstellung hinzu: Die App rechnet alles zusammen und zeigt das gesamte Material zum Bestellen, auch als PDF für Kunden und Lieferanten.",
+    new: "Neu",
+    p3d_h: "3D-Projekt",
+    p3d_p: "Zeichne den Grundriss und die App berechnet die ganze Baustelle.",
+    p3d_li: ["Räume nach Maß oder gezeichnet: Seiten, die sich berühren, werden zu Trennwänden",
+      "Tippe auf eine Wand für Vorsatzschale, Deckenschürze, Türen und Fenster; tippe auf einen Raum für die abgehängte Decke",
+      "3D-Ansicht mit C-Profilen, U-Profilen und Platten aus jedem Blickwinkel, mit Schnittansicht und Ebenen",
+      "Projektaufstellung mit denselben Berechnungen wie die App, mit einem Tippen in die Materialaufstellung"],
+    plans_h: "Kostenlos oder PRO",
+    free_h: "Kostenlos",
+    free_li: ["Alle Berechnungen und die Materialaufstellung", "3D-Projekt mit 1 Projekt und 1 Raum", "Mit Werbung"],
+    pro_li: ["Keine Werbung", "Unbegrenztes 3D-Projekt: so viele Projekte und Räume, wie du willst",
+      "Vom Projekt mit einem Tippen in die Materialaufstellung", "Materialaufstellung als PDF zum Teilen"],
+    pro_note: "Monatsabo mit 15 Tagen kostenlosem Test für neue Abonnenten. Den Preis siehst du bei Google Play in deiner Währung; jederzeit über Google Play kündbar.",
+    gallery_h: "So sieht sie aus",
+    gallery_note: "Bildschirmfotos der App auf Italienisch: Die App folgt der Sprache deines Telefons.",
+    captions: ["Start", "Abgehängte Decke", "Vorsatzschale", "Deckenschürze", "Materialaufstellung", "3D-Projekt: Grundriss",
+      "3D-Projekt: 3D-Ansicht", "3D-Projekt: Unterkonstruktion", "Transparente Platten", "Tippe auf eine Wand", "PRO-Version"],
+    langs_h: "In 10 Sprachen",
+    langs_p: "Die App und diese Website sprechen 10 Sprachen:",
+    dl_h: "App herunterladen",
+    dl_p: "Kostenlos für Android bei Google Play.",
+    privacy: "Datenschutzerklärung",
+    contact: "Kontakt",
+    badge_alt: "Jetzt bei Google Play"
+  },
+  es: {
+    title: "Calcolo Cartongesso – materiales de pladur para techos, paredes y Proyecto 3D",
+    lang: "Idioma",
+    hero: "Placas, perfiles, tornillos y pasta en segundos. Dibuja la casa y mírala en 3D.",
+    hero_small: "Para quien trabaja el pladur: profesionales y bricolaje.",
+    calc_h: "Los cálculos de todos los días",
+    calc_p: "Introduce las medidas y la app te da al momento los materiales, con el esquema a escala y los pesos.",
+    calc_li: ["Falso techo con estructura simple o doble, con cuelgues y caballetes",
+      "Tabique con montantes, canales y una o dos placas por cara",
+      "Trasdosado con escuadras en L y tacos",
+      "Faldón con cuelgues y perfiles de techo"],
+    calc_note: "Medidas comerciales de placas, montantes y canales, o la longitud que encuentres en tu zona.",
+    computo_h: "El cómputo de la obra",
+    computo_p: "Añade cada trabajo al cómputo: la app lo suma todo y te da el total de materiales a pedir, también en PDF para enviar a clientes y proveedores.",
+    new: "Novedad",
+    p3d_h: "Proyecto 3D",
+    p3d_p: "Dibuja la planta y la app calcula toda la obra.",
+    p3d_li: ["Habitaciones con sus medidas o dibujadas: los lados que se tocan se convierten en tabiques",
+      "Toca una pared para trasdosado, faldón, puertas y ventanas; toca una habitación para el falso techo",
+      "Vista 3D con montantes, canales y placas desde cualquier ángulo, en sección y por niveles",
+      "Cómputo del proyecto con los mismos cálculos de la app, enviado al cómputo con un toque"],
+    plans_h: "Gratis o PRO",
+    free_h: "Gratis",
+    free_li: ["Todos los cálculos y el cómputo", "Proyecto 3D con 1 proyecto y 1 habitación", "Con publicidad"],
+    pro_li: ["Sin publicidad", "Proyecto 3D ilimitado: todos los proyectos y habitaciones que quieras",
+      "Del proyecto al cómputo con un toque", "Cómputo en PDF para compartir"],
+    pro_note: "Suscripción mensual con 15 días de prueba gratuita para los nuevos suscriptores. El precio lo ves en Google Play en tu moneda; puedes cancelarla cuando quieras desde Google Play.",
+    gallery_h: "Así se ve",
+    gallery_note: "Capturas de la app en italiano: la app sigue el idioma de tu teléfono.",
+    captions: ["Inicio", "Falso techo", "Trasdosado", "Faldón", "Cómputo", "Proyecto 3D: planta",
+      "Proyecto 3D: vista 3D", "Proyecto 3D: estructura", "Placas transparentes", "Toca una pared", "Versión PRO"],
+    langs_h: "En 10 idiomas",
+    langs_p: "La app y esta web hablan 10 idiomas:",
+    dl_h: "Descarga la app",
+    dl_p: "Gratis para Android en Google Play.",
+    privacy: "Política de privacidad",
+    contact: "Contacto",
+    badge_alt: "Disponible en Google Play"
+  },
+  fr: {
+    title: "Calcolo Cartongesso – matériaux en plaques de plâtre pour plafonds, cloisons et Projet 3D",
+    lang: "Langue",
+    hero: "Plaques, profilés, vis et enduit en quelques secondes. Dessinez la maison et voyez-la en 3D.",
+    hero_small: "Pour les plaquistes : professionnels et bricoleurs.",
+    calc_h: "Les calculs de tous les jours",
+    calc_p: "Saisissez les dimensions et l'application vous donne aussitôt les matériaux, avec le schéma à l'échelle et les poids.",
+    calc_li: ["Faux plafond à ossature simple ou double, avec suspentes et éclisses",
+      "Cloison avec montants, rails et une ou deux plaques par face",
+      "Contre-cloison avec équerres en L et chevilles",
+      "Retombée avec suspentes et profilés de plafond"],
+    calc_note: "Longueurs du commerce pour les plaques, montants et rails, ou la longueur que vous trouvez près de chez vous.",
+    computo_h: "Le métré du chantier",
+    computo_p: "Ajoutez chaque ouvrage au métré : l'application additionne tout et vous donne le total des matériaux à commander, aussi en PDF à envoyer aux clients et aux fournisseurs.",
+    new: "Nouveau",
+    p3d_h: "Projet 3D",
+    p3d_p: "Dessinez le plan et l'application calcule tout le chantier.",
+    p3d_li: ["Pièces aux bonnes dimensions ou dessinées : les côtés qui se touchent deviennent des cloisons",
+      "Touchez un mur pour la contre-cloison, la retombée, les portes et les fenêtres ; touchez une pièce pour le faux plafond",
+      "Vue 3D avec montants, rails et plaques sous tous les angles, en coupe et par niveaux",
+      "Métré du projet avec les mêmes calculs que l'application, envoyé au métré en un geste"],
+    plans_h: "Gratuit ou PRO",
+    free_h: "Gratuit",
+    free_li: ["Tous les calculs et le métré", "Projet 3D avec 1 projet et 1 pièce", "Avec publicité"],
+    pro_li: ["Sans publicité", "Projet 3D illimité : autant de projets et de pièces que vous voulez",
+      "Du projet au métré en un geste", "Métré en PDF à partager"],
+    pro_note: "Abonnement mensuel avec 15 jours d'essai gratuit pour les nouveaux abonnés. Le prix s'affiche sur Google Play dans votre devise ; résiliable à tout moment depuis Google Play.",
+    gallery_h: "Aperçu",
+    gallery_note: "Captures de l'application en italien : l'application suit la langue de votre téléphone.",
+    captions: ["Accueil", "Faux plafond", "Contre-cloison", "Retombée", "Métré", "Projet 3D : plan",
+      "Projet 3D : vue 3D", "Projet 3D : ossature", "Plaques transparentes", "Touchez un mur", "Version PRO"],
+    langs_h: "En 10 langues",
+    langs_p: "L'application et ce site parlent 10 langues :",
+    dl_h: "Télécharger l'application",
+    dl_p: "Gratuite pour Android sur Google Play.",
+    privacy: "Politique de confidentialité",
+    contact: "Nous contacter",
+    badge_alt: "Disponible sur Google Play"
+  },
+  nl: {
+    title: "Calcolo Cartongesso – gipsplaatmateriaal voor plafonds, wanden en 3D-project",
+    lang: "Taal",
+    hero: "Platen, profielen, schroeven en voegmiddel in een paar seconden. Teken het huis en bekijk het in 3D.",
+    hero_small: "Voor wie met gipsplaat werkt: vakmensen en doe-het-zelvers.",
+    calc_h: "De berekeningen van elke dag",
+    calc_p: "Voer de maten in en de app geeft meteen het materiaal, met een tekening op schaal en de gewichten.",
+    calc_li: ["Verlaagd plafond met enkele of dubbele structuur, met hangers en koppelstukken",
+      "Tussenwand met C-profielen, U-profielen en één of twee platen per zijde",
+      "Voorzetwand met L-beugels en pluggen",
+      "Koof met hangers en plafondprofielen"],
+    calc_note: "Standaardlengtes voor platen en profielen, of de lengte die je in de buurt vindt.",
+    computo_h: "De materialenlijst van de klus",
+    computo_p: "Voeg elk werk toe aan de materialenlijst: de app telt alles op en geeft het totaal te bestellen materiaal, ook als pdf om naar klanten en leveranciers te sturen.",
+    new: "Nieuw",
+    p3d_h: "3D-project",
+    p3d_p: "Teken de plattegrond en de app berekent de hele klus.",
+    p3d_li: ["Ruimtes op maat of getekend: zijden die elkaar raken worden tussenwanden",
+      "Tik op een wand voor voorzetwand, koof, deuren en ramen; tik op een ruimte voor het verlaagde plafond",
+      "3D-weergave met C-profielen, U-profielen en platen vanuit elke hoek, met doorsnede en lagen",
+      "Materialenlijst van het project met dezelfde berekeningen als de app, met één tik naar de materialenlijst"],
+    plans_h: "Gratis of PRO",
+    free_h: "Gratis",
+    free_li: ["Alle berekeningen en de materialenlijst", "3D-project met 1 project en 1 ruimte", "Met advertenties"],
+    pro_li: ["Geen advertenties", "Onbeperkt 3D-project: zoveel projecten en ruimtes als je wilt",
+      "Met één tik van het project naar de materialenlijst", "Materialenlijst als pdf om te delen"],
+    pro_note: "Maandabonnement met 15 dagen gratis proberen voor nieuwe abonnees. De prijs zie je in Google Play in je eigen valuta; altijd opzegbaar via Google Play.",
+    gallery_h: "Zo ziet het eruit",
+    gallery_note: "Schermafbeeldingen van de app in het Italiaans: de app volgt de taal van je telefoon.",
+    captions: ["Start", "Verlaagd plafond", "Voorzetwand", "Koof", "Materialenlijst", "3D-project: plattegrond",
+      "3D-project: 3D-weergave", "3D-project: structuur", "Transparante platen", "Tik op een wand", "PRO-versie"],
+    langs_h: "In 10 talen",
+    langs_p: "De app en deze website spreken 10 talen:",
+    dl_h: "Download de app",
+    dl_p: "Gratis voor Android in Google Play.",
+    privacy: "Privacybeleid",
+    contact: "Contact",
+    badge_alt: "Ontdek het op Google Play"
+  },
+  ro: {
+    title: "Calcolo Cartongesso – materiale de gips-carton pentru tavane, pereți și Proiect 3D",
+    lang: "Limba",
+    hero: "Plăci, profile, șuruburi și chit în câteva secunde. Desenează casa și vezi-o în 3D.",
+    hero_small: "Pentru cei care lucrează cu gips-carton: profesioniști și amatori.",
+    calc_h: "Calculele de zi cu zi",
+    calc_p: "Introdu dimensiunile și aplicația îți dă imediat materialele, cu schița la scară și greutățile.",
+    calc_li: ["Tavan fals cu structură simplă sau dublă, cu tije de suspendare și cleme",
+      "Perete despărțitor cu montanți, profile și una sau două plăci pe fiecare parte",
+      "Placare cu console în L și dibluri",
+      "Ghenă cu tije de suspendare și profile de tavan"],
+    calc_note: "Lungimi comerciale pentru plăci, montanți și profile sau lungimea pe care o găsești în zonă.",
+    computo_h: "Calculul șantierului",
+    computo_p: "Adaugă fiecare lucrare în calcul: aplicația adună totul și îți dă totalul materialelor de comandat, și în PDF de trimis clienților și furnizorilor.",
+    new: "Nou",
+    p3d_h: "Proiect 3D",
+    p3d_p: "Desenează planul și aplicația calculează tot șantierul.",
+    p3d_li: ["Camere la dimensiune sau desenate: laturile care se ating devin pereți despărțitori",
+      "Atinge un perete pentru placare, ghenă, uși și ferestre; atinge o cameră pentru tavanul fals",
+      "Vizualizare 3D cu montanți, profile și plăci din orice unghi, în secțiune și pe straturi",
+      "Calculul proiectului cu aceleași formule ca aplicația, trimis în calcul cu o atingere"],
+    plans_h: "Gratuit sau PRO",
+    free_h: "Gratuit",
+    free_li: ["Toate calculele și calculul materialelor", "Proiect 3D cu 1 proiect și 1 cameră", "Cu reclame"],
+    pro_li: ["Fără reclame", "Proiect 3D nelimitat: câte proiecte și camere vrei",
+      "De la proiect la calcul cu o atingere", "Calcul în PDF de partajat"],
+    pro_note: "Abonament lunar cu 15 zile de probă gratuită pentru abonații noi. Prețul îl vezi în Google Play în moneda ta; îl poți anula oricând din Google Play.",
+    gallery_h: "Cum arată",
+    gallery_note: "Capturi ale aplicației în italiană: aplicația urmează limba telefonului tău.",
+    captions: ["Acasă", "Tavan fals", "Placare", "Ghenă", "Calcul", "Proiect 3D: plan",
+      "Proiect 3D: vizualizare 3D", "Proiect 3D: structură", "Plăci transparente", "Atinge un perete", "Versiunea PRO"],
+    langs_h: "În 10 limbi",
+    langs_p: "Aplicația și acest site vorbesc 10 limbi:",
+    dl_h: "Descarcă aplicația",
+    dl_p: "Gratuită pentru Android pe Google Play.",
+    privacy: "Politica de confidențialitate",
+    contact: "Contact",
+    badge_alt: "Disponibil pe Google Play"
+  },
+  sq: {
+    title: "Calcolo Cartongesso – materiale gipsi për tavane, mure dhe Projekt 3D",
+    lang: "Gjuha",
+    hero: "Pllaka, profile, vida dhe stuko në pak sekonda. Vizatoni shtëpinë dhe shikojeni në 3D.",
+    hero_small: "Për ata që punojnë me gips: profesionistë dhe amatorë.",
+    calc_h: "Llogaritjet e përditshme",
+    calc_p: "Vendosni masat dhe aplikacioni ju jep menjëherë materialet, me skemën në shkallë dhe peshat.",
+    calc_li: ["Tavan i varur me strukturë të thjeshtë ose të dyfishtë, me varëse dhe kapëse",
+      "Mur ndarës me shtylla, udhëzues dhe një ose dy pllaka për çdo anë",
+      "Veshje muri me kënde L dhe kunja",
+      "Veletë me varëse dhe profile tavani"],
+    calc_note: "Gjatësi tregtare për pllakat, shtyllat dhe udhëzuesit, ose gjatësia që gjeni në zonë.",
+    computo_h: "Llogaritja e Materialeve e kantierit",
+    computo_p: "Shtoni çdo punë te Llogaritja e Materialeve: aplikacioni i mbledh të gjitha dhe ju jep totalin e materialeve për t'u porositur, edhe në PDF për klientët dhe furnitorët.",
+    new: "E re",
+    p3d_h: "Projekt 3D",
+    p3d_p: "Vizatoni planimetrinë dhe aplikacioni llogarit gjithë kantierin.",
+    p3d_li: ["Dhoma me masa ose të vizatuara: anët që prekin njëra-tjetrën bëhen mure ndarëse",
+      "Prekni një mur për veshje muri, veletë, dyer dhe dritare; prekni një dhomë për tavanin e varur",
+      "Pamje 3D me shtylla, udhëzues dhe pllaka nga çdo kënd, në prerje dhe me nivele",
+      "Llogaritja e projektit me të njëjtat formula si aplikacioni, e dërguar me një prekje"],
+    plans_h: "Falas apo PRO",
+    free_h: "Falas",
+    free_li: ["Të gjitha llogaritjet dhe Llogaritja e Materialeve", "Projekt 3D me 1 projekt dhe 1 dhomë", "Me reklama"],
+    pro_li: ["Pa reklama", "Projekt 3D pa kufij: sa projekte dhe dhoma të doni",
+      "Nga projekti te Llogaritja e Materialeve me një prekje", "Llogaritja në PDF për ta ndarë"],
+    pro_note: "Abonim mujor me 15 ditë provë falas për abonuesit e rinj. Çmimin e shihni në Google Play në monedhën tuaj; mund ta anuloni kur të doni nga Google Play.",
+    gallery_h: "Si duket",
+    gallery_note: "Pamje të aplikacionit në italisht: aplikacioni ndjek gjuhën e telefonit tuaj.",
+    captions: ["Kreu", "Tavan i varur", "Veshje muri", "Veletë", "Llogaritja e Materialeve", "Projekt 3D: planimetria",
+      "Projekt 3D: pamje 3D", "Projekt 3D: struktura", "Pllaka transparente", "Prekni një mur", "Versioni PRO"],
+    langs_h: "Në 10 gjuhë",
+    langs_p: "Aplikacioni dhe kjo faqe flasin 10 gjuhë:",
+    dl_h: "Shkarkoni aplikacionin",
+    dl_p: "Falas për Android në Google Play.",
+    privacy: "Politika e privatësisë",
+    contact: "Na kontaktoni",
+    badge_alt: "Merreni në Google Play"
+  },
+  ru: {
+    title: "Calcolo Cartongesso – расчёт гипсокартона для потолков, стен и 3D-проектов",
+    lang: "Язык",
+    hero: "Листы, профили, саморезы и шпаклёвка за несколько секунд. Нарисуйте дом и посмотрите его в 3D.",
+    hero_small: "Для тех, кто работает с гипсокартоном: профессионалов и любителей.",
+    calc_h: "Ежедневные расчёты",
+    calc_p: "Введите размеры, и приложение сразу покажет материалы — с чертежом в масштабе и весом.",
+    calc_li: ["Подвесной потолок с одинарным или двойным каркасом, подвесами и соединителями",
+      "Перегородка с C- и U-профилями и одним или двумя листами с каждой стороны",
+      "Облицовка стен с L-кронштейнами и дюбелями",
+      "Короб с подвесами и потолочными профилями"],
+    calc_note: "Стандартные длины листов и профилей или та длина, которая продаётся у вас.",
+    computo_h: "Ведомость объекта",
+    computo_p: "Добавляйте каждую работу в ведомость: приложение всё сложит и покажет общее количество материалов для заказа, в том числе в PDF для клиентов и поставщиков.",
+    new: "Новое",
+    p3d_h: "3D-проект",
+    p3d_p: "Нарисуйте план, и приложение рассчитает весь объект.",
+    p3d_li: ["Комнаты по размерам или нарисованные: соприкасающиеся стороны становятся перегородками",
+      "Коснитесь стены для облицовки, короба, дверей и окон; коснитесь комнаты для подвесного потолка",
+      "3D-вид с профилями и листами под любым углом, в разрезе и по слоям",
+      "Ведомость проекта с теми же расчётами, что и в приложении, — в общую ведомость одним касанием"],
+    plans_h: "Бесплатно или PRO",
+    free_h: "Бесплатно",
+    free_li: ["Все расчёты и ведомость", "3D-проект: 1 проект и 1 комната", "С рекламой"],
+    pro_li: ["Без рекламы", "Безлимитный 3D-проект: сколько угодно проектов и комнат",
+      "Из проекта в ведомость одним касанием", "Ведомость в PDF, чтобы делиться"],
+    pro_note: "Ежемесячная подписка, 15 дней бесплатно для новых подписчиков. Цену вы увидите в Google Play в своей валюте; отменить можно в любой момент в Google Play.",
+    gallery_h: "Как это выглядит",
+    gallery_note: "Снимки приложения на итальянском: приложение использует язык вашего телефона.",
+    captions: ["Главная", "Подвесной потолок", "Облицовка", "Короб", "Ведомость", "3D-проект: план",
+      "3D-проект: 3D-вид", "3D-проект: каркас", "Прозрачные листы", "Коснитесь стены", "Версия PRO"],
+    langs_h: "На 10 языках",
+    langs_p: "Приложение и этот сайт говорят на 10 языках:",
+    dl_h: "Скачать приложение",
+    dl_p: "Бесплатно для Android в Google Play.",
+    privacy: "Политика конфиденциальности",
+    contact: "Связаться с нами",
+    badge_alt: "Доступно в Google Play"
+  },
+  ar: {
+    title: "Calcolo Cartongesso – حساب مواد الجبس بورد للأسقف والجدران والمشروع ثلاثي الأبعاد",
+    lang: "اللغة",
+    hero: "الألواح والقنوات والبراغي والمعجون في ثوانٍ. ارسم البيت وشاهده بثلاثة أبعاد.",
+    hero_small: "لمن يعمل بالجبس بورد: المحترفين وهواة العمل اليدوي.",
+    calc_h: "حسابات كل يوم",
+    calc_p: "أدخل القياسات فيعطيك التطبيق المواد فورًا، مع مخطط بمقياس رسم والأوزان.",
+    calc_li: ["سقف مستعار بهيكل مفرد أو مزدوج، مع المعلّقات والمشابك",
+      "جدار فاصل مع القوائم والقنوات ولوح أو لوحين لكل وجه",
+      "تغليف جدار مع زوايا L والخوابير",
+      "حافة سقف مع المعلّقات وقنوات السقف"],
+    calc_note: "أطوال تجارية للألواح والقوائم والقنوات، أو الطول الذي تجده في منطقتك.",
+    computo_h: "حساب مواد الورشة",
+    computo_p: "أضف كل عمل إلى حساب المواد: يجمع التطبيق كل شيء ويعطيك إجمالي المواد المطلوب طلبها، وأيضًا بصيغة PDF لإرسالها إلى العملاء والموردين.",
+    new: "جديد",
+    p3d_h: "مشروع ثلاثي الأبعاد",
+    p3d_p: "ارسم المخطط ويحسب التطبيق الورشة كلها.",
+    p3d_li: ["غرف بالقياسات أو مرسومة: الأضلاع المتلامسة تصبح جدرانًا فاصلة",
+      "اضغط على جدار لتغليف الجدار وحافة السقف والأبواب والنوافذ، واضغط على غرفة للسقف المستعار",
+      "عرض ثلاثي الأبعاد مع القوائم والقنوات والألواح من كل زاوية، بالمقطع وبالطبقات",
+      "حساب مواد المشروع بنفس حسابات التطبيق، يُرسَل إلى حساب المواد بلمسة واحدة"],
+    plans_h: "مجاني أو PRO",
+    free_h: "مجاني",
+    free_li: ["كل الحسابات وحساب المواد", "مشروع ثلاثي الأبعاد: مشروع واحد وغرفة واحدة", "مع إعلانات"],
+    pro_li: ["بدون إعلانات", "مشروع ثلاثي الأبعاد بلا حدود: ما تشاء من المشاريع والغرف",
+      "من المشروع إلى حساب المواد بلمسة واحدة", "حساب المواد بصيغة PDF للمشاركة"],
+    pro_note: "اشتراك شهري مع 15 يومًا تجريبيًا مجانيًا للمشتركين الجدد. ترى السعر في Google Play بعملتك، ويمكنك الإلغاء متى شئت من Google Play.",
+    gallery_h: "كيف يبدو",
+    gallery_note: "لقطات التطبيق باللغة الإيطالية: يتبع التطبيق لغة هاتفك.",
+    captions: ["الرئيسية", "سقف مستعار", "تغليف جدار", "حافة سقف", "حساب المواد", "مشروع ثلاثي الأبعاد: المخطط",
+      "مشروع ثلاثي الأبعاد: عرض ثلاثي الأبعاد", "مشروع ثلاثي الأبعاد: الهيكل", "ألواح شفافة", "اضغط على جدار", "إصدار PRO"],
+    langs_h: "بعشر لغات",
+    langs_p: "التطبيق وهذا الموقع يتحدثان عشر لغات:",
+    dl_h: "حمّل التطبيق",
+    dl_p: "مجاني لأندرويد على Google Play.",
+    privacy: "سياسة الخصوصية",
+    contact: "اتصل بنا",
+    badge_alt: "احصل عليه من Google Play"
+  }
+};
+
+const CODICI = LINGUE.map(l => l[0]);
+const PLAY = "https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso";
+const BADGE = "https://play.google.com/intl/en_us/badges/static/images/badges/";
+
+function linguaIniziale() {
+  const daUrl = new URLSearchParams(location.search).get("lang");
+  if (CODICI.includes(daUrl)) return daUrl;
+  try {
+    const salvata = localStorage.getItem("lingua");
+    if (CODICI.includes(salvata)) return salvata;
+  } catch (e) {}
+  for (const l of (navigator.languages || [navigator.language || ""])) {
+    const c = (l || "").slice(0, 2).toLowerCase();
+    if (CODICI.includes(c)) return c;
+  }
+  return "en";
+}
+
+function applica(codice) {
+  const t = TESTI[codice];
+  document.documentElement.lang = codice;
+  document.documentElement.dir = codice === "ar" ? "rtl" : "ltr";
+  document.title = t.title;
+  document.querySelectorAll("[data-t]").forEach(el => { el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll("[data-l]").forEach(ul => {
+    ul.innerHTML = "";
+    t[ul.dataset.l].forEach(testo => {
+      const li = document.createElement("li");
+      li.textContent = testo;
+      ul.appendChild(li);
+    });
+  });
+  document.querySelectorAll("[data-badge]").forEach(img => {
+    img.alt = t.badge_alt;
+    img.onerror = () => { img.onerror = null; img.src = BADGE + "en_badge_web_generic.png"; };
+    img.src = BADGE + codice + "_badge_web_generic.png";
+  });
+  document.querySelectorAll("[data-play]").forEach(a => { a.href = PLAY + "&hl=" + codice; });
+  const galleria = document.getElementById("galleria");
+  galleria.innerHTML = "";
+  IMMAGINI.forEach((nome, i) => {
+    const f = document.createElement("figure");
+    const img = document.createElement("img");
+    img.className = "phone"; img.loading = "lazy"; img.width = 540; img.height = 1080;
+    img.src = "img/" + nome + ".webp"; img.alt = t.captions[i];
+    const cap = document.createElement("figcaption");
+    cap.textContent = t.captions[i];
+    f.append(img, cap);
+    galleria.appendChild(f);
+  });
+  document.querySelectorAll("#lingue a").forEach(a => a.classList.toggle("attiva", a.dataset.codice === codice));
+  document.getElementById("sceltaLingua").value = codice;
+  document.getElementById("linkPrivacy").href = "privacy-policy.html?lang=" + codice;
+  try { localStorage.setItem("lingua", codice); } catch (e) {}
+}
+
+function cambia(codice) {
+  applica(codice);
+  const url = new URL(location.href);
+  url.searchParams.set("lang", codice);
+  history.replaceState(null, "", url);
+}
+
+const scelta = document.getElementById("sceltaLingua");
+const elenco = document.getElementById("lingue");
+LINGUE.forEach(([codice, nome]) => {
+  const o = document.createElement("option");
+  o.value = codice; o.textContent = nome;
+  scelta.appendChild(o);
+  const a = document.createElement("a");
+  a.href = "?lang=" + codice; a.textContent = nome; a.dataset.codice = codice; a.lang = codice;
+  a.addEventListener("click", e => { e.preventDefault(); cambia(codice); window.scrollTo({ top: 0, behavior: "smooth" }); });
+  elenco.appendChild(a);
+});
+scelta.addEventListener("change", () => cambia(scelta.value));
+applica(linguaIniziale());
+</script>
 </body>
 </html>
