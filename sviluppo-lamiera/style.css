@@ -1,0 +1,464 @@
+/* Sviluppo Lamiera — Qualifix Service
+   Palette identica a ColoriQualifix (sviluppo-lamiera-app/app/lib/tema/tema.dart):
+   nessun font o script caricato da CDN esterni — la pagina dichiara "nessun
+   tracciamento" nella privacy policy, quindi resta autosufficiente. */
+
+:root {
+  --primario: #2c3e50;
+  --primario-scuro: #1a252f;
+  --accento: #e67e22;
+  --successo: #27ae60;
+  --sfondo: #f8f9fa;
+  --errore: #c0392b;
+  --attenzione: #d68910;
+  --testo: #2b2b2b;
+  --testo-attenuato: #5a6570;
+  --bordo: #e3e6ea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  color: var(--testo);
+  background: var(--sfondo);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accento);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* --- Nav --- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--primario);
+  border-bottom: 3px solid var(--accento);
+}
+
+.nav-interno {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.nav-logo {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.nav-logo small {
+  font-weight: 400;
+  color: #cfd8e2;
+  font-size: 0.75rem;
+}
+
+.nav-link {
+  color: #dfe6ec;
+  text-decoration: none;
+  font-size: 0.92rem;
+  margin-left: 20px;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* --- Hero --- */
+
+.hero {
+  background: linear-gradient(135deg, var(--primario) 0%, var(--primario-scuro) 100%);
+  color: #fff;
+  padding: 64px 24px 56px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 0 0 12px;
+}
+
+.hero p.sottotitolo {
+  font-size: 1.15rem;
+  color: #dfe6ec;
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+
+.badge-riga {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+.pulsante {
+  display: inline-block;
+  background: var(--accento);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  transition: background 0.15s ease;
+}
+
+.pulsante:hover {
+  background: #d4711c;
+}
+
+/* --- Contenitori --- */
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.container.stretto {
+  max-width: 760px;
+}
+
+section h2 {
+  color: var(--primario);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  margin: 0 0 8px;
+}
+
+section > p.intro {
+  color: var(--testo-attenuato);
+  font-size: 1.05rem;
+  max-width: 720px;
+  margin: 0 0 36px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+}
+
+/* --- Catena cos'è --- */
+
+.catena {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 32px 0;
+}
+
+.catena-passo {
+  background: #fff;
+  border: 1px solid var(--bordo);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.catena-freccia {
+  color: var(--accento);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.callout {
+  border-left: 4px solid var(--accento);
+  background: #fff6ee;
+  padding: 16px 20px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+}
+
+.avviso {
+  border-left: 4px solid var(--attenzione);
+  background: #fdf6e8;
+  padding: 16px 20px;
+  border-radius: 6px;
+  font-size: 0.98rem;
+}
+
+/* --- Funzionalità --- */
+
+.funzionalita-blocco {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 72px;
+}
+
+.funzionalita-blocco:last-child {
+  margin-bottom: 0;
+}
+
+.funzionalita-blocco.inverti {
+  grid-template-columns: 1fr 1.1fr;
+}
+
+.funzionalita-blocco.inverti .funzionalita-testo {
+  order: 2;
+}
+
+.funzionalita-blocco.inverti .funzionalita-immagine {
+  order: 1;
+}
+
+.funzionalita-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accento);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.funzionalita-testo h3 {
+  color: var(--primario);
+  font-size: 1.4rem;
+  margin: 0 0 12px;
+}
+
+.funzionalita-testo p {
+  color: var(--testo-attenuato);
+  margin: 0 0 12px;
+}
+
+.funzionalita-immagine {
+  background: #10151a;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+}
+
+.funzionalita-immagine img {
+  border-radius: 8px;
+}
+
+.tema-alternativo {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tema-alternativo img {
+  width: 88px;
+  border-radius: 6px;
+  border: 1px solid var(--bordo);
+}
+
+.tema-alternativo span {
+  font-size: 0.85rem;
+  color: var(--testo-attenuato);
+}
+
+/* --- Formule --- */
+
+.formula {
+  background: #f3f5f7;
+  border: 1px solid var(--bordo);
+  border-radius: 10px;
+  padding: 20px 24px;
+  font-family: "SF Mono", ui-monospace, Consolas, monospace;
+  font-size: 0.95rem;
+  color: var(--primario-scuro);
+  overflow-x: auto;
+}
+
+.formula div {
+  padding: 4px 0;
+}
+
+/* --- Elenchi con segno di spunta --- */
+
+.lista-fiducia {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.lista-fiducia li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  color: var(--testo);
+}
+
+.lista-fiducia li::before {
+  content: "✓";
+  color: var(--successo);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* --- Numeri chiave --- */
+
+.numeri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 28px;
+}
+
+.numero-box {
+  text-align: center;
+}
+
+.numero-box strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--accento);
+}
+
+.numero-box span {
+  font-size: 0.85rem;
+  color: var(--testo-attenuato);
+}
+
+/* --- Footer --- */
+
+footer {
+  background: var(--primario-scuro);
+  color: #cfd8e2;
+  text-align: center;
+  padding: 36px 24px;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer p {
+  margin: 6px 0;
+}
+
+/* --- Privacy policy --- */
+
+.privacy-header {
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.privacy-header h1 {
+  margin: 0 0 8px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--accento);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.privacy-body h2 {
+  color: var(--primario);
+  font-size: 1.2rem;
+  margin: 32px 0 10px;
+  border-bottom: 1px solid var(--bordo);
+  padding-bottom: 6px;
+}
+
+.privacy-body h2:first-of-type {
+  margin-top: 0;
+}
+
+.privacy-body p,
+.privacy-body li {
+  color: var(--testo-attenuato);
+}
+
+.privacy-body ul {
+  padding-left: 22px;
+}
+
+.aggiornato {
+  color: var(--testo-attenuato);
+  font-size: 0.88rem;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 780px) {
+  .funzionalita-blocco,
+  .funzionalita-blocco.inverti {
+    grid-template-columns: 1fr;
+  }
+
+  .funzionalita-blocco.inverti .funzionalita-testo,
+  .funzionalita-blocco.inverti .funzionalita-immagine {
+    order: initial;
+  }
+
+  .container {
+    padding: 48px 18px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+}
+
+.in-arrivo {
+  margin: 0 0 14px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  opacity: .85;
+}

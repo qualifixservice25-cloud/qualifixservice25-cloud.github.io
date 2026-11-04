@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Calcolo Cartongesso</title>
+<link rel="icon" type="image/png" href="../favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --bg-color: #f8f9fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    background-color: var(--bg-color);
+  }
+  header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a252f 100%);
+    color: white;
+    padding: 30px 20px 40px;
+    text-align: center;
+    border-bottom: 6px solid var(--accent-color);
+  }
+  .topbar { max-width: 800px; margin: 0 auto 10px; display: flex; justify-content: flex-end; }
+  .lingua select {
+    font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.12); color: #fff;
+  }
+  .lingua select option { color: #222; }
+  .container {
+    max-width: 800px;
+    margin: 20px auto 40px;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  h1 { margin: 0; font-size: 2em; }
+  header p { margin: 4px 0 0; opacity: 0.85; }
+  h2 { color: var(--primary-color); margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+  p, li { font-size: 1.05em; color: #555; }
+  a { color: var(--accent-color); }
+  .back-link { display: inline-block; margin-bottom: 20px; text-decoration: none; font-weight: bold; }
+  .aggiornata { font-size: 0.9em; color: #888; }
+  footer { text-align: center; padding: 20px; font-size: 0.9em; color: #666; }
+  @media (max-width: 600px) { .container { padding: 22px; margin: 12px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <label class="lingua"><select id="sceltaLingua" aria-label="Lingua / Language"></select></label>
+  </div>
+  <h1 data-t="h1">Privacy Policy</h1>
+  <p>Calcolo Cartongesso</p>
+</header>
+
+<div class="container">
+  <a id="linkHome" href="index.html" class="back-link" data-t="back"></a>
+
+  <p data-t="intro"></p>
+
+  <h2 data-t="s1_h"></h2>
+  <p data-t="s1_p"></p>
+  <ul data-l="s1_li"></ul>
+
+  <h2 data-t="s2_h"></h2>
+  <ul data-l="s2_li"></ul>
+
+  <h2 data-t="s3_h"></h2>
+  <p data-t="s3_p"></p>
+
+  <h2 data-t="s4_h"></h2>
+  <p data-t="s4_p"></p>
+
+  <h2 data-t="s5_h"></h2>
+  <p data-t="s5_p"></p>
+  <ul>
+    <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener">Google Play Services</a></li>
+    <li><a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">Google AdMob</a></li>
+    <li><a href="https://payments.google.com/payments/apis-secure/u/0/get_legal_document?ldo=0&ldt=privacynotice" target="_blank" rel="noopener">Google Payments</a></li>
+  </ul>
+
+  <h2 data-t="s6_h"></h2>
+  <p data-t="s6_p"></p>
+
+  <h2 data-t="s7_h"></h2>
+  <p data-t="s7_p"></p>
+
+  <h2 data-t="s8_h"></h2>
+  <p><span data-t="s8_p"></span> <a href="mailto:qualifix.service25@gmail.com">qualifix.service25@gmail.com</a></p>
+
+  <p class="aggiornata" data-t="updated"></p>
+</div>
+
+<footer>
+  <p>&copy; 2026 Qualifix Service</p>
+</footer>
+
+<script>
+const LINGUE = [
+  ["it", "Italiano"], ["en", "English"], ["de", "Deutsch"], ["es", "Español"], ["fr", "Français"],
+  ["nl", "Nederlands"], ["ro", "Română"], ["sq", "Shqip"], ["ru", "Русский"], ["ar", "العربية"]
+];
+
+const TESTI = {
+  it: {
+    title: "Informativa sulla privacy - Calcolo Cartongesso",
+    h1: "Informativa sulla privacy",
+    back: "← Torna alla home",
+    intro: "Questa informativa descrive come vengono raccolte, utilizzate e condivise le informazioni quando installi o utilizzi l'applicazione \"Calcolo Cartongesso\".",
+    s1_h: "1. Informazioni raccolte",
+    s1_p: "L'app funziona senza account e non chiede dati identificativi come nome o indirizzo. Nella versione gratuita usa servizi di terze parti (Google AdMob) che possono raccogliere, a scopi statistici e pubblicitari:",
+    s1_li: ["ID del dispositivo (ID pubblicità)", "Dati di utilizzo dell'app e interazioni", "Informazioni diagnostiche"],
+    s2_h: "2. Utilizzo delle informazioni",
+    s2_li: ["Fornire e mantenere le funzioni di calcolo dell'app.", "Mostrare annunci pubblicitari tramite Google AdMob nella versione gratuita.", "Migliorare l'app analizzando in forma aggregata come viene utilizzata."],
+    s3_h: "3. Abbonamento PRO",
+    s3_p: "L'abbonamento PRO si acquista, si rinnova e si disdice tramite Google Play. Il pagamento è gestito interamente da Google: l'app non riceve né conserva i dati della carta o di pagamento, ma solo da Google Play la conferma che l'abbonamento è attivo. Con l'abbonamento attivo l'app non mostra annunci pubblicitari. Puoi disdire in qualsiasi momento da Google Play > Pagamenti e abbonamenti.",
+    s4_h: "4. Dati salvati sul telefono",
+    s4_p: "Le misure, i progetti 3D, il computo e le impostazioni restano salvati solo sul tuo dispositivo e non vengono inviati a nostri server. I PDF del computo vengono condivisi solo quando lo scegli tu.",
+    s5_h: "5. Servizi di terze parti",
+    s5_p: "Informative sulla privacy dei fornitori di servizi utilizzati dall'app:",
+    s6_h: "6. Diritti dell'utente",
+    s6_p: "Puoi gestire le preferenze pubblicitarie dalle impostazioni del dispositivo Android (Impostazioni > Google > Annunci). Per domande o per esercitare i tuoi diritti puoi scriverci all'indirizzo qui sotto.",
+    s7_h: "7. Sicurezza",
+    s7_p: "Adottiamo misure ragionevoli per proteggere le informazioni, tuttavia nessun sistema di trasmissione o archiviazione digitale può essere garantito sicuro al 100%.",
+    s8_h: "8. Contatti",
+    s8_p: "Per domande su questa informativa:",
+    updated: "Ultimo aggiornamento: 19 ottobre 2026."
+  },
+  en: {
+    title: "Privacy policy - Calcolo Cartongesso",
+    h1: "Privacy policy",
+    back: "← Back to home",
+    intro: "This policy describes how information is collected, used and shared when you install or use the \"Calcolo Cartongesso\" app.",
+    s1_h: "1. Information collected",
+    s1_p: "The app works without an account and does not ask for identifying data such as your name or address. In the free version it uses third-party services (Google AdMob) that may collect, for statistical and advertising purposes:",
+    s1_li: ["Device ID (advertising ID)", "App usage data and interactions", "Diagnostic information"],
+    s2_h: "2. Use of information",
+    s2_li: ["To provide and maintain the app's calculation features.", "To show ads through Google AdMob in the free version.", "To improve the app by analysing in aggregate form how it is used."],
+    s3_h: "3. PRO subscription",
+    s3_p: "The PRO subscription is purchased, renewed and cancelled through Google Play. Payment is handled entirely by Google: the app never receives or stores your card or payment details, only Google Play's confirmation that the subscription is active. While the subscription is active the app shows no ads. You can cancel at any time from Google Play > Payments & subscriptions.",
+    s4_h: "4. Data stored on your phone",
+    s4_p: "Measurements, 3D projects, the bill of quantities and settings are stored only on your device and are not sent to our servers. Bill of quantities PDFs are shared only when you choose to.",
+    s5_h: "5. Third-party services",
+    s5_p: "Privacy policies of the service providers used by the app:",
+    s6_h: "6. Your rights",
+    s6_p: "You can manage your ad preferences in your Android device settings (Settings > Google > Ads). For questions or to exercise your rights, write to us at the address below.",
+    s7_h: "7. Security",
+    s7_p: "We take reasonable measures to protect information, but no method of digital transmission or storage can be guaranteed 100% secure.",
+    s8_h: "8. Contact",
+    s8_p: "For questions about this policy:",
+    updated: "Last updated: 19 October 2026."
+  },
+  de: {
+    title: "Datenschutzerklärung - Calcolo Cartongesso",
+    h1: "Datenschutzerklärung",
+    back: "← Zurück zur Startseite",
+    intro: "Diese Erklärung beschreibt, wie Informationen erhoben, verwendet und weitergegeben werden, wenn du die App \"Calcolo Cartongesso\" installierst oder verwendest.",
+    s1_h: "1. Erhobene Informationen",
+    s1_p: "Die App funktioniert ohne Konto und fragt keine Identifikationsdaten wie Name oder Adresse ab. In der kostenlosen Version nutzt sie Dienste Dritter (Google AdMob), die zu Statistik- und Werbezwecken Folgendes erheben können:",
+    s1_li: ["Geräte-ID (Werbe-ID)", "Nutzungsdaten und Interaktionen in der App", "Diagnoseinformationen"],
+    s2_h: "2. Verwendung der Informationen",
+    s2_li: ["Bereitstellung und Pflege der Berechnungsfunktionen der App.", "Anzeige von Werbung über Google AdMob in der kostenlosen Version.", "Verbesserung der App durch zusammengefasste Auswertung der Nutzung."],
+    s3_h: "3. PRO-Abo",
+    s3_p: "Das PRO-Abo wird über Google Play abgeschlossen, verlängert und gekündigt. Die Zahlung wird vollständig von Google abgewickelt: Die App erhält und speichert keine Karten- oder Zahlungsdaten, sondern nur die Bestätigung von Google Play, dass das Abo aktiv ist. Bei aktivem Abo zeigt die App keine Werbung. Du kannst jederzeit über Google Play > Zahlungen und Abos kündigen.",
+    s4_h: "4. Auf dem Telefon gespeicherte Daten",
+    s4_p: "Maße, 3D-Projekte, die Materialaufstellung und die Einstellungen werden nur auf deinem Gerät gespeichert und nicht an unsere Server gesendet. PDFs der Materialaufstellung werden nur geteilt, wenn du es willst.",
+    s5_h: "5. Dienste Dritter",
+    s5_p: "Datenschutzerklärungen der von der App genutzten Anbieter:",
+    s6_h: "6. Deine Rechte",
+    s6_p: "Werbeeinstellungen verwaltest du in den Einstellungen deines Android-Geräts (Einstellungen > Google > Anzeigen). Für Fragen oder zur Ausübung deiner Rechte schreib uns an die Adresse unten.",
+    s7_h: "7. Sicherheit",
+    s7_p: "Wir ergreifen angemessene Maßnahmen zum Schutz der Informationen, aber keine digitale Übertragung oder Speicherung kann zu 100 % sicher garantiert werden.",
+    s8_h: "8. Kontakt",
+    s8_p: "Bei Fragen zu dieser Erklärung:",
+    updated: "Zuletzt aktualisiert: 19. Oktober 2026."
+  },
+  es: {
+    title: "Política de privacidad - Calcolo Cartongesso",
+    h1: "Política de privacidad",
+    back: "← Volver al inicio",
+    intro: "Esta política describe cómo se recopila, utiliza y comparte la información cuando instalas o usas la aplicación \"Calcolo Cartongesso\".",
+    s1_h: "1. Información recopilada",
+    s1_p: "La app funciona sin cuenta y no pide datos identificativos como nombre o dirección. En la versión gratuita utiliza servicios de terceros (Google AdMob) que pueden recopilar, con fines estadísticos y publicitarios:",
+    s1_li: ["ID del dispositivo (ID de publicidad)", "Datos de uso de la app e interacciones", "Información de diagnóstico"],
+    s2_h: "2. Uso de la información",
+    s2_li: ["Ofrecer y mantener las funciones de cálculo de la app.", "Mostrar anuncios a través de Google AdMob en la versión gratuita.", "Mejorar la app analizando de forma agregada cómo se utiliza."],
+    s3_h: "3. Suscripción PRO",
+    s3_p: "La suscripción PRO se compra, se renueva y se cancela a través de Google Play. El pago lo gestiona íntegramente Google: la app no recibe ni guarda los datos de la tarjeta o de pago, solo la confirmación de Google Play de que la suscripción está activa. Con la suscripción activa la app no muestra anuncios. Puedes cancelarla en cualquier momento en Google Play > Pagos y suscripciones.",
+    s4_h: "4. Datos guardados en el teléfono",
+    s4_p: "Las medidas, los proyectos 3D, el cómputo y los ajustes se guardan solo en tu dispositivo y no se envían a nuestros servidores. Los PDF del cómputo se comparten solo cuando tú lo decides.",
+    s5_h: "5. Servicios de terceros",
+    s5_p: "Políticas de privacidad de los proveedores de servicios que usa la app:",
+    s6_h: "6. Derechos del usuario",
+    s6_p: "Puedes gestionar tus preferencias de anuncios en los ajustes de tu dispositivo Android (Ajustes > Google > Anuncios). Para preguntas o para ejercer tus derechos, escríbenos a la dirección de abajo.",
+    s7_h: "7. Seguridad",
+    s7_p: "Adoptamos medidas razonables para proteger la información, pero ningún sistema de transmisión o almacenamiento digital puede garantizarse seguro al 100 %.",
+    s8_h: "8. Contacto",
+    s8_p: "Para preguntas sobre esta política:",
+    updated: "Última actualización: 19 de octubre de 2026."
+  },
+  fr: {
+    title: "Politique de confidentialité - Calcolo Cartongesso",
+    h1: "Politique de confidentialité",
+    back: "← Retour à l'accueil",
+    intro: "Cette politique décrit comment les informations sont collectées, utilisées et partagées lorsque vous installez ou utilisez l'application « Calcolo Cartongesso ».",
+    s1_h: "1. Informations collectées",
+    s1_p: "L'application fonctionne sans compte et ne demande pas de données d'identification comme le nom ou l'adresse. Dans la version gratuite, elle utilise des services tiers (Google AdMob) qui peuvent collecter, à des fins statistiques et publicitaires :",
+    s1_li: ["Identifiant de l'appareil (identifiant publicitaire)", "Données d'utilisation de l'application et interactions", "Informations de diagnostic"],
+    s2_h: "2. Utilisation des informations",
+    s2_li: ["Fournir et maintenir les fonctions de calcul de l'application.", "Afficher des annonces via Google AdMob dans la version gratuite.", "Améliorer l'application en analysant de façon agrégée son utilisation."],
+    s3_h: "3. Abonnement PRO",
+    s3_p: "L'abonnement PRO s'achète, se renouvelle et se résilie via Google Play. Le paiement est entièrement géré par Google : l'application ne reçoit ni ne conserve les données de carte ou de paiement, seulement la confirmation de Google Play que l'abonnement est actif. Avec l'abonnement actif, l'application n'affiche pas de publicité. Vous pouvez résilier à tout moment dans Google Play > Paiements et abonnements.",
+    s4_h: "4. Données enregistrées sur le téléphone",
+    s4_p: "Les dimensions, les projets 3D, le métré et les réglages sont enregistrés uniquement sur votre appareil et ne sont pas envoyés à nos serveurs. Les PDF du métré ne sont partagés que lorsque vous le décidez.",
+    s5_h: "5. Services tiers",
+    s5_p: "Politiques de confidentialité des fournisseurs de services utilisés par l'application :",
+    s6_h: "6. Droits de l'utilisateur",
+    s6_p: "Vous pouvez gérer vos préférences publicitaires dans les paramètres de votre appareil Android (Paramètres > Google > Annonces). Pour toute question ou pour exercer vos droits, écrivez-nous à l'adresse ci-dessous.",
+    s7_h: "7. Sécurité",
+    s7_p: "Nous prenons des mesures raisonnables pour protéger les informations, mais aucun système de transmission ou de stockage numérique ne peut être garanti sûr à 100 %.",
+    s8_h: "8. Contact",
+    s8_p: "Pour toute question sur cette politique :",
+    updated: "Dernière mise à jour : 19 octobre 2026."
+  },
+  nl: {
+    title: "Privacybeleid - Calcolo Cartongesso",
+    h1: "Privacybeleid",
+    back: "← Terug naar de startpagina",
+    intro: "Dit beleid beschrijft hoe informatie wordt verzameld, gebruikt en gedeeld wanneer je de app \"Calcolo Cartongesso\" installeert of gebruikt.",
+    s1_h: "1. Verzamelde informatie",
+    s1_p: "De app werkt zonder account en vraagt geen identificerende gegevens zoals naam of adres. In de gratis versie gebruikt ze diensten van derden (Google AdMob) die voor statistische en advertentiedoeleinden het volgende kunnen verzamelen:",
+    s1_li: ["Apparaat-ID (advertentie-ID)", "Gebruiksgegevens en interacties in de app", "Diagnostische informatie"],
+    s2_h: "2. Gebruik van de informatie",
+    s2_li: ["De rekenfuncties van de app leveren en onderhouden.", "Advertenties tonen via Google AdMob in de gratis versie.", "De app verbeteren door het gebruik in geaggregeerde vorm te analyseren."],
+    s3_h: "3. PRO-abonnement",
+    s3_p: "Het PRO-abonnement wordt via Google Play afgesloten, verlengd en opgezegd. De betaling wordt volledig door Google afgehandeld: de app ontvangt of bewaart geen kaart- of betaalgegevens, alleen de bevestiging van Google Play dat het abonnement actief is. Met een actief abonnement toont de app geen advertenties. Je kunt op elk moment opzeggen via Google Play > Betalingen en abonnementen.",
+    s4_h: "4. Gegevens op je telefoon",
+    s4_p: "Maten, 3D-projecten, de materialenlijst en instellingen worden alleen op je apparaat opgeslagen en niet naar onze servers gestuurd. Pdf's van de materialenlijst worden alleen gedeeld als jij dat kiest.",
+    s5_h: "5. Diensten van derden",
+    s5_p: "Privacybeleid van de dienstverleners die de app gebruikt:",
+    s6_h: "6. Rechten van de gebruiker",
+    s6_p: "Je kunt je advertentievoorkeuren beheren in de instellingen van je Android-apparaat (Instellingen > Google > Advertenties). Voor vragen of om je rechten uit te oefenen, schrijf ons op het adres hieronder.",
+    s7_h: "7. Beveiliging",
+    s7_p: "We nemen redelijke maatregelen om de informatie te beschermen, maar geen enkele digitale overdracht of opslag kan voor 100% veilig worden gegarandeerd.",
+    s8_h: "8. Contact",
+    s8_p: "Voor vragen over dit beleid:",
+    updated: "Laatst bijgewerkt: 19 oktober 2026."
+  },
+  ro: {
+    title: "Politica de confidențialitate - Calcolo Cartongesso",
+    h1: "Politica de confidențialitate",
+    back: "← Înapoi la pagina principală",
+    intro: "Această politică descrie cum sunt colectate, folosite și partajate informațiile atunci când instalezi sau folosești aplicația „Calcolo Cartongesso”.",
+    s1_h: "1. Informații colectate",
+    s1_p: "Aplicația funcționează fără cont și nu cere date de identificare precum numele sau adresa. În versiunea gratuită folosește servicii terțe (Google AdMob) care pot colecta, în scopuri statistice și publicitare:",
+    s1_li: ["ID-ul dispozitivului (ID de publicitate)", "Date de utilizare a aplicației și interacțiuni", "Informații de diagnosticare"],
+    s2_h: "2. Utilizarea informațiilor",
+    s2_li: ["Pentru a oferi și întreține funcțiile de calcul ale aplicației.", "Pentru a afișa reclame prin Google AdMob în versiunea gratuită.", "Pentru a îmbunătăți aplicația analizând în formă agregată modul în care este folosită."],
+    s3_h: "3. Abonamentul PRO",
+    s3_p: "Abonamentul PRO se cumpără, se reînnoiește și se anulează prin Google Play. Plata este gestionată în întregime de Google: aplicația nu primește și nu păstrează datele cardului sau de plată, ci doar confirmarea Google Play că abonamentul este activ. Cu abonamentul activ, aplicația nu afișează reclame. Îl poți anula oricând din Google Play > Plăți și abonamente.",
+    s4_h: "4. Date salvate pe telefon",
+    s4_p: "Dimensiunile, proiectele 3D, calculul și setările sunt salvate doar pe dispozitivul tău și nu sunt trimise pe serverele noastre. PDF-urile calculului sunt partajate doar atunci când alegi tu.",
+    s5_h: "5. Servicii terțe",
+    s5_p: "Politicile de confidențialitate ale furnizorilor de servicii folosiți de aplicație:",
+    s6_h: "6. Drepturile utilizatorului",
+    s6_p: "Îți poți gestiona preferințele privind reclamele din setările dispozitivului Android (Setări > Google > Reclame). Pentru întrebări sau pentru a-ți exercita drepturile, scrie-ne la adresa de mai jos.",
+    s7_h: "7. Securitate",
+    s7_p: "Luăm măsuri rezonabile pentru a proteja informațiile, însă niciun sistem digital de transmitere sau stocare nu poate fi garantat 100% sigur.",
+    s8_h: "8. Contact",
+    s8_p: "Pentru întrebări despre această politică:",
+    updated: "Ultima actualizare: 19 octombrie 2026."
+  },
+  sq: {
+    title: "Politika e privatësisë - Calcolo Cartongesso",
+    h1: "Politika e privatësisë",
+    back: "← Kthehu te faqja kryesore",
+    intro: "Kjo politikë përshkruan si mblidhen, përdoren dhe ndahen informacionet kur instaloni ose përdorni aplikacionin \"Calcolo Cartongesso\".",
+    s1_h: "1. Informacionet që mblidhen",
+    s1_p: "Aplikacioni funksionon pa llogari dhe nuk kërkon të dhëna identifikuese si emri ose adresa. Në versionin falas përdor shërbime të palëve të treta (Google AdMob) që mund të mbledhin, për qëllime statistikore dhe reklamuese:",
+    s1_li: ["ID-ja e pajisjes (ID-ja e reklamave)", "Të dhëna të përdorimit të aplikacionit dhe ndërveprime", "Informacione diagnostikuese"],
+    s2_h: "2. Përdorimi i informacioneve",
+    s2_li: ["Për të ofruar dhe mirëmbajtur funksionet e llogaritjes së aplikacionit.", "Për të shfaqur reklama përmes Google AdMob në versionin falas.", "Për të përmirësuar aplikacionin duke analizuar në formë të përmbledhur si përdoret."],
+    s3_h: "3. Abonimi PRO",
+    s3_p: "Abonimi PRO blihet, rinovohet dhe anulohet përmes Google Play. Pagesa menaxhohet tërësisht nga Google: aplikacioni nuk merr dhe nuk ruan të dhënat e kartës ose të pagesës, por vetëm konfirmimin e Google Play që abonimi është aktiv. Me abonimin aktiv aplikacioni nuk shfaq reklama. Mund ta anuloni në çdo kohë nga Google Play > Pagesat dhe abonimet.",
+    s4_h: "4. Të dhënat e ruajtura në telefon",
+    s4_p: "Masat, projektet 3D, Llogaritja e Materialeve dhe cilësimet ruhen vetëm në pajisjen tuaj dhe nuk dërgohen në serverët tanë. PDF-të e llogaritjes ndahen vetëm kur e zgjidhni ju.",
+    s5_h: "5. Shërbimet e palëve të treta",
+    s5_p: "Politikat e privatësisë së ofruesve të shërbimeve që përdor aplikacioni:",
+    s6_h: "6. Të drejtat e përdoruesit",
+    s6_p: "Preferencat e reklamave mund t'i menaxhoni nga cilësimet e pajisjes Android (Cilësimet > Google > Reklamat). Për pyetje ose për të ushtruar të drejtat tuaja, na shkruani në adresën më poshtë.",
+    s7_h: "7. Siguria",
+    s7_p: "Marrim masa të arsyeshme për të mbrojtur informacionet, por asnjë sistem dixhital transmetimi ose ruajtjeje nuk mund të garantohet 100% i sigurt.",
+    s8_h: "8. Kontakti",
+    s8_p: "Për pyetje rreth kësaj politike:",
+    updated: "Përditësuar së fundi: 19 tetor 2026."
+  },
+  ru: {
+    title: "Политика конфиденциальности - Calcolo Cartongesso",
+    h1: "Политика конфиденциальности",
+    back: "← На главную",
+    intro: "Эта политика описывает, как собирается, используется и передаётся информация, когда вы устанавливаете или используете приложение «Calcolo Cartongesso».",
+    s1_h: "1. Собираемая информация",
+    s1_p: "Приложение работает без учётной записи и не запрашивает идентифицирующие данные, например имя или адрес. В бесплатной версии оно использует сторонние сервисы (Google AdMob), которые могут собирать в статистических и рекламных целях:",
+    s1_li: ["Идентификатор устройства (рекламный идентификатор)", "Данные об использовании приложения и действиях в нём", "Диагностическую информацию"],
+    s2_h: "2. Использование информации",
+    s2_li: ["Предоставление и поддержка функций расчёта приложения.", "Показ рекламы через Google AdMob в бесплатной версии.", "Улучшение приложения на основе обобщённого анализа его использования."],
+    s3_h: "3. Подписка PRO",
+    s3_p: "Подписка PRO оформляется, продлевается и отменяется через Google Play. Оплату полностью обрабатывает Google: приложение не получает и не хранит данные карты или платежа, а получает от Google Play только подтверждение, что подписка активна. При активной подписке приложение не показывает рекламу. Отменить подписку можно в любой момент в Google Play > Платежи и подписки.",
+    s4_h: "4. Данные на телефоне",
+    s4_p: "Размеры, 3D-проекты, ведомость и настройки хранятся только на вашем устройстве и не отправляются на наши серверы. PDF ведомости передаются только тогда, когда вы сами этого захотите.",
+    s5_h: "5. Сторонние сервисы",
+    s5_p: "Политики конфиденциальности поставщиков сервисов, которые использует приложение:",
+    s6_h: "6. Права пользователя",
+    s6_p: "Настройки рекламы можно изменить в настройках устройства Android (Настройки > Google > Реклама). С вопросами или для реализации своих прав пишите нам по адресу ниже.",
+    s7_h: "7. Безопасность",
+    s7_p: "Мы принимаем разумные меры для защиты информации, однако ни один способ цифровой передачи или хранения не может быть гарантированно защищён на 100 %.",
+    s8_h: "8. Контакты",
+    s8_p: "По вопросам об этой политике:",
+    updated: "Последнее обновление: 19 октября 2026 г."
+  },
+  ar: {
+    title: "سياسة الخصوصية - Calcolo Cartongesso",
+    h1: "سياسة الخصوصية",
+    back: "→ العودة إلى الصفحة الرئيسية",
+    intro: "تصف هذه السياسة كيف تُجمع المعلومات وتُستخدم وتُشارك عند تثبيت تطبيق \"Calcolo Cartongesso\" أو استخدامه.",
+    s1_h: "1. المعلومات التي تُجمع",
+    s1_p: "يعمل التطبيق دون حساب ولا يطلب بيانات تعريفية مثل الاسم أو العنوان. في النسخة المجانية يستخدم خدمات أطراف ثالثة (Google AdMob) قد تجمع لأغراض إحصائية وإعلانية:",
+    s1_li: ["معرّف الجهاز (معرّف الإعلانات)", "بيانات استخدام التطبيق والتفاعلات", "معلومات التشخيص"],
+    s2_h: "2. استخدام المعلومات",
+    s2_li: ["تقديم وظائف الحساب في التطبيق والحفاظ عليها.", "عرض الإعلانات عبر Google AdMob في النسخة المجانية.", "تحسين التطبيق بتحليل طريقة استخدامه بشكل مجمّع."],
+    s3_h: "3. اشتراك PRO",
+    s3_p: "يُشترى اشتراك PRO ويُجدَّد ويُلغى عبر Google Play. تتولى Google عملية الدفع بالكامل: لا يتلقى التطبيق ولا يحفظ بيانات البطاقة أو الدفع، بل يتلقى من Google Play فقط تأكيد أن الاشتراك نشط. عندما يكون الاشتراك نشطًا لا يعرض التطبيق إعلانات. يمكنك الإلغاء في أي وقت من Google Play > الدفعات والاشتراكات.",
+    s4_h: "4. البيانات المحفوظة على الهاتف",
+    s4_p: "تُحفظ القياسات والمشاريع ثلاثية الأبعاد وحساب المواد والإعدادات على جهازك فقط ولا تُرسل إلى خوادمنا. تُشارك ملفات PDF لحساب المواد فقط عندما تختار ذلك.",
+    s5_h: "5. خدمات الأطراف الثالثة",
+    s5_p: "سياسات الخصوصية لمزوّدي الخدمات التي يستخدمها التطبيق:",
+    s6_h: "6. حقوق المستخدم",
+    s6_p: "يمكنك إدارة تفضيلات الإعلانات من إعدادات جهاز أندرويد (الإعدادات > Google > الإعلانات). للأسئلة أو لممارسة حقوقك، راسلنا على العنوان أدناه.",
+    s7_h: "7. الأمان",
+    s7_p: "نتخذ تدابير معقولة لحماية المعلومات، لكن لا يمكن ضمان أمان أي وسيلة نقل أو تخزين رقمية بنسبة 100%.",
+    s8_h: "8. التواصل",
+    s8_p: "للأسئلة حول هذه السياسة:",
+    updated: "آخر تحديث: 19 أكتوبر 2026."
+  }
+};
+
+const CODICI = LINGUE.map(l => l[0]);
+
+function linguaIniziale() {
+  const daUrl = new URLSearchParams(location.search).get("lang");
+  if (CODICI.includes(daUrl)) return daUrl;
+  try {
+    const salvata = localStorage.getItem("lingua");
+    if (CODICI.includes(salvata)) return salvata;
+  } catch (e) {}
+  for (const l of (navigator.languages || [navigator.language || ""])) {
+    const c = (l || "").slice(0, 2).toLowerCase();
+    if (CODICI.includes(c)) return c;
+  }
+  return "en";
+}
+
+function applica(codice) {
+  const t = TESTI[codice];
+  document.documentElement.lang = codice;
+  document.documentElement.dir = codice === "ar" ? "rtl" : "ltr";
+  document.title = t.title;
+  document.querySelectorAll("[data-t]").forEach(el => { el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll("[data-l]").forEach(ul => {
+    ul.innerHTML = "";
+    t[ul.dataset.l].forEach(testo => {
+      const li = document.createElement("li");
+      li.textContent = testo;
+      ul.appendChild(li);
+    });
+  });
+  document.getElementById("sceltaLingua").value = codice;
+  document.getElementById("linkHome").href = "index.html?lang=" + codice;
+  try { localStorage.setItem("lingua", codice); } catch (e) {}
+}
+
+const scelta = document.getElementById("sceltaLingua");
+LINGUE.forEach(([codice, nome]) => {
+  const o = document.createElement("option");
+  o.value = codice; o.textContent = nome;
+  scelta.appendChild(o);
+});
+scelta.addEventListener("change", () => {
+  applica(scelta.value);
+  const url = new URL(location.href);
+  url.searchParams.set("lang", scelta.value);
+  history.replaceState(null, "", url);
+});
+applica(linguaIniziale());
+</script>
+</body>
+</html>

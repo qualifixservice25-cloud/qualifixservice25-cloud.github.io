@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sviluppo Lamiera — Qualifix Service</title>
+<meta name="description" content="Fattore K, sviluppo lamiera, lato minimo e sequenza di piega per chi lavora alla pressa piegatrice. Gratuita, offline, nessun account.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://qualifixservice25-cloud.github.io/sviluppo-lamiera/">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-interno">
+    <a class="nav-logo" href="#">Sviluppo Lamiera <small>Qualifix Service</small></a>
+    <div class="nav-links">
+      <a class="nav-link" href="#cos-e">Cos'è</a>
+      <a class="nav-link" href="#funzionalita">Funzionalità</a>
+      <a class="nav-link" href="#calcolo">Il calcolo</a>
+      <a class="nav-link" href="#fiducia">Perché fidarsi</a>
+      <a class="nav-link" href="#contatti">Contatti</a>
+      <a class="nav-link" href="privacy-policy.html">Privacy Policy</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>Sviluppo Lamiera</h1>
+  <p class="sottotitolo">
+    Quanto sviluppare la lamiera prima di tagliarla — senza tabelle fotocopiate,
+    senza andare a occhio. Cava scelta → raggio interno reale in aria →
+    fattore K → sviluppo.
+  </p>
+  <div class="badge-riga">
+    <span class="badge">Gratuita</span>
+    <span class="badge">Funziona offline</span>
+    <span class="badge">Nessun account</span>
+    <span class="badge">Nessuna pubblicità</span>
+  </div>
+  <!-- Quando l'app è su Google Play, sostituire la riga «In arrivo» con:
+  <a class="pulsante" href="https://play.google.com/store/apps/details?id=org.qualifix.service.sviluppolamiera">Scarica da Google Play</a> -->
+  <p class="in-arrivo">In arrivo su Google Play</p>
+  <a class="pulsante" href="https://sviluppo-lamiera.netlify.app/" target="_blank" rel="noopener">Prova la versione web</a>
+</header>
+
+<section id="cos-e" class="container stretto">
+  <h2>Cos'è</h2>
+  <p class="intro">
+    Un errore di sviluppo non si recupera: la lamiera è già tagliata. Sviluppo
+    Lamiera calcola quanto materiale serve prima del taglio, seguendo la stessa
+    catena che si farebbe a mano con carta e penna — ma senza rifare i calcoli
+    ogni volta e senza tabelle incollate al muro dell'officina.
+  </p>
+  <div class="catena">
+    <div class="catena-passo">Cava scelta</div>
+    <div class="catena-freccia">→</div>
+    <div class="catena-passo">Raggio interno reale in aria</div>
+    <div class="catena-freccia">→</div>
+    <div class="catena-passo">Fattore K</div>
+    <div class="catena-freccia">→</div>
+    <div class="catena-passo">Sviluppo</div>
+  </div>
+  <div class="callout">
+    Ogni numero mostrato dall'app dice da dove viene: nessun risultato compare
+    "nudo" senza la catena di calcolo che lo giustifica.
+  </div>
+</section>
+
+<section id="funzionalita" class="container">
+  <h2>Le 4 funzionalità</h2>
+  <p class="intro">Un'app, quattro schede, tutte raggiungibili dalla barra in basso.</p>
+
+  <div class="funzionalita-blocco">
+    <div class="funzionalita-testo">
+      <span class="funzionalita-numero">1</span>
+      <h3>Sviluppo</h3>
+      <p>
+        Il disegno non è un'anteprima: è l'editor. Si tocca la quota di un lato
+        per cambiarla, il badge di una piega per angolo, verso o per eliminarla,
+        e i due "+" alle estremità per aggiungere un lato.
+      </p>
+      <p>
+        In fondo, piega per piega, la catena di calcolo intera — detrazione,
+        raggio interno, fattore K — così chi conosce il mestiere può verificarla
+        riga per riga.
+      </p>
+    </div>
+    <div class="funzionalita-immagine">
+      <img src="assets/screenshot-sviluppo.png" alt="Schermata Sviluppo: editor del profilo con quote toccabili e catena di calcolo del fattore K">
+    </div>
+  </div>
+
+  <div class="funzionalita-blocco inverti">
+    <div class="funzionalita-testo">
+      <span class="funzionalita-numero">2</span>
+      <h3>Sequenza</h3>
+      <p>
+        L'ordine delle pieghe proposto passo per passo, con il disegno di cava,
+        coltello e pezzo durante la corsa della pressa — per vedere prima cosa
+        rischia di sbattere.
+      </p>
+      <p class="avviso">
+        Le sequenze sono <strong>proposte</strong>, non verificate: restano da
+        controllare a occhio come qualunque programma di piegatura.
+      </p>
+    </div>
+    <div class="funzionalita-immagine">
+      <img src="assets/screenshot-sequenza.png" alt="Schermata Sequenza: simulazione della corsa della pressa piegatrice con coltello e cava">
+    </div>
+  </div>
+
+  <div class="funzionalita-blocco">
+    <div class="funzionalita-testo">
+      <span class="funzionalita-numero">3</span>
+      <h3>Utensili</h3>
+      <p>
+        Il parco utensili personale: coltelli e cave, con l'anteprima grafica
+        della sagoma che si aggiorna mentre si digitano le misure. Le voci di
+        catalogo si copiano e si modificano, ma non si cancellano — restano
+        sempre disponibili come riferimento.
+      </p>
+    </div>
+    <div class="funzionalita-immagine">
+      <img src="assets/screenshot-utensili.png" alt="Schermata Utensili: elenco dei coltelli in inventario con angolo e raggio">
+    </div>
+  </div>
+
+  <div class="funzionalita-blocco inverti">
+    <div class="funzionalita-testo">
+      <span class="funzionalita-numero">4</span>
+      <h3>Impostazioni</h3>
+      <p>
+        Taratura da provino, coefficienti calibrabili, giochi e decimali. Il
+        tema scuro ad alto contrasto ("Modalità officina") è quello predefinito,
+        pensato per lavorare in piedi accanto alla macchina, spesso con i
+        guanti — ma si può disattivare quando serve.
+      </p>
+      <div class="tema-alternativo">
+        <img src="assets/screenshot-tema-chiaro.png" alt="Schermata Sviluppo con tema chiaro attivato">
+        <span>Tema chiaro disponibile in alternativa</span>
+      </div>
+    </div>
+    <div class="funzionalita-immagine">
+      <img src="assets/screenshot-impostazioni.png" alt="Schermata Impostazioni: interruttore Modalità officina e taratura da provino">
+    </div>
+  </div>
+</section>
+
+<section id="calcolo" class="container stretto">
+  <h2>Il calcolo, spiegato semplice</h2>
+  <p class="intro">
+    Quando si piega una lamiera, la parte esterna della curva si allunga e
+    quella interna si accorcia. Da qualche parte in mezzo c'è una fibra che
+    non si muove: l'asse neutro. Il fattore K dice dove sta — ed è la
+    differenza fra uno sviluppo giusto e uno sbagliato.
+  </p>
+  <div class="formula">
+    <div>BA = angolo di piega · Ri</div>
+    <div>OSSB = spessore − K · spessore</div>
+    <div>BD = BA − OSSB</div>
+  </div>
+  <p>
+    Il fattore K si calcola secondo la norma <strong>DIN 6935</strong>. Se la
+    macchina reale si comporta in modo leggermente diverso dalla teoria — capita
+    spesso — si piega un provino con le stesse misure del pezzo, si misura lo
+    sviluppo che è servito davvero, e l'app ricava il K reale di quella
+    macchina, per quel materiale.
+  </p>
+</section>
+
+<section id="fiducia" class="container stretto">
+  <h2>Perché fidarsi dei numeri</h2>
+  <p class="intro">Qui un errore di calcolo non produce una quota brutta: manda a scarto lamiera vera.</p>
+  <ul class="lista-fiducia">
+    <li>Ogni risultato mostra da dove viene: mai un numero nudo senza la catena che lo spiega.</li>
+    <li>Un controllo di buon senso confronta ogni raggio interno con la regola pratica "≈ 1,99 × lo spessore".</li>
+    <li>Se manca una cava adatta, l'app lo dice — non indovina un valore in silenzio.</li>
+    <li>La taratura da provino permette di allineare i calcoli alla macchina reale, non solo alla teoria.</li>
+  </ul>
+  <p class="avviso" style="margin-top: 28px;">
+    Verifica sempre su un ritaglio prima di tagliare la serie.
+  </p>
+  <div class="numeri">
+    <div class="numero-box">
+      <strong>216</strong>
+      <span>test automatici</span>
+    </div>
+    <div class="numero-box">
+      <strong>171</strong>
+      <span>test sul motore di calcolo</span>
+    </div>
+    <div class="numero-box">
+      <strong>45</strong>
+      <span>test sull'app</span>
+    </div>
+  </div>
+  <p style="margin-top: 20px; color: var(--testo-attenuato); font-size: 0.92rem;">
+    La pubblicazione di ogni aggiornamento è bloccata finché tutti i test non
+    passano: se un test fallisce, la nuova versione non va online.
+  </p>
+</section>
+
+<section id="contatti" class="container stretto">
+  <h2>Contatti</h2>
+  <p>
+    Sviluppato da <strong>Qualifix Service</strong>.<br>
+    Per domande o segnalazioni: <a href="mailto:qualifix.service25@gmail.com">qualifix.service25@gmail.com</a>
+  </p>
+</section>
+
+<footer>
+  <p>© 2026 Qualifix Service — Tutti i diritti riservati</p>
+  <p><a href="../">Tutte le app Qualifix Service</a> · <a href="privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

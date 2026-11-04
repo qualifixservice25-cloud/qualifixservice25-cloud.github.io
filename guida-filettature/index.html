@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guida Filettature – Preforo, disegno quotato e bulloneria</title>
+<meta name="description" content="App Android gratuita con 483 filettature in 13 famiglie: disegno tecnico quotato, preforo, maschiatura, filiera, tolleranze, bulloneria e coppie di serraggio. Funziona offline.">
+<link rel="canonical" href="https://qualifixservice25-cloud.github.io/guida-filettature/">
+<meta name="theme-color" content="#111922">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="../font/inter-display-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../font/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="stile.css">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Guida Filettature">
+<meta property="og:title" content="Guida Filettature – Ogni filettatura, quotata">
+<meta property="og:description" content="Preforo, disegno tecnico in scala, maschiatura, filiera e bulloneria per 483 filettature. Gratis per Android, funziona offline.">
+<meta property="og:url" content="https://qualifixservice25-cloud.github.io/guida-filettature/">
+<meta property="og:image" content="https://qualifixservice25-cloud.github.io/guida-filettature/img/anteprima-1024x500.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:image:alt" content="Guida Filettature: ogni filettatura, quotata">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Guida Filettature",
+  "description": "483 filettature in 13 famiglie con disegno tecnico quotato, preforo, maschiatura, filiera, tolleranze 6g/6H, bulloneria con chiavi e coppie di serraggio, dati per CAD e stampa 3D.",
+  "operatingSystem": "Android",
+  "applicationCategory": "UtilitiesApplication",
+  "inLanguage": "it",
+  "url": "https://qualifixservice25-cloud.github.io/guida-filettature/",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=org.qualifix.service.guida_filettature",
+  "image": "https://qualifixservice25-cloud.github.io/guida-filettature/img/anteprima-1024x500.png",
+  "screenshot": [
+    "https://qualifixservice25-cloud.github.io/guida-filettature/img/telefono-m10.webp",
+    "https://qualifixservice25-cloud.github.io/guida-filettature/img/telefono-catalogo.webp",
+    "https://qualifixservice25-cloud.github.io/guida-filettature/img/telefono-vite-m10.webp"
+  ],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "Qualifix Service", "email": "qualifix.service25@gmail.com" }
+}
+</script>
+</head>
+<body>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-elenco" viewBox="0 0 24 24"><path d="M9 6h12"/><path d="M9 12h12"/><path d="M9 18h12"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></symbol>
+  <symbol id="i-cerca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-disegno" viewBox="0 0 24 24"><path d="M3 17 7 7l4 10 4-10 4 10"/><path d="M3 21h18"/></symbol>
+  <symbol id="i-spunta" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-trapano" viewBox="0 0 24 24"><path d="M14 4h6v6h-6z"/><path d="M14 7H6l-2 2 2 2h8"/><path d="M9 11v6"/><path d="m7 17 2 4 2-4"/></symbol>
+  <symbol id="i-chiave" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9Z"/></symbol>
+  <symbol id="i-cono" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M6 17h12"/><path d="M4 7l2 10"/><path d="M20 7l-2 10"/></symbol>
+  <symbol id="i-stampa" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="6" rx="1"/><path d="M12 9v5"/><path d="M8 18h8"/><path d="M6 21h12"/><path d="m10 14 2 2 2-2"/></symbol>
+  <symbol id="i-domanda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24"><path d="M12 20h.01"/><path d="M8.5 16.4a5 5 0 0 1 7 0"/><path d="M5 12.9a10 10 0 0 1 5.2-2.7"/><path d="M19 12.9a10 10 0 0 0-2-1.5"/><path d="M2 8.8a15 15 0 0 1 4.2-2.6"/><path d="M22 8.8a15 15 0 0 0-11.3-3.8"/><path d="m2 2 20 20"/></symbol>
+  <symbol id="i-account" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 8 5 5"/><path d="m22 8-5 5"/></symbol>
+  <symbol id="i-divieto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></symbol>
+  <symbol id="i-stella" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1Z"/></symbol>
+  <symbol id="i-luna" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-libro" viewBox="0 0 24 24"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2Z"/><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7Z"/></symbol>
+</svg>
+
+<header class="testata">
+  <div class="contenitore">
+    <a class="marchio" href="#">
+      <img src="img/icona.webp" alt="" width="38" height="38">
+      Guida Filettature
+    </a>
+    <nav class="menu" aria-label="Sezioni">
+      <a href="#come-funziona">Come funziona</a>
+      <a href="#funzioni">Funzioni</a>
+      <a href="#domande">Domande</a>
+    </nav>
+    <a class="pulsante" href="https://play.google.com/store/apps/details?id=org.qualifix.service.guida_filettature">Scarica</a>
+  </div>
+</header>
+
+<main id="contenuto">
+
+  <section class="apertura">
+    <svg class="nastri" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="nastro-arancio" x1="0" x2="1"><stop offset="0" stop-color="#d9681a"/><stop offset=".5" stop-color="#f0a04b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>
+      </defs>
+      <path d="M-40 830 C 380 850, 720 660, 1000 660 S 1380 470, 1500 380" fill="none" stroke="url(#nastro-arancio)" stroke-width="90" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".9"/>
+      <path d="M-40 900 C 420 900, 780 740, 1060 750 S 1400 590, 1500 530" fill="none" stroke="#2f6fb5" stroke-width="44" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".75"/>
+    </svg>
+    <div class="contenitore">
+      <div class="testo">
+        <a class="novita" href="#bulloneria"><b>Nuovo</b> Bulloneria: viti, dadi e rondelle</a>
+        <h1>Ogni filettatura,<br><span>quotata</span></h1>
+        <p class="sottotitolo">Scegli la famiglia, tocca la misura e hai il disegno tecnico di vite e madrevite in scala, il preforo e tutti i dati. Senza tabelle lunghissime.</p>
+        <div class="azioni">
+          <a class="badge-play" href="https://play.google.com/store/apps/details?id=org.qualifix.service.guida_filettature">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play" width="646" height="250" referrerpolicy="no-referrer">
+          </a>
+          <a class="link-chiaro" href="#funzioni">Scopri le funzioni ↓</a>
+        </div>
+        <ul class="garanzie">
+          <li><svg class="icona"><use href="#i-spunta"/></svg>Gratis</li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg>Senza pubblicità</li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg>Funziona offline</li>
+        </ul>
+      </div>
+      <div class="telefoni">
+        <img class="dietro" src="img/telefono-catalogo.webp" width="696" height="1452" alt="L'elenco delle famiglie: metrica passo grosso e fine, gas cilindrica e conica, NPT, UNC con il numero di misure">
+        <img class="davanti" src="img/telefono-m10.webp" width="696" height="1452" alt="La scheda M10: disegno in sezione di madrevite e vite con le quote e la punta per maschiare da 8,5 mm">
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione carta" id="come-funziona">
+    <div class="contenitore">
+      <div class="intro">
+        <span class="occhiello">Come funziona</span>
+        <h2>Tre tocchi e hai la misura</h2>
+        <p>Pensata per carpentieri metallici, manutentori, tornitori, idraulici ed elettricisti, comoda anche per chi modella in 3D.</p>
+      </div>
+      <ol class="passi">
+        <li class="passo">
+          <span class="numero" aria-hidden="true">1</span>
+          <span class="tondo"><svg class="icona"><use href="#i-elenco"/></svg></span>
+          <h3>Scegli la famiglia</h3>
+          <p>Metrica, gas, NPT, UNC/UNF, Whitworth, trapezoidale, tonda o Pg. Oppure cerca: <code>M10x1</code>, <code>g 1/2</code>, <code>1/4-20</code>, <code>tr 20</code>.</p>
+        </li>
+        <li class="passo">
+          <span class="numero" aria-hidden="true">2</span>
+          <span class="tondo"><svg class="icona"><use href="#i-cerca"/></svg></span>
+          <h3>Tocca la misura</h3>
+          <p>Per esempio Metrica passo fine → M10 × 1. Nella lista vedi già passo e preforo.</p>
+        </li>
+        <li class="passo">
+          <span class="numero" aria-hidden="true">3</span>
+          <span class="tondo"><svg class="icona"><use href="#i-disegno"/></svg></span>
+          <h3>Leggi la scheda</h3>
+          <p>Il disegno quotato in scala vera, ingrandibile con due dita, e sotto preforo, filiera, tolleranze e bulloneria.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sezione" id="funzioni">
+    <div class="contenitore">
+      <div class="intro">
+        <span class="occhiello">Funzioni</span>
+        <h2>Tutto quello che serve al banco</h2>
+        <p>483 filettature in 13 famiglie e 36 articoli di bulloneria, con i numeri delle norme.</p>
+      </div>
+
+      <article class="funzione" id="disegno">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-disegno"/></svg></span>
+          <h3>Il disegno in scala vera</h3>
+          <p>Il profilo è costruito con le stesse formule delle tabelle: angoli, raggi e proporzioni sono quelli della norma.</p>
+          <ul class="elenco">
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Sezione di madrevite e vite con i valori veri (d2 = 9,026) o solo i simboli</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Tocchi una riga della tabella e la quota si illumina nel disegno</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Vettoriale: non sgrana a nessun ingrandimento, anche a schermo intero</li>
+          </ul>
+        </div>
+        <div class="quadro">
+          <img src="img/telefono-m10-quota.webp" width="696" height="1452" loading="lazy" alt="Toccando il diametro medio d2 la quota si accende in arancio nel disegno">
+        </div>
+      </article>
+
+      <article class="funzione" id="maschiatura">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-trapano"/></svg></span>
+          <h3>Maschiatura e filiera</h3>
+          <p>La punta giusta prima di tutto, poi i numeri per controllare il lavoro finito.</p>
+          <ul class="elenco">
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Punta per maschiare, campo del foro finito D1 6H, maschio a rullare, punta in pollici</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Ø del perno per la filiera, smusso d'invito e perno per rullatura</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Tolleranze 6g/6H verificate al micrometro sulla ISO 965-2</li>
+          </ul>
+        </div>
+        <div class="quadro">
+          <img src="img/telefono-m10-officina.webp" width="696" height="1452" loading="lazy" alt="La scheda M10 nella modalità officina scura, con la punta per maschiare e il perno per la filiera">
+        </div>
+      </article>
+
+      <article class="funzione" id="conica">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-cono"/></svg></span>
+          <h3>Gas conica e NPT</h3>
+          <p>Per le filettature coniche c'è la seconda vista con piano di calibro, lunghezze e conicità 1:16.</p>
+          <ul class="elenco">
+            <li><svg class="icona"><use href="#i-spunta"/></svg>R, Rc e Rp (ISO 7-1, EN 10226-1) e NPT (ASME B1.20.1)</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Punta per Rp e per Rc, con o senza alesatore conico</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Ø esterno del tubo su cui passare la filiera (EN 10255, ASME B36.10)</li>
+          </ul>
+        </div>
+        <div class="quadro">
+          <img src="img/telefono-r12-conicita.webp" width="696" height="1452" loading="lazy" alt="R 1/2 gas conica: la vista della conicità con piano di calibro e lunghezza utile">
+        </div>
+      </article>
+
+      <article class="funzione" id="bulloneria">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-chiave"/></svg></span>
+          <h3>Bulloneria completa</h3>
+          <p>Viti, grani, dadi e rondelle con disegno quotato, collegati ai filetti: da M10 a «Viti, dadi e rondelle M10» con un tocco.</p>
+          <ul class="elenco">
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Chiavi ISO e DIN, brugola, Torx e croce; lunghezze di norma da toccare</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Fori passanti ISO 273, svasature e lamature con la vite montata</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Coppie di serraggio dalla 4.6 alla 12.9, con l'attrito a scelta</li>
+          </ul>
+        </div>
+        <div class="quadro">
+          <img src="img/telefono-vite-m10.webp" width="696" height="1452" loading="lazy" alt="Vite a testa esagonale ISO 4017 M10 × 30 con il disegno quotato e la chiave da 16">
+        </div>
+      </article>
+
+      <article class="funzione" id="identifica">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-domanda"/></svg></span>
+          <h3>Che filetto è?</h3>
+          <p>Hai in mano una vite o un raccordo e non sai cos'è: misura il diametro sulle creste e, se puoi, il passo.</p>
+          <ul class="elenco">
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Passo in millimetri o filetti per pollice (TPI)</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Vite o tubo, oppure foro filettato</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>I candidati dal più probabile, con lo scarto dal teorico</li>
+          </ul>
+        </div>
+        <div class="quadro">
+          <img src="img/telefono-identifica.webp" width="696" height="1452" loading="lazy" alt="Identifica: con Ø 9,85 e passo 1,5 il primo candidato è M10">
+        </div>
+      </article>
+
+      <article class="funzione" id="stampa3d">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-stampa"/></svg></span>
+          <h3>CAD e stampa 3D</h3>
+          <p>I diametri da modellare con il gioco già applicato, per filetti che si avvitano al primo colpo.</p>
+          <ul class="elenco">
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Gioco regolabile con preset per resina e FDM</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Gioco sulla madrevite, sulla vite o su entrambe</li>
+            <li><svg class="icona"><use href="#i-spunta"/></svg>Copia dati per CAD negli appunti, col punto decimale</li>
+          </ul>
+        </div>
+        <div class="quadro">
+          <img src="img/telefono-m10-stampa3d.webp" width="696" height="1452" loading="lazy" alt="La sezione CAD e stampa 3D: gioco 0,3 mm per FDM e i diametri di vite e madrevite da modellare">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sezione carta" id="officina">
+    <div class="contenitore">
+      <div class="intro">
+        <span class="occhiello">Pensata per l'officina</span>
+        <h2>Veloce, chiara, sempre con te</h2>
+      </div>
+      <div class="schede">
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-offline"/></svg></span>
+          <h3>Funziona offline</h3>
+          <p>Tutti i dati sono nell'app: in officina e in cantiere la rete non serve.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-account"/></svg></span>
+          <h3>Nessun account</h3>
+          <p>Apri e usi. Niente registrazione, niente email, niente password.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-divieto"/></svg></span>
+          <h3>Senza pubblicità</h3>
+          <p>Nessun banner e nessuno strumento che tiene traccia di cosa fai.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-luna"/></svg></span>
+          <h3>Modalità officina</h3>
+          <p>Il tema scuro, leggibile anche con le mani sporche e la luce del capannone.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-zoom"/></svg></span>
+          <h3>Zoom con due dita</h3>
+          <p>Disegni vettoriali ingrandibili e a schermo intero, anche in orizzontale.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-stella"/></svg></span>
+          <h3>Preferiti e recenti</h3>
+          <p>Le misure che usi più spesso a portata di tocco.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-cerca"/></svg></span>
+          <h3>Ricerca che capisce</h3>
+          <p><code>10x1</code>, <code>1/2 gas</code>, <code>tcei m8</code>, <code>933 m10</code>, <code>chiave 17</code>: scrivi come parli.</p>
+        </div>
+        <div class="scheda">
+          <span class="tondo"><svg class="icona"><use href="#i-libro"/></svg></span>
+          <h3>Numeri dalle norme</h3>
+          <p>Quello che una norma definisce con una formula si calcola; ogni dato dice da dove viene.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione" id="famiglie">
+    <div class="contenitore">
+      <div class="intro">
+        <span class="occhiello">Le famiglie</span>
+        <h2>483 filettature, dalle metriche alle Pg</h2>
+      </div>
+      <ul class="mestieri">
+        <li>Metrica passo grosso M1–M68</li>
+        <li>Metrica passo fine</li>
+        <li>Gas cilindrica G (BSPP)</li>
+        <li>Gas conica R · Rc · Rp</li>
+        <li>NPT</li>
+        <li>UNC · UNF · UNEF</li>
+        <li>Whitworth BSW e BSF</li>
+        <li>Trapezoidale Tr</li>
+        <li>Tonda Rd</li>
+        <li>Pg</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sezione carta" id="domande">
+    <div class="contenitore">
+      <div class="intro">
+        <span class="occhiello">Domande</span>
+        <h2>Domande frequenti</h2>
+      </div>
+      <div class="domande">
+        <details>
+          <summary>Guida Filettature è gratuita?</summary>
+          <p>Sì: si scarica gratis da Google Play e non ha pubblicità.</p>
+        </details>
+        <details>
+          <summary>Serve internet?</summary>
+          <p>No. Tutte le tabelle e i disegni sono nell'app e funzionano anche senza rete.</p>
+        </details>
+        <details>
+          <summary>Da dove vengono i numeri?</summary>
+          <p>Dalle norme: ISO 68-1, ISO 261, ISO 965, ISO 228-1, ISO 7-1, ASME B1.1 e B1.20.1, BS 84, ISO 2904, DIN 405, DIN 40430 e le norme della bulloneria. I profili e le tolleranze si calcolano con le formule delle norme e sono confrontati con le tabelle stampate. Le coppie di serraggio sono indicative.</p>
+        </details>
+        <details>
+          <summary>Funziona su iPhone?</summary>
+          <p>Per ora Guida Filettature è disponibile solo per Android, su Google Play.</p>
+        </details>
+        <details>
+          <summary>Dove finiscono i miei dati?</summary>
+          <p>Preferiti, recenti e impostazioni restano sul telefono. Non serve un account e l'app non invia niente. I dettagli sono nella <a href="privacy-policy.html">privacy policy</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione chiusura">
+    <svg class="nastri" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40 640 C 360 660, 700 540, 1000 560 S 1380 430, 1500 360" fill="none" stroke="url(#nastro-arancio)" stroke-width="70" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".55"/>
+      <path d="M-40 690 C 400 700, 760 610, 1060 630 S 1400 520, 1500 470" fill="none" stroke="#2f6fb5" stroke-width="34" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".5"/>
+    </svg>
+    <div class="contenitore">
+      <img class="icona-app" src="img/icona.webp" alt="" width="84" height="84" loading="lazy">
+      <h2>Il preforo giusto, al primo colpo</h2>
+      <p>Guida Filettature è gratis per Android. Tienila in tasca per la prossima volta che serve un filetto.</p>
+      <a class="badge-play" href="https://play.google.com/store/apps/details?id=org.qualifix.service.guida_filettature">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Disponibile su Google Play" width="646" height="250" loading="lazy" referrerpolicy="no-referrer">
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="piede">
+  <div class="contenitore">
+    <p>© 2026 Qualifix Service</p>
+    <nav aria-label="Informazioni">
+      <a href="../">Tutte le app</a>
+      <a href="privacy-policy.html">Privacy policy</a>
+      <a href="mailto:qualifix.service25@gmail.com">Contatti</a>
+      <a href="https://play.google.com/store/apps/details?id=org.qualifix.service.guida_filettature">Google Play</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
