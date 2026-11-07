@@ -13,7 +13,7 @@ Sito ufficiale di tutte le app Qualifix Service (GitHub Pages): https://qualifix
 | `ottimizza-tagli/` | Sito e privacy di **Ottimizza Tagli** |
 | `guida-filettature/` | Sito e privacy di **Guida Filettature** |
 | `sviluppo-lamiera/` | Sito e privacy di **Sviluppo Lamiera** (in arrivo su Google Play) |
-| `font/` | Inter e Inter Display, condivisi da hub, Ottimizza Tagli e Guida Filettature |
+| `font/` | Inter e Inter Display (anche latino esteso e cirillico) e Noto Sans Arabic, condivisi dai siti |
 | `img/` | Icone delle app per la pagina principale |
 | `privacy-policy.html` | Vecchio indirizzo della privacy di Calcolo Cartongesso: rimanda a quello nuovo. **Non cancellare.** |
 | `app-ads.txt` | Verifica di Google AdMob, vale per tutte le app. **Non modificare.** |
@@ -66,7 +66,12 @@ I vecchi indirizzi continuano a funzionare grazie alle pagine di rimando nei rep
 
 ## Lingue di Calcolo Cartongesso
 
-Nel sito di Calcolo Cartongesso la lingua si sceglie dal menu in alto; all'apertura parte quella del browser (se non è tra le 10, l'inglese). Si può linkare una lingua con `?lang=de`. I testi sono nell'oggetto `TESTI` in fondo a ogni pagina, una voce per lingua con le stesse chiavi. Gli screenshot vengono da `docs/screenshot_store/` del repository dell'app, convertiti in WebP 540 × 1080 dentro `calcolo-cartongesso/img/`.
+Nel sito di Calcolo Cartongesso la lingua si sceglie dal menu in alto; all'apertura parte quella del browser (se non è tra le 10, l'inglese). Si può linkare una lingua con `?lang=de`.
+
+- Titolo della pagina, nome nella testata e titolo grande usano il nome dell'app nella lingua (`NOMI`), lo stesso della scheda dello store: Drywall Calculation, Trockenbau Rechner, Cálculo Pladur…
+- I testi sono negli oggetti `TESTI` (una voce per lingua con le stesse chiavi) e `PANNELLI` (i titoli degli screenshot dello store, copiati da `store/sorgenti/testi.js` del repository dell'app).
+- Le immagini dei telefoni sono in `calcolo-cartongesso/img/<lingua>/`: cambiando lingua cambiano anche le schermate. Si rifanno con gli strumenti di `store/sorgenti/` del repository dell'app (vedi il suo `store/README.md`).
+- Per russo, rumeno, albanese e arabo ci sono i font in `font/` (`inter-ext-*`, `inter-cyrillic-*`, `noto-arabic-*`); l'arabo si legge da destra a sinistra.
 
 ---
 *Gestito da Qualifix Service - 2026*

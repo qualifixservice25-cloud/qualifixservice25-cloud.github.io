@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calcolo Cartongesso – Qualifix Service</title>
-<meta name="description" content="Calcolo Cartongesso: lastre, profili, viti e stucco per controsoffitti, tramezze, contropareti e velette in pochi secondi. Nuovo Progetto 3D. In 10 lingue.">
-<link rel="icon" type="image/png" href="../favicon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcolo Cartongesso – materiali per controsoffitti, pareti e Progetto 3D</title>
+<meta name="description" content="Calcolo Cartongesso: lastre, profili, viti e stucco per controsoffitti, tramezze, contropareti e velette in pochi secondi. Progetto 3D. In 10 lingue.">
+<link rel="canonical" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/">
 <link rel="alternate" hreflang="it" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/?lang=it">
 <link rel="alternate" hreflang="en" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/?lang=en">
 <link rel="alternate" hreflang="de" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/?lang=de">
@@ -17,259 +17,226 @@
 <link rel="alternate" hreflang="ru" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/?lang=ru">
 <link rel="alternate" hreflang="ar" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/?lang=ar">
 <link rel="alternate" hreflang="x-default" href="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --primary-color: #2c3e50;
-    --primary-dark: #1a252f;
-    --accent-color: #e67e22;
-    --success-color: #27ae60;
-    --bg-color: #f4f6f8;
-    --text: #333;
-    --muted: #5f6b76;
-  }
-  * { box-sizing: border-box; }
-  body {
-    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    margin: 0;
-    background: var(--bg-color);
-  }
-  img { max-width: 100%; height: auto; }
-  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 20px; }
+<meta name="theme-color" content="#111922">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="apple-touch-icon" href="img/icona.png">
+<link rel="preload" href="../font/inter-display-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../font/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="stile.css">
 
-  /* Barra in alto e intestazione */
-  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; }
-  .brand { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; text-decoration: none; }
-  .brand img { width: 36px; height: 36px; border-radius: 8px; }
-  .lingua { display: flex; align-items: center; gap: 6px; color: #fff; font-size: 0.9em; }
-  .lingua select {
-    font: inherit; padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.35);
-    background: rgba(255,255,255,0.12); color: #fff;
-  }
-  .lingua select option { color: #222; }
-  header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-    color: #fff;
-    border-bottom: 6px solid var(--accent-color);
-  }
-  .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: center; padding: 30px 0 60px; }
-  .hero h1 { font-size: 3em; line-height: 1.1; margin: 0 0 14px; letter-spacing: -1px; }
-  .hero .sub { font-size: 1.3em; font-weight: 300; margin: 0 0 8px; opacity: 0.95; }
-  .hero .small { opacity: 0.75; margin: 0 0 24px; }
-  .hero-shots { display: flex; justify-content: center; gap: 14px; }
-  .hero-shots img { width: 46%; max-width: 230px; }
-  .hero-shots img:last-child { margin-top: 40px; }
-
-  /* Telefono */
-  .phone { border-radius: 22px; border: 6px solid #111; background: #111; box-shadow: 0 14px 34px rgba(0,0,0,0.35); display: block; }
-
-  .badge img { height: 62px; width: auto; transition: transform 0.2s ease; }
-  .badge:hover img { transform: scale(1.05); }
-
-  /* Sezioni */
-  section { padding: 56px 0; }
-  section:nth-of-type(even) { background: #fff; }
-  h2 { color: var(--primary-color); font-size: 1.9em; margin: 0 0 12px; line-height: 1.25; }
-  .lead { font-size: 1.15em; color: var(--muted); margin: 0 0 18px; }
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
-  .split.reverse .testo { order: 2; }
-  .shots { display: flex; gap: 14px; justify-content: center; }
-  .shots img { width: 31%; max-width: 200px; }
-  .shots.una img { width: 60%; max-width: 250px; }
-  ul.punti { list-style: none; padding: 0; margin: 0 0 14px; }
-  ul.punti li {
-    position: relative; padding: 10px 14px 10px 44px; margin-bottom: 10px;
-    background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  section:nth-of-type(even) ul.punti li { background: var(--bg-color); }
-  ul.punti li::before { content: "✓"; position: absolute; left: 14px; top: 9px; color: var(--success-color); font-weight: 900; }
-  .nota { font-size: 0.95em; color: var(--muted); }
-  .etichetta {
-    display: inline-block; background: var(--accent-color); color: #fff; font-weight: 700;
-    border-radius: 999px; padding: 3px 12px; font-size: 0.85em; margin-bottom: 10px;
-  }
-
-  /* Gratis e PRO */
-  .piani { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; }
-  .piano { background: #fff; border-radius: 14px; padding: 26px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-  .piano h3 { margin: 0 0 12px; font-size: 1.5em; color: var(--primary-color); }
-  .piano.pro { border: 3px solid #f5b400; background: linear-gradient(180deg, #fffaf0 0%, #fff 60%); }
-  .piano.pro h3 { color: #b37400; }
-  .piano ul.punti li, section:nth-of-type(even) .piano ul.punti li { background: transparent; box-shadow: none; padding: 6px 0 6px 30px; margin: 0; }
-  .piano ul.punti li::before { left: 4px; top: 5px; }
-  .piano.free ul.punti li:last-child::before { content: "•"; color: var(--muted); }
-  .piano.pro ul.punti li::before { color: #e09b00; }
-
-  /* Galleria */
-  .galleria { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 4px 22px; -webkit-overflow-scrolling: touch; }
-  .galleria figure { flex: 0 0 auto; width: 210px; margin: 0; scroll-snap-align: start; text-align: center; }
-  .galleria figcaption { font-size: 0.9em; color: var(--muted); margin-top: 8px; }
-
-  /* Lingue */
-  .lingue { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 14px; }
-  .lingue a {
-    padding: 8px 14px; border-radius: 999px; background: var(--bg-color); color: var(--primary-color);
-    text-decoration: none; font-weight: 700; border: 2px solid transparent;
-  }
-  .lingue a.attiva { border-color: var(--accent-color); }
-  .centro { text-align: center; }
-
-  section.cta { background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); color: #fff; text-align: center; }
-  .cta h2 { color: #fff; }
-  .cta .lead { color: rgba(255,255,255,0.8); }
-
-  footer { text-align: center; padding: 34px 20px; font-size: 0.9em; color: #666; }
-  footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
-  footer a:hover { text-decoration: underline; }
-
-  [dir="rtl"] ul.punti li { padding: 10px 44px 10px 14px; }
-  [dir="rtl"] ul.punti li::before { left: auto; right: 14px; }
-  [dir="rtl"] .piano ul.punti li, [dir="rtl"] section:nth-of-type(even) .piano ul.punti li { padding: 6px 30px 6px 0; }
-  [dir="rtl"] .piano ul.punti li::before { right: 4px; }
-
-  @media (max-width: 800px) {
-    .hero, .split, .piani { grid-template-columns: 1fr; }
-    .split.reverse .testo { order: 0; }
-    .hero h1 { font-size: 2.2em; }
-    .hero { padding-bottom: 40px; }
-    section { padding: 40px 0; }
-    .galleria figure { width: 170px; }
-  }
-</style>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Qualifix Service">
+<meta property="og:title" content="Calcolo Cartongesso – materiali per controsoffitti, pareti e Progetto 3D">
+<meta property="og:description" content="Lastre, profili, viti e stucco in pochi secondi. Disegna la casa e guardala in 3D. Per Android, in 10 lingue.">
+<meta property="og:url" content="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/">
+<meta property="og:image" content="https://qualifixservice25-cloud.github.io/calcolo-cartongesso/img/anteprima-1024x500.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calcolo Cartongesso",
+  "alternateName": ["Drywall Calculation", "Trockenbau Rechner", "Cálculo Pladur", "Calcul Placo", "Gyproc Calculator", "Calcul Gips-Carton", "Llogaritja e Gipsit", "Калькулятор гипсокартона", "حساب الجبس بورد"],
+  "operatingSystem": "Android",
+  "applicationCategory": "BusinessApplication",
+  "inLanguage": ["it", "en", "de", "es", "fr", "nl", "ro", "sq", "ru", "ar"],
+  "url": "https://qualifixservice25-cloud.github.io/calcolo-cartongesso/",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "Qualifix Service", "email": "qualifix.service25@gmail.com" }
+}
+</script>
 </head>
 <body>
+<a class="salta" href="#contenuto">↓</a>
 
-<header>
-  <div class="wrap">
-    <div class="topbar">
-      <a class="brand" href="./"><img src="img/icona.png" alt="">Calcolo Cartongesso</a>
-      <label class="lingua"><span data-t="lang">Lingua</span>
-        <select id="sceltaLingua" aria-label="Lingua / Language"></select>
-      </label>
-    </div>
-    <div class="hero">
-      <div>
-        <h1>Calcolo Cartongesso</h1>
-        <p class="sub" data-t="hero"></p>
-        <p class="small" data-t="hero_small"></p>
-        <a class="badge" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso">
-          <img data-badge src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Google Play">
-        </a>
-      </div>
-      <div class="hero-shots">
-        <img class="phone" src="img/01_home.webp" width="540" height="1080" alt="">
-        <img class="phone" src="img/07_3d.webp" width="540" height="1080" alt="">
-      </div>
-    </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-spunta" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-soffitto" viewBox="0 0 24 24"><path d="M3 5h18"/><path d="M5 5v4h14V5"/><path d="M8 9v3"/><path d="M16 9v3"/><path d="M4 12h16"/></symbol>
+  <symbol id="i-elenco" viewBox="0 0 24 24"><path d="M9 6h12"/><path d="M9 12h12"/><path d="M9 18h12"/><path d="M4 6h.01"/><path d="M4 12h.01"/><path d="M4 18h.01"/></symbol>
+  <symbol id="i-cubo" viewBox="0 0 24 24"><path d="m21 16-9 5-9-5V8l9-5 9 5Z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></symbol>
+  <symbol id="i-veletta" viewBox="0 0 24 24"><path d="M3 4h18"/><path d="M14 4v8h7"/><path d="M14 12v6"/></symbol>
+  <symbol id="i-struttura" viewBox="0 0 24 24"><path d="M4 3v18"/><path d="M10 3v18"/><path d="M16 3v18"/><path d="M2 3h20"/><path d="M2 21h20"/></symbol>
+</svg>
+
+<header class="testata">
+  <div class="contenitore">
+    <a class="marchio" href="./">
+      <img src="img/icona.png" alt="" width="38" height="38">
+      <span data-nome>Calcolo Cartongesso</span>
+    </a>
+    <select class="lingua" id="sceltaLingua" aria-label="Lingua / Language"></select>
+    <a class="pulsante" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso" data-t="dl_h"></a>
   </div>
 </header>
 
-<main>
-  <section>
-    <div class="wrap split">
+<main id="contenuto">
+
+  <section class="apertura">
+    <svg class="nastri" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="nastro-ciano" x1="0" x2="1"><stop offset="0" stop-color="#00838f"/><stop offset=".5" stop-color="#4dd0e1"/><stop offset="1" stop-color="#0097a7"/></linearGradient>
+      </defs>
+      <path d="M-40 830 C 380 850, 720 660, 1000 660 S 1380 470, 1500 380" fill="none" stroke="url(#nastro-ciano)" stroke-width="90" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".9"/>
+      <path d="M-40 900 C 420 900, 780 740, 1060 750 S 1400 590, 1500 530" fill="none" stroke="#ff9800" stroke-width="44" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".7"/>
+    </svg>
+    <div class="contenitore">
       <div class="testo">
+        <a class="novita" href="#progetto"><b data-t="new"></b> <span data-t="p3d_h"></span></a>
+        <h1><span data-nome>Calcolo Cartongesso</span></h1>
+        <p class="sottotitolo" data-t="hero"></p>
+        <div class="azioni">
+          <a class="badge-play" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso">
+            <img data-badge src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Google Play" width="646" height="250" referrerpolicy="no-referrer">
+          </a>
+        </div>
+        <p class="sottotitolo" data-t="hero_small" style="font-size:1rem"></p>
+      </div>
+      <div class="telefoni">
+        <img class="dietro" data-img="progetto-3d" src="img/it/telefono-progetto-3d.webp" width="696" height="1312" alt="">
+        <img class="davanti" data-img="home" src="img/it/telefono-home.webp" width="696" height="1312" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section class="sezione carta" id="calcoli">
+    <div class="contenitore">
+      <div class="intro">
         <h2 data-t="calc_h"></h2>
-        <p class="lead" data-t="calc_p"></p>
-        <ul class="punti" data-l="calc_li"></ul>
-        <p class="nota" data-t="calc_note"></p>
+        <p data-t="calc_p"></p>
       </div>
-      <div class="shots">
-        <img class="phone" src="img/02_controsoffitto.webp" width="540" height="1080" loading="lazy" alt="">
-        <img class="phone" src="img/03_controparete.webp" width="540" height="1080" loading="lazy" alt="">
-        <img class="phone" src="img/04_veletta.webp" width="540" height="1080" loading="lazy" alt="">
-      </div>
+
+      <article class="funzione">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-soffitto"/></svg></span>
+          <h3 data-p="1"></h3>
+          <p data-ps="1"></p>
+          <ul class="elenco" data-l="calc_li"></ul>
+          <p class="nota" data-t="calc_note" style="margin-top:14px;color:var(--grigio);font-size:.95rem"></p>
+        </div>
+        <div class="quadro">
+          <img class="indietro" data-img="controparete" src="img/it/telefono-controparete.webp" width="696" height="1312" loading="lazy" alt="">
+          <img data-img="controsoffitto" src="img/it/telefono-controsoffitto.webp" width="696" height="1312" loading="lazy" alt="">
+        </div>
+      </article>
+
+      <article class="funzione">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-veletta"/></svg></span>
+          <h3 data-p="3"></h3>
+          <p data-ps="3"></p>
+        </div>
+        <div class="quadro">
+          <img data-img="veletta" src="img/it/telefono-veletta.webp" width="696" height="1312" loading="lazy" alt="">
+        </div>
+      </article>
+
+      <article class="funzione">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-elenco"/></svg></span>
+          <h3 data-t="computo_h"></h3>
+          <p data-t="computo_p"></p>
+        </div>
+        <div class="quadro">
+          <img data-img="computo" src="img/it/telefono-computo.webp" width="696" height="1312" loading="lazy" alt="">
+        </div>
+      </article>
     </div>
   </section>
 
-  <section>
-    <div class="wrap split reverse">
-      <div class="testo">
-        <h2 data-t="computo_h"></h2>
-        <p class="lead" data-t="computo_p"></p>
-      </div>
-      <div class="shots una">
-        <img class="phone" src="img/05_computo.webp" width="540" height="1080" loading="lazy" alt="">
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap split">
-      <div class="testo">
+  <section class="sezione" id="progetto">
+    <div class="contenitore">
+      <div class="intro">
         <span class="etichetta" data-t="new"></span>
         <h2 data-t="p3d_h"></h2>
-        <p class="lead" data-t="p3d_p"></p>
-        <ul class="punti" data-l="p3d_li"></ul>
+        <p data-t="p3d_p"></p>
       </div>
-      <div class="shots">
-        <img class="phone" src="img/06_pianta.webp" width="540" height="1080" loading="lazy" alt="">
-        <img class="phone" src="img/10_parete.webp" width="540" height="1080" loading="lazy" alt="">
-        <img class="phone" src="img/08_3d_struttura.webp" width="540" height="1080" loading="lazy" alt="">
-      </div>
+
+      <article class="funzione">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-cubo"/></svg></span>
+          <h3 data-p="5"></h3>
+          <p data-ps="5"></p>
+          <ul class="elenco" data-l="p3d_li"></ul>
+        </div>
+        <div class="quadro">
+          <img data-img="progetto-pianta" src="img/it/telefono-progetto-pianta.webp" width="696" height="1312" loading="lazy" alt="">
+        </div>
+      </article>
+
+      <article class="funzione">
+        <div class="testo">
+          <span class="tondo"><svg class="icona"><use href="#i-struttura"/></svg></span>
+          <h3 data-p="6"></h3>
+          <p data-ps="6"></p>
+          <p data-ps="7" style="margin-top:8px"></p>
+        </div>
+        <div class="quadro">
+          <img class="indietro" data-img="progetto-3d-struttura" src="img/it/telefono-progetto-3d-struttura.webp" width="696" height="1312" loading="lazy" alt="">
+          <img data-img="progetto-3d" src="img/it/telefono-progetto-3d.webp" width="696" height="1312" loading="lazy" alt="">
+        </div>
+      </article>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <h2 class="centro" data-t="plans_h"></h2>
+  <section class="sezione carta" id="piani">
+    <div class="contenitore">
+      <div class="intro"><h2 data-t="plans_h"></h2></div>
       <div class="piani">
-        <div class="piano free">
+        <div class="piano">
           <h3 data-t="free_h"></h3>
-          <ul class="punti" data-l="free_li"></ul>
+          <ul class="elenco" data-l="free_li"></ul>
         </div>
         <div class="piano pro">
           <h3>PRO</h3>
-          <ul class="punti" data-l="pro_li"></ul>
+          <ul class="elenco" data-l="pro_li"></ul>
           <p class="nota" data-t="pro_note"></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <h2 class="centro" data-t="gallery_h"></h2>
-      <div class="galleria" id="galleria"></div>
-      <p class="nota centro" data-t="gallery_note"></p>
+  <section class="sezione" id="lingue">
+    <div class="contenitore">
+      <div class="intro">
+        <h2 data-t="langs_h"></h2>
+        <p data-t="langs_p"></p>
+      </div>
+      <ul class="mestieri" id="elencoLingue"></ul>
     </div>
   </section>
 
-  <section>
-    <div class="wrap centro">
-      <h2 data-t="langs_h"></h2>
-      <p class="lead" data-t="langs_p"></p>
-      <div class="lingue" id="lingue"></div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="wrap">
+  <section class="sezione chiusura">
+    <svg class="nastri" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40 640 C 360 660, 700 540, 1000 560 S 1380 430, 1500 360" fill="none" stroke="url(#nastro-ciano)" stroke-width="70" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".55"/>
+      <path d="M-40 690 C 400 700, 760 610, 1060 630 S 1400 520, 1500 470" fill="none" stroke="#ff9800" stroke-width="34" stroke-linecap="round" vector-effect="non-scaling-stroke" opacity=".45"/>
+    </svg>
+    <div class="contenitore">
+      <img class="icona-app" src="img/icona.png" alt="" width="84" height="84" loading="lazy">
       <h2 data-t="dl_h"></h2>
-      <p class="lead" data-t="dl_p"></p>
-      <a class="badge" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso">
-        <img data-badge src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Google Play">
+      <p data-t="dl_p"></p>
+      <a class="badge-play" data-play href="https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso">
+        <img data-badge src="https://play.google.com/intl/en_us/badges/static/images/badges/it_badge_web_generic.png" alt="Google Play" width="646" height="250" loading="lazy" referrerpolicy="no-referrer">
       </a>
     </div>
   </section>
+
 </main>
 
-<footer>
-  <p>&copy; 2026 Qualifix Service</p>
-  <p>
-    <a href="../">Qualifix Service – tutte le app</a> |
-    <a id="linkPrivacy" href="privacy-policy.html" data-t="privacy"></a> |
-    <a href="mailto:qualifix.service25@gmail.com" data-t="contact"></a>
-  </p>
+<footer class="piede">
+  <div class="contenitore">
+    <p>© 2026 Qualifix Service</p>
+    <nav aria-label="Qualifix Service">
+      <a href="../" id="linkTutte"></a>
+      <a id="linkPrivacy" href="privacy-policy.html" data-t="privacy"></a>
+      <a href="mailto:qualifix.service25@gmail.com" data-t="contact"></a>
+    </nav>
+  </div>
 </footer>
 
 <script>
-// Immagini della galleria, nello stesso ordine delle didascalie ("captions").
-const IMMAGINI = ["01_home", "02_controsoffitto", "03_controparete", "04_veletta", "05_computo",
-  "06_pianta", "07_3d", "08_3d_struttura", "09_3d_trasparente", "10_parete", "11_pro"];
-
-// Le 10 lingue dell'app, con il nome nella lingua stessa.
 const LINGUE = [
   ["it", "Italiano"], ["en", "English"], ["de", "Deutsch"], ["es", "Español"], ["fr", "Français"],
   ["nl", "Nederlands"], ["ro", "Română"], ["sq", "Shqip"], ["ru", "Русский"], ["ar", "العربية"]
@@ -668,37 +635,51 @@ const TESTI = {
   }
 };
 
+const NOMI = {"it": "Calcolo Cartongesso", "en": "Drywall Calculation", "de": "Trockenbau Rechner", "es": "Cálculo Pladur", "fr": "Calcul Placo", "nl": "Gyproc Calculator", "ro": "Calcul Gips-Carton", "sq": "Llogaritja e Gipsit", "ru": "Калькулятор гипсокартона", "ar": "حساب الجبس بورد"};
+// I titoli degli screenshot dello store (repository Calcolo-cartongesso, store/sorgenti/testi.js).
+const PANNELLI = {"it": [["Materiali <em>in un tocco</em>","Controsoffitti, tramezze, contropareti e velette"],["Lo schema <em>delle lastre</em>","Il controsoffitto in scala, con orditura e lastre"],["Tutto <em>già contato</em>","Lastre, profili, viti e stucco, con i pesi"],["Anche <em>la veletta</em>","Disegno in prospettiva, con i pendini"],["Il computo <em>è pronto</em>","Somma tutte le lavorazioni e crea il PDF"],["Disegna <em>la casa</em>","Stanze, porte e finestre: i muri a contatto diventano tramezze"],["Il progetto <em>in 3D</em>","Muri, lastre e controsoffitti da ogni angolo"],["Ogni montante, <em>ogni guida</em>","La struttura in 3D, strato per strato"]],"en": [["Materials <em>in one tap</em>","Ceilings, partition walls, wall linings and bulkheads"],["Every board, <em>to scale</em>","The suspended ceiling with its framing and boards"],["Everything <em>counted</em>","Boards, profiles, screws and filler, with weights"],["Bulkheads <em>too</em>","Perspective drawing with the hangers"],["Your bill of quantities, <em>ready</em>","Adds up every job and creates the PDF"],["Draw <em>the home</em>","Rooms, doors and windows: touching walls become partitions"],["Your project <em>in 3D</em>","Walls, boards and ceilings from every angle"],["Every stud, <em>every track</em>","The framing in 3D, layer by layer"]],"de": [["Material <em>mit einem Tipp</em>","Decken, Trennwände, Vorsatzschalen und Deckenschürzen"],["Jede Platte <em>im Maßstab</em>","Die abgehängte Decke mit Unterkonstruktion und Platten"],["Alles <em>schon gezählt</em>","Platten, Profile, Schrauben und Spachtel, mit Gewicht"],["Auch die <em>Deckenschürze</em>","Perspektivische Zeichnung mit den Abhängern"],["Die Material&shy;aufstellung <em>steht</em>","Summiert alle Arbeiten und erstellt das PDF"],["Zeichne <em>die Wohnung</em>","Räume, Türen und Fenster: Berührende Wände werden Trennwände"],["Das Projekt <em>in 3D</em>","Wände, Platten und Decken aus jedem Winkel"],["Jedes Profil, <em>jede Schiene</em>","Die Unterkonstruktion in 3D, Schicht für Schicht"]],"es": [["Materiales <em>en un toque</em>","Falsos techos, tabiques, trasdosados y faldones"],["Cada placa <em>a escala</em>","El falso techo con su estructura y sus placas"],["Todo <em>ya contado</em>","Placas, perfiles, tornillos y pasta, con su peso"],["También <em>el faldón</em>","Dibujo en perspectiva, con las varillas"],["El cómputo, <em>listo</em>","Suma todos los trabajos y crea el PDF"],["Dibuja <em>la casa</em>","Estancias, puertas y ventanas: las paredes que se tocan son tabiques"],["El proyecto <em>en 3D</em>","Paredes, placas y techos desde cualquier ángulo"],["Cada montante, <em>cada canal</em>","La estructura en 3D, capa por capa"]],"fr": [["Les matériaux <em>en un geste</em>","Plafonds, cloisons, contre-cloisons et retombées"],["Chaque plaque <em>à l’échelle</em>","Le plafond suspendu avec son ossature et ses plaques"],["Tout <em>est compté</em>","Plaques, rails, vis et enduit, avec les poids"],["Même <em>la retombée</em>","Dessin en perspective, avec les suspentes"],["Le métré <em>est prêt</em>","Additionne tous les ouvrages et crée le PDF"],["Dessinez <em>la maison</em>","Pièces, portes et fenêtres : les murs qui se touchent deviennent cloisons"],["Le projet <em>en 3D</em>","Murs, plaques et plafonds sous tous les angles"],["Chaque montant, <em>chaque rail</em>","L’ossature en 3D, couche par couche"]],"nl": [["Materialen <em>met één tik</em>","Plafonds, scheidingswanden, voorzetwanden en koven"],["Elke plaat <em>op schaal</em>","Het verlaagde plafond met regelwerk en platen"],["Alles <em>al geteld</em>","Platen, profielen, schroeven en vulmiddel, met gewicht"],["Ook <em>de koof</em>","Tekening in perspectief, met de hangers"],["De materialenlijst <em>staat klaar</em>","Telt alle werkzaamheden op en maakt de PDF"],["Teken <em>het huis</em>","Ruimtes, deuren en ramen: wanden die elkaar raken worden tussenwanden"],["Het project <em>in 3D</em>","Wanden, platen en plafonds vanuit elke hoek"],["Elke staander, <em>elk profiel</em>","De constructie in 3D, laag voor laag"]],"ro": [["Materialele <em>dintr-o atingere</em>","Tavane false, pereți despărțitori, placări și ghene"],["Fiecare placă <em>la scară</em>","Tavanul fals cu structura și plăcile"],["Totul <em>deja numărat</em>","Plăci, profile, șuruburi și chit, cu greutăți"],["Și <em>ghena</em>","Desen în perspectivă, cu tijele de suspendare"],["Calculul <em>e gata</em>","Adună toate lucrările și creează PDF-ul"],["Desenează <em>casa</em>","Camere, uși și ferestre: pereții care se ating devin pereți despărțitori"],["Proiectul <em>în 3D</em>","Pereți, plăci și tavane din orice unghi"],["Fiecare montant, <em>fiecare ghidaj</em>","Structura în 3D, strat cu strat"]],"sq": [["Materialet <em>me një prekje</em>","Tavane, mure ndarëse, veshje muri dhe veletë"],["Çdo pllakë <em>në shkallë</em>","Tavani i varur me strukturën dhe pllakat"],["Gjithçka <em>e numëruar</em>","Pllaka, profile, vida dhe stuko, me peshat"],["Edhe <em>veleta</em>","Vizatim në perspektivë, me varëset"],["Llogaritja <em>është gati</em>","Mbledh të gjitha punimet dhe krijon PDF-në"],["Vizato <em>shtëpinë</em>","Dhoma, dyer dhe dritare: muret që preken bëhen mure ndarëse"],["Projekti <em>në 3D</em>","Mure, pllaka dhe tavane nga çdo kënd"],["Çdo montant, <em>çdo udhëzues</em>","Struktura në 3D, shtresë pas shtrese"]],"ru": [["Материалы <em>в одно касание</em>","Потолки, перегородки, облицовка стен и короба"],["Каждый лист <em>в масштабе</em>","Подвесной потолок с каркасом и листами"],["Всё <em>уже посчитано</em>","Листы, профили, саморезы и шпаклёвка, с весом"],["И даже <em>короб</em>","Чертёж в перспективе, с подвесами"],["Ведомость <em>готова</em>","Суммирует все работы и создаёт PDF"],["Нарисуйте <em>квартиру</em>","Комнаты, двери и окна: соприкасающиеся стены станут перегородками"],["Проект <em>в 3D</em>","Стены, листы и потолки с любой стороны"],["Каждая стойка, <em>каждый профиль</em>","Каркас в 3D, слой за слоем"]],"ar": [["المواد <em>بلمسة واحدة</em>","أسقف مستعارة وجدران فاصلة وتغليف جدران وحواف أسقف"],["كل لوح <em>بالمقياس</em>","السقف المستعار مع الهيكل والألواح"],["كل شيء <em>محسوب</em>","ألواح وقوائم وبراغي ومعجون، مع الأوزان"],["وحافة السقف <em>أيضًا</em>","رسم منظوري مع المعلّقات"],["حساب المواد <em>جاهز</em>","يجمع كل الأعمال وينشئ ملف PDF"],["ارسم <em>البيت</em>","غرف وأبواب ونوافذ: الجدران المتلامسة تصبح جدرانًا فاصلة"],["المشروع <em>ثلاثي الأبعاد</em>","الجدران والألواح والأسقف من كل زاوية"],["كل قائم، <em>كل مجرى</em>","الهيكل ثلاثي الأبعاد، طبقة بعد طبقة"]]};
+const TUTTE_LE_APP = {"it": "Tutte le app", "en": "All apps", "de": "Alle Apps", "es": "Todas las apps", "fr": "Toutes les apps", "nl": "Alle apps", "ro": "Toate aplicațiile", "sq": "Të gjitha aplikacionet", "ru": "Все приложения", "ar": "كل التطبيقات"};
 const CODICI = LINGUE.map(l => l[0]);
 const PLAY = "https://play.google.com/store/apps/details?id=org.qualifix.service.calcolocartongesso";
 const BADGE = "https://play.google.com/intl/en_us/badges/static/images/badges/";
 
 function linguaIniziale() {
-  const daUrl = new URLSearchParams(location.search).get("lang");
-  if (CODICI.includes(daUrl)) return daUrl;
-  try {
-    const salvata = localStorage.getItem("lingua");
-    if (CODICI.includes(salvata)) return salvata;
-  } catch (e) {}
-  for (const l of (navigator.languages || [navigator.language || ""])) {
-    const c = (l || "").slice(0, 2).toLowerCase();
-    if (CODICI.includes(c)) return c;
-  }
-  return "en";
+  const p = new URLSearchParams(location.search).get("lang");
+  if (p && CODICI.includes(p)) return p;
+  try { const s = localStorage.getItem("lingua"); if (s && CODICI.includes(s)) return s; } catch (e) {}
+  const b = (navigator.language || "en").slice(0, 2).toLowerCase();
+  return CODICI.includes(b) ? b : "en";
 }
 
 function applica(codice) {
   const t = TESTI[codice];
+  const nome = NOMI[codice];
+  // Il titolo con il nome dell'app nella lingua, come nella scheda dello store.
+  const titolo = t.title.replace(/^Calcolo Cartongesso/, nome);
   document.documentElement.lang = codice;
   document.documentElement.dir = codice === "ar" ? "rtl" : "ltr";
-  document.title = t.title;
+  document.title = titolo;
+  document.querySelector('meta[property="og:title"]').content = titolo;
+  document.querySelector('meta[name="description"]').content = nome + ": " + t.hero;
+  document.querySelectorAll("[data-nome]").forEach(el => { el.textContent = nome; });
   document.querySelectorAll("[data-t]").forEach(el => { el.textContent = t[el.dataset.t]; });
+  document.querySelectorAll("[data-p]").forEach(el => { el.innerHTML = PANNELLI[codice][el.dataset.p][0]; });
+  document.querySelectorAll("[data-ps]").forEach(el => { el.textContent = PANNELLI[codice][el.dataset.ps][1]; });
   document.querySelectorAll("[data-l]").forEach(ul => {
     ul.innerHTML = "";
     t[ul.dataset.l].forEach(testo => {
       const li = document.createElement("li");
-      li.textContent = testo;
+      li.innerHTML = '<svg class="icona"><use href="#i-spunta"/></svg>';
+      const s = document.createElement("span");
+      s.textContent = testo;
+      li.appendChild(s);
       ul.appendChild(li);
     });
+  });
+  // Le schermate dell'app nella lingua scelta.
+  document.querySelectorAll("[data-img]").forEach(img => {
+    img.src = "img/" + codice + "/telefono-" + img.dataset.img + ".webp";
+    img.alt = nome;
   });
   document.querySelectorAll("[data-badge]").forEach(img => {
     img.alt = t.badge_alt;
@@ -706,20 +687,9 @@ function applica(codice) {
     img.src = BADGE + codice + "_badge_web_generic.png";
   });
   document.querySelectorAll("[data-play]").forEach(a => { a.href = PLAY + "&hl=" + codice; });
-  const galleria = document.getElementById("galleria");
-  galleria.innerHTML = "";
-  IMMAGINI.forEach((nome, i) => {
-    const f = document.createElement("figure");
-    const img = document.createElement("img");
-    img.className = "phone"; img.loading = "lazy"; img.width = 540; img.height = 1080;
-    img.src = "img/" + nome + ".webp"; img.alt = t.captions[i];
-    const cap = document.createElement("figcaption");
-    cap.textContent = t.captions[i];
-    f.append(img, cap);
-    galleria.appendChild(f);
-  });
-  document.querySelectorAll("#lingue a").forEach(a => a.classList.toggle("attiva", a.dataset.codice === codice));
+  document.querySelectorAll("#elencoLingue li").forEach(li => li.classList.toggle("attiva", li.dataset.codice === codice));
   document.getElementById("sceltaLingua").value = codice;
+  document.getElementById("linkTutte").textContent = TUTTE_LE_APP[codice];
   document.getElementById("linkPrivacy").href = "privacy-policy.html?lang=" + codice;
   try { localStorage.setItem("lingua", codice); } catch (e) {}
 }
@@ -732,15 +702,18 @@ function cambia(codice) {
 }
 
 const scelta = document.getElementById("sceltaLingua");
-const elenco = document.getElementById("lingue");
+const elenco = document.getElementById("elencoLingue");
 LINGUE.forEach(([codice, nome]) => {
   const o = document.createElement("option");
   o.value = codice; o.textContent = nome;
   scelta.appendChild(o);
+  const li = document.createElement("li");
+  li.dataset.codice = codice;
   const a = document.createElement("a");
-  a.href = "?lang=" + codice; a.textContent = nome; a.dataset.codice = codice; a.lang = codice;
+  a.href = "?lang=" + codice; a.textContent = nome; a.lang = codice;
   a.addEventListener("click", e => { e.preventDefault(); cambia(codice); window.scrollTo({ top: 0, behavior: "smooth" }); });
-  elenco.appendChild(a);
+  li.appendChild(a);
+  elenco.appendChild(li);
 });
 scelta.addEventListener("change", () => cambia(scelta.value));
 applica(linguaIniziale());
