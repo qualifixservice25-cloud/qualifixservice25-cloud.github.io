@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VetrinaTV – Il menù e le offerte del tuo negozio, sulla TV</title>
+<meta name="description" content="VetrinaTV trasforma una TV in vetrina digitale: scrivi menù, prezzi e offerte dal telefono e lo schermo del tuo negozio si aggiorna da solo, anche senza internet. Per bar, pizzerie, panifici e botteghe.">
+<link rel="canonical" href="https://qualifixservice25-cloud.github.io/vetrinatv/">
+<link rel="alternate" hreflang="it" href="https://qualifixservice25-cloud.github.io/vetrinatv/">
+<link rel="alternate" hreflang="en" href="https://qualifixservice25-cloud.github.io/vetrinatv/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://qualifixservice25-cloud.github.io/vetrinatv/">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preload" href="../font/inter-display-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../font/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="stile.css">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="VetrinaTV">
+<meta property="og:title" content="VetrinaTV – Il menù e le offerte del tuo negozio, sulla TV">
+<meta property="og:description" content="Scrivi prezzi e offerte dal telefono: la TV della tua vetrina si aggiorna da sola, anche senza internet.">
+<meta property="og:url" content="https://qualifixservice25-cloud.github.io/vetrinatv/">
+<meta property="og:image" content="https://qualifixservice25-cloud.github.io/vetrinatv/img/anteprima-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VetrinaTV: la vetrina di una pizzeria con una TV che mostra il menù">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "VetrinaTV",
+  "description": "Segnaletica digitale per negozi: menù, prezzi e offerte scritti dal telefono e mostrati su una TV Google TV / Android TV, anche senza internet.",
+  "operatingSystem": "Android, Android TV, Google TV",
+  "applicationCategory": "BusinessApplication",
+  "inLanguage": ["it", "en"],
+  "url": "https://qualifixservice25-cloud.github.io/vetrinatv/",
+  "image": "https://qualifixservice25-cloud.github.io/vetrinatv/img/anteprima-1200x630.png",
+  "publisher": { "@type": "Organization", "name": "Qualifix Service", "email": "qualifix.service25@gmail.com" }
+}
+</script>
+</head>
+<body>
+<a class="salta" href="#contenuto" data-t="salta">Vai al contenuto</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-spunta" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-lampo" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 4-2.4"/><path d="M19 12.5a10 10 0 0 0-2-1.5"/><path d="M8.5 16.4a5 5 0 0 1 7 0"/><path d="M12 20h.01"/><path d="M2 2l20 20"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.8 0"/></symbol>
+  <symbol id="i-orologio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-verticale" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-modelli" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+  <symbol id="i-esaurito" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></symbol>
+  <symbol id="i-scudo" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></symbol>
+  <symbol id="i-telefono" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><path d="M12 20h.01"/><path d="M2 8.8a15 15 0 0 1 20 0"/></symbol>
+  <symbol id="i-pizza" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1.2"/><circle cx="14.5" cy="9" r="1.2"/><circle cx="13" cy="14.5" r="1.2"/></symbol>
+  <symbol id="i-pane" viewBox="0 0 24 24"><path d="M5 14c-2-1-2-5 1-6 1-2 5-3 7-2 3-1 6 1 6 4 1 1 1 3-1 4v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-tazza" viewBox="0 0 24 24"><path d="M5 8h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M17 10h2a2 2 0 0 1 0 4h-2"/><path d="M8 3v2M12 3v2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+</svg>
+
+<header class="testata">
+  <div class="contenitore">
+    <a class="marchio" href="#" aria-label="VetrinaTV"><img src="img/icona.webp" alt="" width="36" height="36"><b>Vetrina<span>TV</span></b></a>
+    <nav class="menu" aria-label="Sezioni">
+      <a href="#come" data-t="mCome">Come funziona</a>
+      <a href="#prova" data-t="mProva">Provala</a>
+      <a href="#funzioni" data-t="mFunzioni">Funzioni</a>
+      <a href="#piani" data-t="mPiani">Piani</a>
+      <a href="#domande" data-t="mDomande">Domande</a>
+    </nav>
+    <label class="lingua"><select id="lingua" aria-label="Lingua / Language"><option value="it">Italiano</option><option value="en">English</option></select></label>
+    <span class="pillola" data-t="inArrivo">In arrivo su Google Play</span>
+  </div>
+</header>
+
+<main id="contenuto">
+
+<!-- ================= APERTURA ================= -->
+<section class="apertura">
+  <div class="contenitore">
+    <div class="testo">
+      <span class="novita" data-t="novita">Segnaletica digitale per negozi</span>
+      <h1 data-t="titolo">Il menù e le offerte del tuo negozio, <span>sulla TV</span></h1>
+      <p class="sottotitolo" data-t="sottotitolo">Colleghi una TV, scrivi dal telefono e la tua vetrina si aggiorna da sola: prezzi, piatti del giorno, avvisi. Niente chiavette USB, niente grafici da pagare.</p>
+      <div class="azioni">
+        <a class="pulsante" href="#prova"><svg class="icona"><use href="#i-lampo"/></svg><span data-t="provala">Provala qui sotto</span></a>
+        <a class="pulsante secondario" href="#come" data-t="comeFunziona">Come funziona ↓</a>
+      </div>
+      <ul class="garanzie">
+        <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="g1">Provala gratis</span></li>
+        <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="g2">Si aggiorna in pochi secondi</span></li>
+        <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="g3">Funziona anche senza internet</span></li>
+      </ul>
+    </div>
+
+    <div class="scena">
+      <div class="scena-scelta" role="tablist" aria-label="Tipo di attività" data-ta="tipoAttivita">
+        <button class="scelta" role="tab" aria-selected="true" data-attivita="pizzeria" type="button"><svg class="icona"><use href="#i-pizza"/></svg><span data-t="tPizzeria">Pizzeria</span></button>
+        <button class="scelta" role="tab" aria-selected="false" data-attivita="panificio" type="button"><svg class="icona"><use href="#i-pane"/></svg><span data-t="tPanificio">Panificio</span></button>
+        <button class="scelta" role="tab" aria-selected="false" data-attivita="bar" type="button"><svg class="icona"><use href="#i-tazza"/></svg><span data-t="tBar">Bar</span></button>
+      </div>
+
+      <div class="negozio" id="negozio" data-attivita="pizzeria">
+        <svg viewBox="0 0 600 560" role="img" aria-label="La vetrina di un negozio con una TV appesa dietro il vetro" data-ta="vetrinaAlt">
+          <defs>
+            <pattern id="mattoni" width="40" height="20" patternUnits="userSpaceOnUse"><path d="M0 .5H40M20 .5V10M0 10.5H40M0 10.5V20M40 10.5V20" stroke="rgba(0,0,0,.14)" fill="none"/></pattern>
+            <linearGradient id="interno" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a3523"/><stop offset=".55" stop-color="#241911"/><stop offset="1" stop-color="#120c08"/></linearGradient>
+            <clipPath id="vetroclip"><rect x="72" y="196" width="336" height="288" rx="4"/></clipPath>
+            <radialGradient id="lampada" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#ffd596" stop-opacity=".6"/><stop offset="1" stop-color="#ffd596" stop-opacity="0"/></radialGradient>
+            <linearGradient id="riflesso" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+            <linearGradient id="ombra-tenda" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient>
+          </defs>
+          <rect class="muro" width="600" height="560" rx="20"/>
+          <rect width="600" height="560" rx="20" fill="url(#mattoni)"/>
+          <!-- insegna -->
+          <rect class="insegna" x="60" y="24" width="480" height="64" rx="12" stroke="#f5b841" stroke-width="3"/>
+          <circle cx="76" cy="56" r="3" class="luce"/><circle cx="524" cy="56" r="3" class="luce"/>
+          <!-- tenda -->
+          <g>
+            <rect class="t1" x="40" y="94" width="52" height="50"/><circle class="t1" cx="66" cy="144" r="26"/>
+            <rect class="t2" x="92" y="94" width="52" height="50"/><circle class="t2" cx="118" cy="144" r="26"/>
+            <rect class="t1" x="144" y="94" width="52" height="50"/><circle class="t1" cx="170" cy="144" r="26"/>
+            <rect class="t2" x="196" y="94" width="52" height="50"/><circle class="t2" cx="222" cy="144" r="26"/>
+            <rect class="t1" x="248" y="94" width="52" height="50"/><circle class="t1" cx="274" cy="144" r="26"/>
+            <rect class="t2" x="300" y="94" width="52" height="50"/><circle class="t2" cx="326" cy="144" r="26"/>
+            <rect class="t1" x="352" y="94" width="52" height="50"/><circle class="t1" cx="378" cy="144" r="26"/>
+            <rect class="t2" x="404" y="94" width="52" height="50"/><circle class="t2" cx="430" cy="144" r="26"/>
+            <rect class="t1" x="456" y="94" width="52" height="50"/><circle class="t1" cx="482" cy="144" r="26"/>
+            <rect class="t2" x="508" y="94" width="52" height="50"/><circle class="t2" cx="534" cy="144" r="26"/>
+            <rect x="40" y="90" width="520" height="8" fill="rgba(0,0,0,.28)"/>
+          </g>
+          <rect x="40" y="170" width="520" height="22" fill="url(#ombra-tenda)"/>
+          <!-- vetrina -->
+          <rect class="telaio" x="60" y="184" width="360" height="312" rx="8"/>
+          <rect x="72" y="196" width="336" height="288" rx="4" fill="url(#interno)"/>
+          <ellipse cx="240" cy="196" rx="170" ry="130" fill="url(#lampada)" clip-path="url(#vetroclip)"/>
+          <path d="M240 196v40" stroke="#0a0f1b" stroke-width="4"/><rect x="226" y="192" width="28" height="8" rx="2" fill="#0a0f1b"/>
+          <rect class="banco" x="72" y="432" width="336" height="52"/>
+          <rect x="72" y="432" width="336" height="6" fill="rgba(255,255,255,.2)"/>
+          <!-- decorazioni sul banco -->
+          <g class="deco deco-pizzeria">
+            <rect x="88" y="422" width="64" height="10" rx="2" fill="#e9d9b8"/><rect x="92" y="412" width="58" height="10" rx="2" fill="#dcc89e"/><rect x="96" y="402" width="52" height="10" rx="2" fill="#e9d9b8"/><circle cx="122" cy="407" r="3" fill="#c8402a"/>
+            <circle cx="350" cy="412" r="24" fill="#d99a45"/><circle cx="350" cy="412" r="19" fill="#c8402a"/><circle cx="343" cy="406" r="4" fill="#7a1d12"/><circle cx="357" cy="410" r="4" fill="#7a1d12"/><circle cx="348" cy="420" r="4" fill="#7a1d12"/><circle cx="360" cy="420" r="2.6" fill="#f5e7b0"/><circle cx="341" cy="416" r="2.6" fill="#f5e7b0"/>
+            <rect x="338" y="432" width="24" height="3" fill="#8a8a8a"/>
+          </g>
+          <g class="deco deco-panificio">
+            <rect x="88" y="414" width="86" height="18" rx="4" fill="#a8743c"/>
+            <rect x="94" y="396" width="14" height="40" rx="7" transform="rotate(-18 101 416)" fill="#d79b4a"/><rect x="112" y="392" width="14" height="42" rx="7" transform="rotate(-4 119 413)" fill="#e0a857"/><rect x="132" y="394" width="14" height="40" rx="7" transform="rotate(12 139 414)" fill="#d79b4a"/><rect x="150" y="398" width="14" height="38" rx="7" transform="rotate(24 157 417)" fill="#e0a857"/>
+            <ellipse cx="342" cy="420" rx="28" ry="12" fill="#d89a4a"/><path d="M326 416l8 8M338 413l8 8M350 413l8 8" stroke="#f3d29c" stroke-width="2.4" stroke-linecap="round"/>
+            <ellipse cx="386" cy="424" rx="18" ry="8" fill="#c98939"/>
+          </g>
+          <g class="deco deco-bar">
+            <rect x="86" y="396" width="70" height="36" rx="5" fill="#b9bcc4"/><rect x="86" y="396" width="70" height="8" rx="4" fill="#d9dbe0"/><rect x="96" y="410" width="12" height="22" rx="2" fill="#2a2f3a"/><rect x="126" y="410" width="12" height="22" rx="2" fill="#2a2f3a"/><circle cx="121" cy="402" r="2" fill="#c0392b"/>
+            <rect x="330" y="414" width="22" height="18" rx="4" fill="#f4efe6"/><path d="M352 418h5a5 5 0 0 1 0 10h-5" stroke="#f4efe6" stroke-width="3" fill="none"/>
+            <rect x="366" y="418" width="22" height="14" rx="4" fill="#f4efe6"/>
+            <path d="M298 428c4-14 24-14 28 0z" fill="#d89a4a"/>
+          </g>
+          <path d="M72 196h112L120 484H72z" fill="url(#riflesso)"/>
+          <!-- porta -->
+          <rect class="telaio" x="444" y="184" width="96" height="312" rx="8"/>
+          <rect x="456" y="198" width="72" height="206" rx="4" fill="url(#interno)"/>
+          <path d="M456 198h40l-40 160z" fill="url(#riflesso)"/>
+          <rect x="456" y="414" width="72" height="68" rx="3" fill="rgba(255,255,255,.07)"/>
+          <rect x="514" y="318" width="7" height="44" rx="3.5" fill="#f5b841"/>
+          <g><rect x="466" y="224" width="52" height="28" rx="6" fill="#0a0f1b" stroke="#f5b841" stroke-width="2"/><circle cx="480" cy="238" r="4" fill="#35d07f"/><rect x="489" y="234" width="22" height="3.6" rx="1.8" fill="#f5b841"/><rect x="489" y="241" width="16" height="3.6" rx="1.8" fill="#7f8fb0"/></g>
+          <!-- marciapiede -->
+          <rect x="0" y="496" width="600" height="64" rx="0" fill="rgba(0,0,0,.4)"/>
+          <ellipse cx="240" cy="506" rx="200" ry="14" fill="rgba(255,190,100,.28)"/>
+        </svg>
+        <div class="nome-negozio" id="nome-negozio">Pizzeria da Gino</div>
+        <div class="tv" aria-hidden="false">
+          <div class="schermo" id="schermo">
+            <img class="attiva" data-gruppo="pizzeria" src="img/pizzeria-1.webp" width="960" height="540" alt="Menù delle pizze su fondo scuro" data-ta="altPizzeria1">
+            <img data-gruppo="pizzeria" src="img/pizzeria-2.webp" width="960" height="540" alt="Offerta «Menù pizza a pranzo»" data-ta="altPizzeria2" loading="lazy">
+            <img data-gruppo="pizzeria" src="img/pizzeria-3.webp" width="960" height="540" alt="Bibite, birre e dolci della casa" data-ta="altPizzeria3" loading="lazy">
+            <img data-gruppo="panificio" src="img/panificio-1.webp" width="960" height="540" alt="Listino del pane fresco" data-ta="altPane1" loading="lazy">
+            <img data-gruppo="panificio" src="img/panificio-2.webp" width="960" height="540" alt="Novità: pane alle noci" data-ta="altPane2" loading="lazy">
+            <img data-gruppo="panificio" src="img/panificio-3.webp" width="960" height="540" alt="Listino della pasticceria" data-ta="altPane3" loading="lazy">
+            <img data-gruppo="bar" src="img/bar-1.webp" width="960" height="540" alt="Listino della caffetteria" data-ta="altBar1" loading="lazy">
+            <img data-gruppo="bar" src="img/bar-2.webp" width="960" height="540" alt="Aperitivo: spritz, cocktail e birre alla spina" data-ta="altBar2" loading="lazy">
+            <img data-gruppo="bar" src="img/bar-3.webp" width="960" height="540" alt="Colazione: brioche e spremute" data-ta="altBar3" loading="lazy">
+          </div>
+        </div>
+      </div>
+      <p class="scena-didascalia" data-t="didascalia">Le slide che vedi sono quelle vere dell'app. <b>Cambia attività</b> per vedere altri modelli.</p>
+    </div>
+  </div>
+  <svg class="onda" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70V34C220 -6 420 -6 720 30s560 30 720-6v46z"/></svg>
+</section>
+
+<!-- ================= COME FUNZIONA ================= -->
+<section class="sezione carta" id="come">
+  <div class="contenitore">
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="come1">Come funziona</span>
+      <h2 data-t="come2">Tre passi, e sei in onda</h2>
+      <p data-t="come3">Niente installatori e niente cavi: ti servono una TV con Google TV o Android TV e il tuo telefono.</p>
+    </div>
+    <ol class="passi">
+      <li class="passo">
+        <div class="disegno" aria-hidden="true">
+          <svg viewBox="0 0 300 150"><rect x="42" y="16" width="216" height="112" rx="10" fill="#0b1220"/><rect x="50" y="24" width="200" height="96" rx="5" fill="#111c33"/>
+            <text x="62" y="52" font-family="Inter, sans-serif" font-weight="700" font-size="9" letter-spacing="1.6" fill="#f5b841">CODICE</text>
+            <text x="62" y="92" font-family="Inter Display, Inter, sans-serif" font-weight="900" font-size="25" fill="#f4f6fb">FHA 5A4</text>
+            <g fill="#fff"><rect x="182" y="40" width="58" height="58" rx="6"/></g>
+            <g fill="#0b1220"><rect x="188" y="46" width="14" height="14"/><rect x="220" y="46" width="14" height="14"/><rect x="188" y="78" width="14" height="14"/><rect x="206" y="50" width="6" height="6"/><rect x="206" y="64" width="12" height="6"/><rect x="222" y="66" width="12" height="10"/><rect x="208" y="80" width="8" height="12"/><rect x="224" y="84" width="10" height="8"/><rect x="190" y="64" width="6" height="8"/></g>
+            <rect x="132" y="128" width="36" height="8" rx="3" fill="#1b2a49"/></svg>
+        </div>
+        <h3 data-t="p1t">Accendi la TV e apri VetrinaTV</h3>
+        <p data-t="p1">Sulla TV l'app parte in modalità schermo e mostra un codice e un QR da inquadrare.</p>
+      </li>
+      <li class="passo">
+        <div class="disegno" aria-hidden="true">
+          <svg viewBox="0 0 300 150"><rect x="108" y="6" width="84" height="138" rx="14" fill="#0b1220"/><rect x="114" y="14" width="72" height="122" rx="9" fill="#26324f"/>
+            <g stroke="#f5b841" stroke-width="3" stroke-linecap="round" fill="none"><path d="M128 44v-10h10M172 44v-10h-10M128 92v10h10M172 92v10h-10"/></g>
+            <g fill="#fff"><rect x="134" y="50" width="32" height="36" rx="3"/></g><g fill="#0b1220"><rect x="137" y="53" width="9" height="9"/><rect x="154" y="53" width="9" height="9"/><rect x="137" y="74" width="9" height="9"/><rect x="149" y="66" width="5" height="12"/><rect x="157" y="72" width="6" height="10"/></g>
+            <rect x="128" y="110" width="44" height="14" rx="7" fill="#f5b841"/>
+            <path d="M54 76h38M222 76h-38" stroke="#aab6d0" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/></svg>
+        </div>
+        <h3 data-t="p2t">Inquadra il codice con il telefono</h3>
+        <p data-t="p2">Nell'app tocca «Aggiungi schermo»: in pochi secondi la TV è collegata alla tua attività.</p>
+      </li>
+      <li class="passo">
+        <div class="disegno" aria-hidden="true">
+          <svg viewBox="0 0 300 150"><rect x="16" y="22" width="76" height="112" rx="12" fill="#0b1220"/><rect x="21" y="29" width="66" height="98" rx="8" fill="#f6f5f1"/>
+            <rect x="28" y="42" width="30" height="5" rx="2.5" fill="#55607a"/><rect x="28" y="54" width="52" height="22" rx="7" fill="#fff" stroke="#f5b841" stroke-width="2"/><text x="34" y="70" font-family="Inter Display, Inter, sans-serif" font-weight="900" font-size="14" fill="#16213a">1,80</text><rect x="28" y="90" width="52" height="16" rx="8" fill="#f5b841"/>
+            <path d="M104 78h40" stroke="#f5b841" stroke-width="3.4" stroke-linecap="round"/><path d="m138 70 8 8-8 8" fill="none" stroke="#f5b841" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="158" y="34" width="130" height="80" rx="8" fill="#0b1220"/><rect x="164" y="40" width="118" height="68" rx="4" fill="#2a1b14"/>
+            <rect x="172" y="48" width="44" height="6" rx="3" fill="#e0a04a"/><g fill="#f6e9d6" opacity=".8"><rect x="172" y="64" width="50" height="4" rx="2"/><rect x="172" y="74" width="40" height="4" rx="2"/><rect x="172" y="84" width="48" height="4" rx="2"/></g><g fill="#f5b841"><rect x="244" y="64" width="26" height="4" rx="2"/><rect x="244" y="74" width="26" height="4" rx="2"/><rect x="244" y="84" width="26" height="4" rx="2"/></g>
+            <rect x="206" y="118" width="46" height="8" rx="3" fill="#1b2a49"/></svg>
+        </div>
+        <h3 data-t="p3t">Scrivi menù e offerte</h3>
+        <p data-t="p3">Scegli un modello, scrivi i prezzi e guarda l'anteprima identica a quella della TV. Tocca Salva: è in onda.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PROVA TU ================= -->
+<section class="sezione" id="prova">
+  <div class="contenitore">
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="prova1">Provala adesso</span>
+      <h2 data-t="prova2">Cambia un prezzo. Guarda la TV.</h2>
+      <p data-t="prova3">Questa è una dimostrazione: nell'app funziona allo stesso modo, ma sulla TV vera del tuo negozio.</p>
+    </div>
+    <div class="prova">
+      <div class="telefono">
+        <div class="app-schermo">
+          <div class="app-barra"><span>Bar Centrale</span><small data-t="online">Online</small></div>
+          <div class="app-titolo" data-t="cambiaPrezzo">Cambia prezzo</div>
+          <div class="campo">
+            <label for="prezzo" data-t="lblCappuccino">Cappuccino</label>
+            <div class="riga"><span>€</span><input id="prezzo" type="text" inputmode="decimal" autocomplete="off" maxlength="5" value="1,70" aria-describedby="stato-invio"></div>
+          </div>
+          <div class="rapidi">
+            <button class="rapido" type="button" id="meno" aria-label="Diminuisci di dieci centesimi">−0,10</button>
+            <button class="rapido" type="button" id="piu" aria-label="Aumenta di dieci centesimi">+0,10</button>
+          </div>
+          <button class="interruttore" type="button" id="btn-esaurito" aria-pressed="false"><span data-t="segnaEsaurito">Segna «esaurito»</span><i></i></button>
+          <div class="stato-invio" id="stato-invio" role="status" aria-live="polite"><span id="stato-testo" data-t="statoIdle">Cambia il prezzo: la TV si aggiorna da sola</span><span class="barra"><i></i></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="tv-grande">
+          <div class="slide-html" aria-live="off">
+            <span class="sopra">Bar Centrale</span>
+            <h4 data-t="slCaffetteria">Caffetteria</h4>
+            <div class="colonne">
+              <div>
+                <span class="sez" data-t="slSezCaffe">Caffè</span>
+                <ul>
+                  <li><span>Espresso</span><i class="pt"></i><b>€ 1,30</b></li>
+                  <li><span>Macchiato</span><i class="pt"></i><b>€ 1,40</b></li>
+                  <li id="riga-cappuccino"><span>Cappuccino</span><i class="pt"></i><b id="prezzo-tv">€ 1,70</b><em class="tag" data-t="esaurito">ESAURITO</em></li>
+                  <li><span data-t="slLatte">Latte macchiato</span><i class="pt"></i><b>€ 2,00</b></li>
+                  <li><span data-t="slOrzo">Caffè d'orzo</span><i class="pt"></i><b>€ 1,50</b></li>
+                </ul>
+              </div>
+              <div>
+                <span class="sez" data-t="slSezColazione">Colazione</span>
+                <ul>
+                  <li><span data-t="slB1">Brioche vuota</span><i class="pt"></i><b>€ 1,40</b></li>
+                  <li><span data-t="slB2">Brioche farcita</span><i class="pt"></i><b>€ 1,60</b></li>
+                  <li><span data-t="slB3">Cornetto integrale</span><i class="pt"></i><b>€ 1,60</b></li>
+                  <li><span data-t="slB4">Spremuta d'arancia</span><i class="pt"></i><b>€ 3,50</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tv-piede" aria-hidden="true"></div>
+        <p class="nota-prova" data-t="notaProva">Prova anche «Segna esaurito»: serve quando finisce un prodotto a metà giornata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PER OGNI ATTIVITA' ================= -->
+<section class="sezione scuro" id="attivita">
+  <div class="contenitore">
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="att1">Modelli pronti</span>
+      <h2 data-t="att2">Fatta per il tuo mestiere</h2>
+      <p data-t="att3">Ogni tipo di attività ha colori, caratteri e slide pensati per lei. Cambi il testo, i prezzi restano leggibili da lontano.</p>
+    </div>
+    <div class="modelli">
+      <figure class="modello"><div class="tv-mini"><img src="img/pizzeria-1.webp" width="960" height="540" loading="lazy" alt="Menù di una pizzeria" data-ta="altM1"></div><figcaption><b data-t="m1">Pizzeria</b><span data-t="m1d">Menù a due colonne, offerte a pranzo, QR per i social</span></figcaption></figure>
+      <figure class="modello"><div class="tv-mini"><img src="img/panificio-2.webp" width="960" height="540" loading="lazy" alt="Novità del panificio: pane alle noci" data-ta="altM2"></div><figcaption><b data-t="m2">Panificio</b><span data-t="m2d">Listino al chilo e al pezzo, novità, prenotazioni</span></figcaption></figure>
+      <figure class="modello"><div class="tv-mini"><img src="img/bar-2.webp" width="960" height="540" loading="lazy" alt="Aperitivo di un bar" data-ta="altM3"></div><figcaption><b data-t="m3">Bar</b><span data-t="m3d">Caffetteria, aperitivo, formati piccola e media</span></figcaption></figure>
+      <figure class="modello"><div class="tv-mini"><img src="img/parrucchiere-1.webp" width="960" height="540" loading="lazy" alt="Listino di un parrucchiere" data-ta="altM4"></div><figcaption><b data-t="m4">Parrucchiere</b><span data-t="m4d">Listino donna e uomo, promozioni, orari</span></figcaption></figure>
+      <figure class="modello"><div class="tv-mini"><img src="img/officina-1.webp" width="960" height="540" loading="lazy" alt="Commesse del giorno di un'officina" data-ta="altM5"></div><figcaption><b data-t="m5">Officina</b><span data-t="m5d">Commesse del giorno, avvisi di sicurezza, consegne</span></figcaption></figure>
+    </div>
+    <p class="modelli-nota" data-t="attNota">E per tutti gli altri negozi c'è un modello generico: menù, offerte, avvisi e QR.</p>
+  </div>
+</section>
+
+<!-- ================= FUNZIONI ================= -->
+<section class="sezione carta" id="funzioni">
+  <div class="contenitore">
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="fun1">Funzioni</span>
+      <h2 data-t="fun2">Pensata per un negozio vero</h2>
+      <p data-t="fun3">Uno schermo in vetrina non può restare nero, fermo o su una schermata di sistema. Per questo VetrinaTV si prende cura di sé.</p>
+    </div>
+    <ul class="funzioni">
+      <li class="funzione"><svg class="icona"><use href="#i-lampo"/></svg><h3 data-t="f1t">Aggiornamento in pochi secondi</h3><p data-t="f1">Cambi un prezzo dal telefono e lo schermo si aggiorna da solo. Niente USB, niente file da trasferire.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-offline"/></svg><h3 data-t="f2t">Va avanti anche senza internet</h3><p data-t="f2">I contenuti restano salvati sulla TV: se cade il Wi-Fi lo schermo non si spegne, e quando torna la rete si aggiorna.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-power"/></svg><h3 data-t="f3t">Riparte da solo</h3><p data-t="f3">Dopo uno stacco di corrente, uno standby o un'uscita dall'app, VetrinaTV torna in onda senza toccare il telecomando.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-orologio"/></svg><h3 data-t="f4t">Orari di apertura</h3><p data-t="f4">Fuori orario la TV mostra il nome dell'attività oppure resta nera. Con Pro programmi anche le singole slide per giorno e ora.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-verticale"/></svg><h3 data-t="f5t">Orizzontale o verticale</h3><p data-t="f5">Anche con lo schermo ruotato. L'anteprima nell'app è fatta con gli stessi disegni della TV: vedi quello che vedrà il cliente.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-modelli"/></svg><h3 data-t="f6t">Menù, offerte, avvisi, QR</h3><p data-t="f6">Menù con sezioni e formati, offerte con prezzo e sconto, avvisi liberi e un QR per prenotare o seguirti sui social.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-esaurito"/></svg><h3 data-t="f7t">«Esaurito» con un tocco</h3><p data-t="f7">Finito un piatto? Lo segni esaurito e compare barrato. Anche cambiare un prezzo si fa in due tocchi.</p></li>
+      <li class="funzione"><svg class="icona"><use href="#i-scudo"/></svg><h3 data-t="f8t">Rispetta il pannello</h3><p data-t="f8">Il contenuto si sposta pochissimo e di continuo per non stampare gli schermi OLED, anche con una slide sola.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= COSA SERVE + PIANI ================= -->
+<section class="sezione scuro" id="piani">
+  <div class="contenitore">
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="req1">Cosa ti serve</span>
+      <h2 data-t="req2">Già quello che hai in negozio</h2>
+    </div>
+    <div class="requisiti">
+      <div class="requisito"><svg class="icona"><use href="#i-tv"/></svg><div><h3 data-t="r1t">Una TV con Google TV</h3><p data-t="r1">Una TV con Google TV o Android TV, oppure una chiavetta come la Chromecast con Google TV. Android 9 o successivo.</p></div></div>
+      <div class="requisito"><svg class="icona"><use href="#i-telefono"/></svg><div><h3 data-t="r2t">Un telefono Android</h3><p data-t="r2">L'app per scrivere menù e offerte. Android 9 o successivo. (L'app per iPhone è nei piani.)</p></div></div>
+      <div class="requisito"><svg class="icona"><use href="#i-wifi"/></svg><div><h3 data-t="r3t">Wi-Fi o cavo di rete</h3><p data-t="r3">Per ricevere gli aggiornamenti. Se la rete manca, lo schermo continua con l'ultimo contenuto.</p></div></div>
+    </div>
+
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="pia1">Piani</span>
+      <h2 data-t="pia2">Provala gratis, poi scegli</h2>
+      <p data-t="pia3">Il piano Gratis serve a vedere VetrinaTV sulla tua TV. Per usarla ogni giorno in negozio c'è Pro.</p>
+    </div>
+    <div class="piani">
+      <div class="piano">
+        <h3 data-t="gratis">Gratis</h3>
+        <p class="per" data-t="gratisPer">Per provare VetrinaTV</p>
+        <ul>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="gr1">1 schermo</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="gr2">2 slide attive: menù, avvisi, offerte e QR</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="gr3">Modelli per ogni attività</span></li>
+          <li class="no"><svg class="icona"><use href="#i-x"/></svg><span data-t="gr4">Niente foto</span></li>
+          <li class="no"><svg class="icona"><use href="#i-x"/></svg><span data-t="gr5">Niente programmazione oraria delle slide</span></li>
+          <li class="no"><svg class="icona"><use href="#i-x"/></svg><span data-t="gr6">Scritta «Creato con VetrinaTV»</span></li>
+        </ul>
+      </div>
+      <div class="piano pro">
+        <span class="etichetta" data-t="consigliato">Per il negozio</span>
+        <h3>Pro</h3>
+        <p class="per" data-t="proPer">Per usarla ogni giorno</p>
+        <ul>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="pr1">Da 1 a 3 schermi</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="pr2">Slide illimitate</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="pr3">Le tue foto nelle slide</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="pr4">Programmazione oraria per giorno e ora</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="pr5">Nessuna scritta sullo schermo</span></li>
+          <li><svg class="icona"><use href="#i-spunta"/></svg><span data-t="pr6">Prova gratuita per i nuovi abbonati</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="piani-nota" data-t="pianiNota">Gli abbonamenti si fanno nell'app, con Google Play. I prezzi li trovi lì, nella tua valuta.</p>
+  </div>
+</section>
+
+<!-- ================= DOMANDE ================= -->
+<section class="sezione carta" id="domande">
+  <div class="contenitore">
+    <div class="intestazione centro">
+      <span class="occhiello" data-t="faq1">Domande frequenti</span>
+      <h2 data-t="faq2">Prima di cominciare</h2>
+    </div>
+    <div class="domande">
+      <details><summary data-t="q1">Serve un'apparecchiatura speciale?</summary><p data-t="a1">No. Basta una TV con Google TV o Android TV (oppure una chiavetta Google TV, come la Chromecast con Google TV) e un telefono Android. L'app si installa da Google Play.</p></details>
+      <details><summary data-t="q2">E se salta internet?</summary><p data-t="a2">La TV conserva l'ultima versione completa dei contenuti e continua a mostrarla. Quando la rete torna, si aggiorna da sola. Anche all'accensione senza rete parte subito con quello che ha salvato.</p></details>
+      <details><summary data-t="q3">Si spegne o resta ferma sul menù di sistema?</summary><p data-t="a3">L'app riparte da sola dopo uno stacco di corrente o uno standby, e può tornare in primo piano se qualcuno esce dall'app. Serve concedere una volta il permesso «Mostra sopra altre app»: l'app ti guida.</p></details>
+      <details><summary data-t="q4">Un cliente può scollegare o manomettere lo schermo?</summary><p data-t="a4">Il menù di servizio si apre solo tenendo premuto OK per 5 secondi, e per scollegare lo schermo serve un PIN che scegli tu. Dopo 5 PIN sbagliati la TV si blocca per qualche minuto.</p></details>
+      <details><summary data-t="q5">Posso usarla gratis?</summary><p data-t="a5">Il piano Gratis serve a provarla: 2 slide di solo testo, con una piccola scritta «Creato con VetrinaTV». Per un uso quotidiano in negozio c'è il piano Pro, con slide illimitate, foto e programmazione oraria.</p></details>
+      <details><summary data-t="q6">Quanti schermi posso collegare?</summary><p data-t="a6">Con Pro 1 schermo, uno; con Pro 3 schermi, fino a tre, ognuno con il suo nome, il suo orientamento e la sua playlist.</p></details>
+      <details><summary data-t="q7">Posso mettere video?</summary><p data-t="a7">Per ora no: menù, offerte, avvisi, QR e foto. I video sono previsti per il piano Pro in un aggiornamento futuro.</p></details>
+      <details><summary data-t="q8">Che dati raccogliete? Posso cancellare il mio account?</summary><p><span data-t="a8">Raccogliamo solo quello che serve per farla funzionare: email di accesso, i contenuti che scrivi e lo stato dello schermo. Tutti i dettagli sono nella</span> <a class="link-privacy" href="privacy-policy.html" data-t="privacy">Privacy policy</a>. <span data-t="a8b">Puoi chiedere in qualsiasi momento la cancellazione dell'account e dei dati:</span> <a class="link-elimina" href="elimina-account.html" data-t="elimina">Elimina account</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHIUSURA ================= -->
+<section class="chiusura">
+  <div class="contenitore">
+    <h2 data-t="fine1">La tua vetrina, sempre aggiornata</h2>
+    <p data-t="fine2">VetrinaTV arriva a breve su Google Play. Vuoi provarla in anteprima sulla tua TV? Scrivici.</p>
+    <a class="pulsante" href="mailto:qualifix.service25@gmail.com?subject=VetrinaTV%20%E2%80%93%20prova%20in%20anteprima"><svg class="icona"><use href="#i-mail"/></svg><span data-t="scrivici">Scrivici per provarla</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="piede">
+  <div class="contenitore">
+    <div>
+      <a class="marchio" href="#" aria-label="VetrinaTV"><img src="img/icona.webp" alt="" width="34" height="34"><b>Vetrina<span>TV</span></b></a>
+      <p style="margin-top:14px;max-width:26em" data-t="piede1">Il menù e le offerte del tuo negozio, sulla TV. Un'app di Qualifix Service.</p>
+    </div>
+    <div>
+      <h4 data-t="piedeApp">VetrinaTV</h4>
+      <ul>
+        <li><a class="link-privacy" href="privacy-policy.html" data-t="privacy">Privacy policy</a></li>
+        <li><a class="link-elimina" href="elimina-account.html" data-t="elimina">Elimina account</a></li>
+        <li><a href="mailto:qualifix.service25@gmail.com" data-t="contatti">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-t="piedeAltre">Altre app Qualifix</h4>
+      <ul>
+        <li><a href="../calcolo-cartongesso/">Calcolo Cartongesso</a></li>
+        <li><a href="../ottimizza-tagli/">Ottimizza Tagli</a></li>
+        <li><a href="../guida-filettature/">Guida Filettature</a></li>
+        <li><a href="../" data-t="tutte">Tutte le app</a></li>
+      </ul>
+    </div>
+    <div class="copia"><span>© 2026 Qualifix Service · Levico Terme (TN), Italia</span><span data-t="piedeNota">Creato con cura per i negozi italiani.</span></div>
+  </div>
+</footer>
+
+<script>
+const TESTI = {
+  en: {
+    salta: "Skip to content",
+    mCome: "How it works", mProva: "Try it", mFunzioni: "Features", mPiani: "Plans", mDomande: "FAQ",
+    inArrivo: "Coming soon to Google Play",
+    novita: "Digital signage for shops",
+    titolo: "Your shop's menu and offers, <span>on the TV</span>",
+    sottotitolo: "Connect a TV, write from your phone, and your shop window updates itself: prices, dishes of the day, notices. No USB sticks, no designers to pay.",
+    provala: "Try it below", comeFunziona: "How it works ↓",
+    g1: "Try it for free", g2: "Updates in a few seconds", g3: "Works even without internet",
+    tipoAttivita: "Type of business", vetrinaAlt: "A shop window with a TV hanging behind the glass",
+    tPizzeria: "Pizzeria", tPanificio: "Bakery", tBar: "Café",
+    didascalia: "The slides you see are the real ones from the app. <b>Switch business</b> to see other templates.",
+    altPizzeria1: "Pizza menu on a dark background", altPizzeria2: "Offer: lunchtime pizza menu", altPizzeria3: "Drinks, draught beers and house desserts",
+    altPane1: "Fresh bread price list", altPane2: "News: walnut bread", altPane3: "Pastry price list",
+    altBar1: "Coffee bar price list", altBar2: "Aperitif: spritz, cocktails and draught beers", altBar3: "Breakfast: brioches and fresh juices",
+    come1: "How it works", come2: "Three steps and you're on air",
+    come3: "No installers and no cables: all you need is a TV with Google TV or Android TV, and your phone.",
+    p1t: "Turn on the TV and open VetrinaTV", p1: "On the TV the app starts in screen mode and shows a code and a QR to scan.",
+    p2t: "Scan the code with your phone", p2: "In the app tap “Add screen”: in a few seconds the TV is linked to your business.",
+    p3t: "Write your menu and offers", p3: "Pick a template, type your prices and see a preview identical to the TV. Tap Save: it's on air.",
+    prova1: "Try it now", prova2: "Change a price. Watch the TV.",
+    prova3: "This is a demo: in the app it works the same way, but on the real TV in your shop.",
+    online: "Online", cambiaPrezzo: "Change price", lblCappuccino: "Cappuccino", segnaEsaurito: "Mark “sold out”",
+    statoIdle: "Change the price: the TV updates by itself", statoInvio: "Sending to the TV…", statoFatto: "On air ✓ (usually 2–5 seconds)", statoNonValido: "Type a price like 1,80",
+    slCaffetteria: "Coffee bar", slLatte: "Latte macchiato", slOrzo: "Barley coffee", slSezCaffe: "Coffee", slSezColazione: "Breakfast", slB1: "Plain brioche", slB2: "Filled brioche", slB3: "Wholemeal croissant", slB4: "Fresh orange juice", esaurito: "SOLD OUT",
+    notaProva: "Also try “Mark sold out”: handy when something runs out in the middle of the day.",
+    att1: "Ready-made templates", att2: "Made for your trade",
+    att3: "Every type of business has colours, fonts and slides made for it. You change the text, prices stay readable from afar.",
+    altM1: "A pizzeria menu", altM2: "News from a bakery: walnut bread", altM3: "A café's aperitif menu", altM4: "A hairdresser's price list", altM5: "A workshop's jobs of the day",
+    m1: "Pizzeria", m1d: "Two-column menu, lunch offers, QR for social media",
+    m2: "Bakery", m2d: "Price list per kilo and per piece, news, pre-orders",
+    m3: "Café", m3d: "Coffee, aperitif, small and medium sizes",
+    m4: "Hairdresser", m4d: "Women's and men's price list, promotions, opening hours",
+    m5: "Workshop", m5d: "Jobs of the day, safety notices, deliveries",
+    attNota: "And for every other shop there is a generic template: menu, offers, notices and QR.",
+    fun1: "Features", fun2: "Built for a real shop",
+    fun3: "A shop-window screen can't stay black, frozen or stuck on a system screen. That's why VetrinaTV takes care of itself.",
+    f1t: "Updates in a few seconds", f1: "Change a price on your phone and the screen updates by itself. No USB, no files to transfer.",
+    f2t: "Keeps going without internet", f2: "Content is stored on the TV: if the Wi-Fi drops the screen stays on, and it updates when the network is back.",
+    f3t: "Restarts by itself", f3: "After a power cut, a standby or leaving the app, VetrinaTV comes back on air without touching the remote.",
+    f4t: "Opening hours", f4: "Outside opening hours the TV shows your business name or goes black. With Pro you can also schedule single slides by day and time.",
+    f5t: "Landscape or portrait", f5: "Even with the screen rotated. The in-app preview uses the very same drawings as the TV: you see what your customers will see.",
+    f6t: "Menus, offers, notices, QR", f6: "Menus with sections and sizes, offers with price and discount, free-text notices and a QR to book or follow you on social media.",
+    f7t: "“Sold out” in one tap", f7: "Ran out of a dish? Mark it sold out and it shows crossed out. Changing a price takes two taps, too.",
+    f8t: "Gentle on the panel", f8: "Content moves very slightly and constantly so OLED screens don't get burn-in, even with a single slide.",
+    req1: "What you need", req2: "Pretty much what you already have",
+    r1t: "A TV with Google TV", r1: "A TV with Google TV or Android TV, or a stick like the Chromecast with Google TV. Android 9 or later.",
+    r2t: "An Android phone", r2: "The app to write menus and offers. Android 9 or later. (An iPhone app is planned.)",
+    r3t: "Wi-Fi or a network cable", r3: "To receive updates. If the network is down, the screen carries on with the last content.",
+    pia1: "Plans", pia2: "Try it free, then choose",
+    pia3: "The Free plan lets you see VetrinaTV on your TV. To use it every day in your shop there is Pro.",
+    gratis: "Free", gratisPer: "To try VetrinaTV",
+    gr1: "1 screen", gr2: "2 active slides: menus, notices, offers and QR", gr3: "Templates for every type of business",
+    gr4: "No photos", gr5: "No scheduling of single slides", gr6: "“Made with VetrinaTV” label",
+    consigliato: "For the shop", proPer: "To use every day",
+    pr1: "1 to 3 screens", pr2: "Unlimited slides", pr3: "Your own photos in slides", pr4: "Scheduling by day and time", pr5: "No label on screen", pr6: "Free trial for new subscribers",
+    pianiNota: "Subscriptions are made in the app, with Google Play. Prices are shown there, in your currency.",
+    faq1: "Frequently asked questions", faq2: "Before you start",
+    q1: "Do I need special equipment?", a1: "No. A TV with Google TV or Android TV (or a Google TV stick, like the Chromecast with Google TV) and an Android phone are enough. The app installs from Google Play.",
+    q2: "What if the internet goes down?", a2: "The TV keeps the last complete version of your content and keeps showing it. When the network is back it updates by itself. Even switched on without a network it starts straight away with what it has saved.",
+    q3: "Can it switch off or get stuck on a system menu?", a3: "The app restarts by itself after a power cut or a standby, and it can come back to the foreground if someone leaves it. You grant the “Display over other apps” permission once: the app guides you.",
+    q4: "Can a customer unlink or tamper with the screen?", a4: "The service menu only opens by holding OK for 5 seconds, and unlinking the screen needs a PIN you choose. After 5 wrong PINs the TV locks for a few minutes.",
+    q5: "Can I use it for free?", a5: "The Free plan is for trying it: 2 text-only slides with a small “Made with VetrinaTV” label. For daily use in your shop there is the Pro plan, with unlimited slides, photos and scheduling.",
+    q6: "How many screens can I connect?", a6: "One with Pro 1 screen; up to three with Pro 3 screens, each with its own name, orientation and playlist.",
+    q7: "Can I add videos?", a7: "Not yet: menus, offers, notices, QR and photos. Videos are planned for the Pro plan in a future update.",
+    q8: "What data do you collect? Can I delete my account?", a8: "We only collect what is needed to make it work: your sign-in email, the content you write and the screen's status. All details are in the", a8b: "You can ask for your account and data to be deleted at any time:",
+    privacy: "Privacy policy", elimina: "Delete account", contatti: "Contact",
+    fine1: "Your shop window, always up to date", fine2: "VetrinaTV is coming soon to Google Play. Want to try it early on your own TV? Write to us.", scrivici: "Write to us to try it",
+    piede1: "Your shop's menu and offers, on the TV. An app by Qualifix Service.", piedeApp: "VetrinaTV", piedeAltre: "Other Qualifix apps", tutte: "All apps",
+    piedeNota: "Made with care for shops."
+  }
+};
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+/* ---------- lingua ---------- */
+const originali = new Map();
+$$("[data-t]").forEach(el => originali.set(el, el.innerHTML));
+const originaliAttr = new Map();
+$$("[data-ta]").forEach(el => originaliAttr.set(el, el.getAttribute(el.tagName === "IMG" ? "alt" : "aria-label")));
+function lingua(codice) {
+  const en = codice === "en";
+  const dict = TESTI.en;
+  document.documentElement.lang = codice;
+  $$("[data-t]").forEach(el => { el.innerHTML = en && dict[el.dataset.t] !== undefined ? dict[el.dataset.t] : originali.get(el); });
+  $$("[data-ta]").forEach(el => {
+    const attr = el.tagName === "IMG" ? "alt" : "aria-label";
+    el.setAttribute(attr, en && dict[el.dataset.ta] !== undefined ? dict[el.dataset.ta] : originaliAttr.get(el));
+  });
+  $$(".link-privacy").forEach(a => a.href = en ? "privacy-policy-en.html" : "privacy-policy.html");
+  $$(".link-elimina").forEach(a => { a.href = en ? "delete-account.html" : "elimina-account.html"; });
+  $("#lingua").value = codice;
+  aggiornaNome();
+  messaggi = en ? MESSAGGI.en : MESSAGGI.it;
+  // Se la prova è a metà, il messaggio resta quello di prima (cambia solo da fermo).
+  const dentro = $("#stato-invio");
+  if (!dentro.classList.contains("fatto") && !dentro.classList.contains("invio") && !$("#prezzo").hasAttribute("aria-invalid")) $("#stato-testo").textContent = messaggi.idle;
+}
+const MESSAGGI = {
+  it: { idle: "Cambia il prezzo: la TV si aggiorna da sola", invio: "Invio alla TV…", fatto: "In onda ✓ (di solito 2–5 secondi)", nonValido: "Scrivi un prezzo come 1,80" },
+  en: { idle: TESTI.en.statoIdle, invio: TESTI.en.statoInvio, fatto: TESTI.en.statoFatto, nonValido: TESTI.en.statoNonValido }
+};
+let messaggi = MESSAGGI.it;
+const param = new URLSearchParams(location.search).get("lang");
+const iniziale = param === "en" || param === "it" ? param : ((navigator.language || "it").slice(0, 2) === "it" ? "it" : "en");
+$("#lingua").addEventListener("change", e => {
+  lingua(e.target.value);
+  const u = new URL(location.href); u.searchParams.set("lang", e.target.value); history.replaceState(null, "", u);
+});
+
+/* ---------- la vetrina ---------- */
+const NOMI = { pizzeria: ["Pizzeria da Gino", "Pizzeria da Gino"], panificio: ["Forno Bianchi", "Bianchi Bakery"], bar: ["Bar Centrale", "Bar Centrale"] };
+const negozio = $("#negozio");
+const schermo = $("#schermo");
+function aggiornaNome() {
+  const en = document.documentElement.lang === "en";
+  $("#nome-negozio").textContent = NOMI[negozio.dataset.attivita][en ? 1 : 0];
+}
+let giro = null;
+function gruppo() { return $$("img", schermo).filter(i => i.dataset.gruppo === negozio.dataset.attivita); }
+function mostra(img) {
+  $$("img", schermo).forEach(i => i.classList.toggle("attiva", i === img));
+}
+function avanza() {
+  const g = gruppo();
+  const corrente = g.findIndex(i => i.classList.contains("attiva"));
+  mostra(g[(corrente + 1) % g.length]);
+}
+function avviaGiro() {
+  clearInterval(giro);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  giro = setInterval(avanza, 4200);
+}
+function scegli(attivita) {
+  negozio.dataset.attivita = attivita;
+  $$(".scelta").forEach(b => b.setAttribute("aria-selected", String(b.dataset.attivita === attivita)));
+  const g = gruppo();
+  g.forEach(i => { i.loading = "eager"; });
+  mostra(g[0]);
+  aggiornaNome();
+  avviaGiro();
+}
+$$(".scelta").forEach(b => b.addEventListener("click", () => scegli(b.dataset.attivita)));
+document.addEventListener("visibilitychange", () => { document.hidden ? clearInterval(giro) : avviaGiro(); });
+
+/* ---------- prova del prezzo ---------- */
+const campo = $("#prezzo"), tvPrezzo = $("#prezzo-tv"), riga = $("#riga-cappuccino"), stato = $("#stato-invio"), statoTesto = $("#stato-testo"), btnEsaurito = $("#btn-esaurito");
+let centesimi = 170, attesa = null, evidenzia = null;
+const euro = c => "€ " + (c / 100).toFixed(2).replace(".", ",");
+function invia(cb) {
+  clearTimeout(attesa);
+  stato.classList.remove("fatto"); stato.classList.add("invio");
+  void stato.offsetWidth;
+  statoTesto.textContent = messaggi.invio;
+  attesa = setTimeout(() => {
+    cb();
+    stato.classList.remove("invio"); stato.classList.add("fatto");
+    statoTesto.textContent = messaggi.fatto;
+    riga.classList.add("cambiato");
+    clearTimeout(evidenzia); evidenzia = setTimeout(() => riga.classList.remove("cambiato"), 1800);
+  }, 850);
+}
+function applicaPrezzo(c) { centesimi = c; tvPrezzo.textContent = euro(c); }
+campo.addEventListener("input", () => {
+  const v = campo.value.trim().replace(",", ".");
+  if (!/^\d{1,2}(\.\d{0,2})?$/.test(v) || parseFloat(v) <= 0) {
+    campo.setAttribute("aria-invalid", "true");
+    stato.classList.remove("invio", "fatto"); statoTesto.textContent = messaggi.nonValido;
+    return;
+  }
+  campo.removeAttribute("aria-invalid");
+  const c = Math.round(parseFloat(v) * 100);
+  invia(() => applicaPrezzo(c));
+});
+function ritocca(delta) {
+  const c = Math.min(9999, Math.max(10, centesimi + delta));
+  campo.value = (c / 100).toFixed(2).replace(".", ",");
+  campo.removeAttribute("aria-invalid");
+  invia(() => applicaPrezzo(c));
+  centesimi = c;
+}
+$("#meno").addEventListener("click", () => ritocca(-10));
+$("#piu").addEventListener("click", () => ritocca(10));
+btnEsaurito.addEventListener("click", () => {
+  const acceso = btnEsaurito.getAttribute("aria-pressed") !== "true";
+  btnEsaurito.setAttribute("aria-pressed", String(acceso));
+  invia(() => riga.classList.toggle("esaurito", acceso));
+});
+campo.addEventListener("blur", () => { if (!campo.hasAttribute("aria-invalid")) campo.value = (centesimi / 100).toFixed(2).replace(".", ","); });
+
+lingua(iniziale);
+avviaGiro();
+</script>
+</body>
+</html>

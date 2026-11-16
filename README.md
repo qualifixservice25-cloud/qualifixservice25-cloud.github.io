@@ -13,6 +13,7 @@ Sito ufficiale di tutte le app Qualifix Service (GitHub Pages): https://qualifix
 | `ottimizza-tagli/` | Sito e privacy di **Ottimizza Tagli** |
 | `guida-filettature/` | Sito e privacy di **Guida Filettature** |
 | `sviluppo-lamiera/` | Sito e privacy di **Sviluppo Lamiera** (in arrivo su Google Play) |
+| `vetrinatv/` | Sito di **VetrinaTV** (in arrivo su Google Play): pagina in italiano e inglese (`?lang=en`), privacy policy e cancellazione account **in due pagine per lingua** (`privacy-policy.html` / `privacy-policy-en.html`, `elimina-account.html` / `delete-account.html`) |
 | `font/` | Inter e Inter Display (anche latino esteso e cirillico) e Noto Sans Arabic, condivisi dai siti |
 | `img/` | Icone delle app per la pagina principale |
 | `privacy-policy.html` | Vecchio indirizzo della privacy di Calcolo Cartongesso: rimanda a quello nuovo. **Non cancellare.** |
@@ -38,8 +39,13 @@ Per **ogni** app: *Presenza nello store → Scheda principale dello store → De
 | Ottimizza Tagli | `https://qualifixservice25-cloud.github.io/` | `https://qualifixservice25-cloud.github.io/ottimizza-tagli/privacy-policy.html` |
 | Guida Filettature | `https://qualifixservice25-cloud.github.io/` | `https://qualifixservice25-cloud.github.io/guida-filettature/privacy-policy.html` |
 | Sviluppo Lamiera | `https://qualifixservice25-cloud.github.io/` | `https://qualifixservice25-cloud.github.io/sviluppo-lamiera/privacy-policy.html` |
+| VetrinaTV | `https://qualifixservice25-cloud.github.io/` | `https://qualifixservice25-cloud.github.io/vetrinatv/privacy-policy.html` |
 
 Il *Sito web* è la radice del dominio per tutte le app, ed è voluto: AdMob cerca `app-ads.txt` nella radice del dominio del sito dichiarato in Play.
+
+### VetrinaTV: indirizzo per «Elimina account»
+
+Play Console › *Sicurezza dei dati* chiede anche l'**URL per eliminare l'account**: `https://qualifixservice25-cloud.github.io/vetrinatv/delete-account.html` (la versione italiana è `elimina-account.html`). La richiesta arriva per email a `qualifix.service25@gmail.com`: la si evade con lo script `functions/scripts/delete-account.mjs` del repository privato di VetrinaTV.
 
 ## AdMob e app-ads.txt
 

@@ -219,6 +219,18 @@ a:focus-visible, button:focus-visible, select:focus-visible {
       </div>
       <div class="app-link"><a href="sviluppo-lamiera/privacy-policy.html" data-t="privacy"></a></div>
     </li>
+    <li class="app">
+      <div class="app-capo">
+        <img src="img/vetrinatv.webp" width="64" height="64" alt="">
+        <div><h2>VetrinaTV</h2><span class="stato arrivo" data-t="inArrivo"></span></div>
+      </div>
+      <p data-t="vetrinatv"></p>
+      <div class="app-azioni">
+        <!-- Quando l'app è su Google Play: <a class="pulsante" href="https://play.google.com/store/apps/details?id=org.qualifix.service.vetrinatv" data-t="scarica"></a> -->
+        <a class="pulsante" href="vetrinatv/" data-it="vetrinatv/" data-en="vetrinatv/?lang=en" data-t="scopri"></a>
+      </div>
+      <div class="app-link"><a href="vetrinatv/privacy-policy.html" data-it="vetrinatv/privacy-policy.html" data-en="vetrinatv/privacy-policy-en.html" data-t="privacy"></a></div>
+    </li>
   </ul>
 
   <section class="chi">
@@ -253,6 +265,7 @@ const TESTI = {
     tagli: "Lo schema di taglio per barre e profili con meno sfrido: avanzi di magazzino, costi, taglio a gradi e PDF per l'officina.",
     filettature: "483 filettature in 13 famiglie con disegno quotato, preforo, maschiatura, filiera e una sezione Bulloneria completa. Offline.",
     lamiera: "Fattore K secondo DIN 6935, sviluppo della lamiera, lato minimo piegabile e sequenza delle pieghe alla pressa piegatrice.",
+    vetrinatv: "Il menù e le offerte del tuo negozio sulla TV: scrivi dal telefono e lo schermo in vetrina si aggiorna da solo, anche senza internet.",
     p1t: "Fatte per chi lavora",
     p1: "Numeri che servono in cantiere e in officina, con disegni chiari e senza giri inutili.",
     p2t: "Funzionano offline",
@@ -273,6 +286,7 @@ const TESTI = {
     tagli: "Cutting plans for bars and profiles with less waste: stock offcuts, costs, mitre cuts and a PDF for the workshop. (Italian)",
     filettature: "483 threads in 13 families with dimensioned drawings, tap drill, tapping, die cutting and a full fasteners section. Offline. (Italian)",
     lamiera: "K-factor according to DIN 6935, flat pattern length, minimum flange and bending sequence on the press brake. (Italian)",
+    vetrinatv: "Your shop's menu and offers on the TV: write from your phone and the screen in your window updates itself, even without internet.",
     p1t: "Made for the trade",
     p1: "The numbers you need on site and in the workshop, with clear drawings and no detours.",
     p2t: "Work offline",
@@ -287,7 +301,10 @@ function lingua(codice) {
   document.documentElement.lang = codice;
   document.querySelectorAll("[data-t]").forEach(el => { el.innerHTML = t[el.dataset.t]; });
   document.getElementById("lingua").value = codice;
+  // VetrinaTV ha le pagine nella lingua giusta: si sceglie l'indirizzo italiano o inglese.
+  document.querySelectorAll("a[data-en]").forEach(a => { a.href = codice === "en" ? a.dataset.en : a.dataset.it; });
   document.querySelectorAll('a[href$="privacy-policy.html"], a[href*="privacy-policy.html?"]').forEach(a => {
+    if (a.dataset.en) return;
     if (a.closest(".app")) a.href = a.getAttribute("href").split("?")[0] + (codice === "it" ? "" : "?lang=" + codice);
   });
 }
